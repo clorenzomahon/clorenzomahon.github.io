@@ -45,6 +45,25 @@ function type() {
 	}
 }
 
+// Function to limit blog description to 25 words
+function truncateText(selector, wordLimit) {
+	const elements = document.querySelectorAll(selector); // Select all elements matching the selector
+	elements.forEach((element) => {
+		const text = element.innerText.trim(); // Get the text content of the element and trim whitespace
+		const words = text.split(/\s+/); // Split the text into an array of words (account for multiple spaces)
+
+		if (words.length > wordLimit) {
+			const truncated = words.slice(0, wordLimit).join(" ") + "..."; // Truncate the text and add "..."
+			element.innerText = truncated; // Update the text content with the truncated version
+		}
+	});
+}
+
+// Apply the function to elements with the class "blog-description" after the DOM content is loaded
+document.addEventListener("DOMContentLoaded", function () {
+	truncateText(".blog-description", 25); // 25 is the word limit
+});
+
 // Start typing effect with cursor flashing
 setTimeout(type, typingSpeed);
 

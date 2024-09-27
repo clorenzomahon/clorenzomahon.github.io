@@ -1,97 +1,527 @@
-/* General styles */
+/* ============================================
+   General Styles
+   ============================================ */
+
+/* Ensure each section takes up the full viewport and snaps to the top */
+.full-page-section {
+	height: 100vh; /* Full viewport height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-snap-align: start; /* Snap to the start of each section */
+	scroll-snap-stop: always; /* Force the scroll to snap even during fast scrolling */
+	margin-top: 0;
+	padding-top: 0;
+}
+/* Prevent images from being dragged or right-clicked */
+.about-section img {
+	user-select: none; /* Prevent text selection */
+	pointer-events: none; /* Disable right-click */
+}
+img {
+	user-select: none; /* Prevent text selection */
+	pointer-events: none; /* Disable right-click and drag */
+}
+html {
+	scroll-snap-type: y mandatory; /* Snap sections along the y-axis */
+	scroll-behavior: smooth; /* Enable smooth scrolling */
+	scrollbar-width: thin;
+	height: 100%;
+	scrollbar-color: #333 #101010;
+}
+
+section {
+	padding: 0; /* Remove extra padding that may affect snapping */
+	margin: 0;
+}
+
 body {
 	font-family: "zuume-bold", sans-serif;
 	margin: 0;
 	padding: 0;
 	line-height: 1.6;
 	color: #333;
-	background-color: #f4f4f4;
+	height: 100%; /* Ensure the body takes full viewport height */
+	overflow-x: hidden;
 }
 
-header {
-	background-color: #333;
-	color: #fff;
-	padding: 10px 0;
+h1,
+h2,
+h3 {
+	font-family: "zuume-bold", sans-serif;
+	margin: 0 0 20px;
 }
 
+p,
+a,
+input,
+textarea,
+button {
+	font-family: "zuume-bold", sans-serif;
+}
+
+label {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/* ============================================
+ Navigation Styles
+ ============================================ */
 .navbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 20px;
+	position: fixed;
+	padding: 20px;
+	background-color: #0c0c0c;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	left: 0;
+	margin-bottom: 0; /* Ensure no margin below the navbar */
 }
 
-.nav-links {
+.navbar .logo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.navbar ul {
 	list-style: none;
 	display: flex;
+	margin: 0;
+	margin-right: 60px;
+	margin-top: 10px;
 }
 
-.nav-links li {
+.navbar ul li {
 	margin-left: 20px;
 }
 
-.nav-links a {
-	color: #fff;
+.navbar ul li a {
+	font-size: 16px;
+	color: #ffffff;
 	text-decoration: none;
-	font-weight: bold;
+	transition: color 0.3s ease;
 }
 
-.main {
-	padding: 20px;
-	max-width: 1200px;
-	margin: 0 auto;
+.navbar ul li a:hover {
+	color: #d4ff00;
 }
 
+.nav-links a {
+	color: #ffffff; /* Default text color for links */
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold !important; /* Force bold links for all sections */
+	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth color transition */
+}
+
+.logo {
+	font-weight: 900 !important; /* Strong bold to ensure consistency */
+}
+
+/*============================================
+Blog Styles
+ ============================================ */
+/* Blog Section Styling */
 .blog-section {
-	padding: 50px 20px;
+	min-height: 75vh;
+	padding-top: 100px;
+	background-color: #1a1a1a;
 }
 
+/* Blog Grid for Two Columns */
+.blog-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr); /* 2 columns */
+	gap: 40px; /* Adjust spacing between the blog posts */
+	padding: 0 50px; /* Add padding around the grid */
+}
+
+/* Blog Post Card */
 .blog-post {
-	background-color: #fff;
+	background-color: #ffffff;
+	border-radius: 15px; /* Rounded corners */
+	overflow: hidden;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Larger shadow for depth */
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-height: 450px; /* Ensure consistent height for all cards */
+}
+
+.blog-post:hover {
+	transform: translateY(-10px); /* Lift effect on hover */
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.blog-image {
+	width: 100%;
+	height: 150px; /* Fixed height for images */
+	object-fit: cover;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+/* Blog Content */
+.blog-content {
 	padding: 20px;
-	margin-bottom: 20px;
-	border-radius: 5px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	flex-grow: 1; /* Allow content to grow and take up available space */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Distribute content */
 }
 
-.post-title {
-	font-size: 1.5rem;
+/* H1 Styling from the About Section (reuse for Blog Section) */
+.blog-header h1 {
+	font-size: 45px;
+	line-height: 1.2;
+	color: #ffffff;
+	text-align: left;
+	margin-bottom: 40px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: 50px;
+}
+
+.blog-header .highlight {
+	color: #d4ff00;
+}
+
+/* Blog Post Title */
+.blog-content h2 {
+	font-size: 20px; /* Slightly smaller title */
+	margin-bottom: -10px;
 	color: #333;
+	font-weight: 600;
+	line-height: 1.2; /* Adjust line-height to reduce gap between lines */
 }
 
-.post-date {
-	font-size: 0.9rem;
-	color: #777;
+/* Blog Post Date */
+.blog-content .date {
+	font-size: 14px;
+	color: #888;
 	margin-bottom: 10px;
 }
 
-.post-content {
-	font-size: 1rem;
+/* Blog Post Description */
+.blog-content p {
+	font-size: 16px;
 	color: #555;
+	margin-bottom: 20px;
+	line-height: 1.5;
 }
 
-.read-more {
+/* Blog Button */
+.blog-btn {
 	display: inline-block;
-	margin-top: 10px;
-	color: #d4ff00;
+	padding: 10px 20px;
+	background-color: #d4ff00;
+	color: #000000;
 	text-decoration: none;
+	border-radius: 5px;
 	font-weight: bold;
+	margin-top: auto; /* Push the button to the bottom */
+	align-self: flex-start; /* Align button at the start if there’s extra space */
+	transition: background-color 0.3s ease;
 }
 
+.blog-btn:hover {
+	background-color: #c4ef00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.blog-grid {
+		grid-template-columns: 1fr; /* Stack columns vertically on smaller screens */
+	}
+	.blog-post {
+		max-height: unset; /* Remove max-height on smaller screens */
+	}
+}
+/* ============================================
+ Footer Styles
+ ============================================ */
 footer {
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	padding: 10px 0;
-	position: absolute;
-	width: 100%;
-	bottom: 0;
+	height: 250px; /* Fixed height for the footer */
+	background-color: #101010;
+	padding: 55px 50px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between; /* Three column layout */
+	align-items: flex-start;
+	flex-wrap: wrap;
+	scroll-snap-align: none; /* No scroll snap for the footer */
 }
 
-.footer-content {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 20px;
+/* Left Column - Logo and Links */
+.footer-left {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-logo {
+	max-width: 50px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.footer-links {
+	margin: 20px 0;
+}
+
+.footer-links a {
+	color: #ffffff;
+	text-decoration: none;
+	margin: 0 5px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.footer-company-name {
+	color: #8f9296;
+	font-size: px;
+	margin-left: 10px;
+}
+
+/* Center Column - Location and Contact Info */
+.footer-center {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-center div {
+	margin-bottom: 20px;
+	margin-top: 20;
+}
+
+.footer-center i {
+	background-color: #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.footer-center p {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 16px;
+	margin-top: 75px;
+}
+
+/* Right Column - About the Company and Social Icons */
+.footer-right {
+	flex: 1;
+	text-align: right;
+	padding-left: 20px;
+	max-width: 400px;
+	position: relative;
+}
+
+/* Company About Section */
+.footer-company-about {
+	color: #8f9296;
+	font-size: 14px;
+	margin-bottom: 20px;
+	text-align: left;
+	margin-right: 60px; /* Adjust to align text */
+}
+
+/* Heading for About the Company */
+.footer-company-heading {
+	color: #ffffff;
+	font-size: 14px; /* Increase font size */
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+/* ============================================
+	Social Icons Alignment
+ ============================================ */
+.footer-icons {
+	display: flex;
+	align-items: center; /* Align icons vertically */
+	justify-content: flex-start;
+	margin-top: -5px; /* Align icons with text */
+}
+
+.footer-icons a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color: #33383b;
+	color: #ffffff;
+	border-radius: 2px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 10px; /* Adjust for proper spacing */
+}
+
+/* ============================================
+ Responsive Design
+ ============================================ */
+@media (max-width: 880px) {
+	.footer-distributed {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer-left,
+	.footer-center,
+	.footer-right {
+		flex: none;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.skills-container {
+		flex-direction: column;
+	}
+
+	.languages-section,
+	.software-section {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+}
+
+.software-icons {
+	display: flex;
+	flex-direction: row; /* Arrange icons in a vertical column */
+	align-items: center; /* Center icons horizontally */
+	margin-top: 20px; /* Add some space above the icons */
+}
+
+.software-icons .icon {
+	width: 40px; /* Set the width of the icons */
+	height: auto; /* Maintain aspect ratio */
+}
+.software-icons .icon:not(:first-child) {
+	margin-left: 10px; /* Add space between the icons except the first one */
+}
+
+/* Highlight class for green text */
+.highlight {
+	color: #d4ff00; /* Set the color to green */
+}
+/* Skills Container Styles */
+.skills-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 25px;
+}
+
+.languages-section,
+.software-section {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.languages-section:last-child,
+.software-section:last-child {
+	margin-right: 0;
+}
+/* ============================================
+   Full Blog Post Page Styles
+   ============================================ */
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 80vh; /* Adjust the height to ensure it's centered */
+	padding: 50px 20px;
+}
+
+.blog-post-full {
+	background-color: #ffffff;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+	width: 100%;
+	max-width: 900px; /* Limit the width of the full blog post */
+	padding: 20px;
+}
+
+.blog-image-large {
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-radius: 15px;
+	margin-bottom: 20px;
+}
+
+.blog-content-full {
+	padding: 20px;
+}
+
+.blog-content-full h1 {
+	font-size: 30px;
+	color: #333;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.blog-content-full .date {
+	font-size: 14px;
+	color: #888;
+	margin-bottom: 20px;
+}
+
+.blog-content-full p {
+	font-size: 18px;
+	color: #555;
+	line-height: 1.6;
+	margin-bottom: 20px;
+}
+
+/* ============================================
+		 Responsive Design for Full Blog Page
+		 ============================================ */
+@media (max-width: 768px) {
+	.blog-post-full {
+		width: 90%;
+	}
+
+	.blog-content-full h1 {
+		font-size: 24px;
+	}
+
+	.blog-content-full p {
+		font-size: 16px;
+	}
+}
+.back-btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #d4ff00;
+	color: #000000;
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-top: -50px; /* Add space above the button */
+	margin-bottom: 30px;
+	margin-left: 580px;
+	max-width: 200px; /* Match the white box's width */
+	width: 100%; /* Make sure it spans the same width */
+	transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effect */
+.back-btn:hover {
+	background-color: #c4ef00;
+	color: #000000;
 }
