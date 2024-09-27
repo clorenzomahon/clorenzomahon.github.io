@@ -281,10 +281,54 @@ label {
 
 .about-content {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: 20px;
+	align-items: center; /* Vertically align image and text */
+	justify-content: space-between; /* Space between image and text */
+	max-width: 1200px; /* Limit the content width */
+	width: 100%;
+}
+
+.about-image {
+	max-width: 45%; /* Set image size relative to container */
+	height: auto; /* Keep the aspect ratio of the image */
+	margin-right: 50px; /* Add space between the image and text */
+}
+
+.about-text {
+	max-width: 55%; /* Ensure text container doesn't exceed the space */
+	text-align: right; /* Align the text to the right */
+}
+
+.about-text h2,
+.about-text h3 {
+	color: #ffffff; /* White text */
+}
+
+.about-text h2 {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.about-text h3 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	color: #d4ff00; /* Highlighted text color */
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #d4ff00;
+	color: #000000;
+	text-decoration: none;
+	border-radius: 5px;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+	background-color: #c4ef00;
 }
 
 .text-content {
