@@ -1,0 +1,501 @@
+/* ============================================
+   General Styles
+   ============================================ */
+
+/* Ensure each section takes up the full viewport and snaps to the top */
+.full-page-section {
+	height: 100vh; /* Full viewport height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-snap-align: start; /* Snap to the start of each section */
+	scroll-snap-stop: always; /* Force the scroll to snap even during fast scrolling */
+	margin-top: 0;
+	padding-top: 0;
+}
+/* Prevent images from being dragged or right-clicked */
+.about-section img {
+	user-select: none; /* Prevent text selection */
+	pointer-events: none; /* Disable right-click */
+}
+html {
+	scroll-snap-type: y mandatory; /* Snap sections along the y-axis */
+	scroll-behavior: smooth; /* Enable smooth scrolling */
+	scrollbar-width: thin;
+	height: 100%;
+	scrollbar-color: #333 #101010;
+}
+
+section {
+	padding: 0; /* Remove extra padding that may affect snapping */
+	margin: 0;
+}
+
+body {
+	font-family: "zuume-bold", sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	color: #333;
+	height: 100%; /* Ensure the body takes full viewport height */
+	overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+	font-family: "zuume-bold", sans-serif;
+	margin: 0 0 20px;
+}
+
+p,
+a,
+input,
+textarea,
+button {
+	font-family: "zuume-bold", sans-serif;
+}
+
+label {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/* ============================================
+ Navigation Styles
+ ============================================ */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	padding: 20px;
+	background-color: #0c0c0c;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	left: 0;
+	margin-bottom: 0; /* Ensure no margin below the navbar */
+}
+
+.navbar .logo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.navbar ul {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	margin-right: 60px;
+	margin-top: 10px;
+}
+
+.navbar ul li {
+	margin-left: 20px;
+}
+
+.navbar ul li a {
+	font-size: 16px;
+	color: #ffffff;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+	color: #d4ff00;
+}
+
+.nav-links a {
+	color: #ffffff; /* Default text color for links */
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold !important; /* Force bold links for all sections */
+	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth color transition */
+}
+
+.logo {
+	font-weight: 900 !important; /* Strong bold to ensure consistency */
+}
+
+/* ============================================
+ Button Styles
+ ============================================ */
+.btn-container {
+	margin-top: 20px;
+}
+
+.hero .btn,
+.about-btn {
+	background-color: #d4ff00;
+	color: #101010;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero .btn:hover,
+.about-btn:hover {
+	background-color: #444;
+	color: #f4f4f4;
+}
+
+.about-btn {
+	display: inline-block;
+	margin-top: 80px; /* Adds space from the content above */
+}
+
+/* ============================================
+ About Section Styles
+ ============================================ */
+.about-section {
+	height: 70vh; /* Ensure full-screen for the about section */
+	padding: 50px;
+	background-color: #1a1a1a;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	position: relative; /* Ensure correct placement for absolute children */
+}
+
+.about-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+/* THIS IS THE CSS FOR THE ABOUT HEADER */
+.text-content {
+	max-width: 50%;
+	color: #f4f4f4;
+	margin-top: 110px;
+	margin-bottom: 0;
+}
+
+.text-content h1 {
+	font-size: 3rem;
+	line-height: 1.4;
+	font-weight: bold;
+}
+
+.btn cv .text-content .highlight {
+	color: #d4ff00;
+	font-weight: bold;
+}
+
+.about-link {
+	display: inline-block;
+	margin-top: 20px;
+	color: #d4ff00;
+	font-weight: bold;
+	font-size: 1.2rem;
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+	transition: border-bottom 0.3s;
+}
+
+.about-link:hover {
+	border-bottom: 2px solid #d4ff00;
+}
+
+.image-content {
+	width: 500px;
+	text-align: right;
+	padding-right: 200px;
+}
+
+.image-content img {
+	opacity: 0;
+	transform: translateX(100%) rotate(0deg);
+	animation: fadeInFromRight 2s ease-out forwards,
+		floatLeftRightRotate 10s linear infinite 2s;
+}
+
+/* Style for .languages heading */
+.languages {
+	color: #d4ff00; /* Set the color to yellow */
+}
+
+.software {
+	color: #d4ff00; /* Set the color to yellow */
+	padding-top: 0px;
+}
+
+.about-text {
+	margin-top: 20px; /* Add space above the text */
+}
+
+.about {
+	margin-top: 50px; /* Add space above the text */
+}
+
+.context {
+	margin-top: 0;
+}
+
+@keyframes fadeInFromRight {
+	0% {
+		opacity: 0;
+		transform: translateX(100%) rotate(0deg);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0) rotate(0deg);
+	}
+}
+
+@keyframes floatLeftRightRotate {
+	0%,
+	100% {
+		transform: translateX(0) rotate(-5deg);
+	}
+	25% {
+		transform: translateX(15px) rotate(0deg);
+	}
+	50% {
+		transform: translateX(30px) rotate(5deg);
+	}
+	75% {
+		transform: translateX(15px) rotate(0deg);
+	}
+}
+
+/* Keyframes for fading */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px); /* Slight move from below */
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0); /* No movement */
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(20px); /* Move down slightly */
+	}
+}
+
+/* Default state - hidden */
+.about-section .text-content,
+.experience-section .text-content {
+	opacity: 0;
+	transition: opacity 0.5s ease-out;
+}
+
+/* Fading in when section is visible */
+.about-section.fade-in .text-content,
+.experience-section.fade-in .text-content {
+	animation: fadeIn 3s forwards;
+}
+
+/* Fading out when section is hidden */
+.about-section.fade-out .text-content,
+.experience-section.fade-out .text-content {
+	animation: fadeOut 3s forwards;
+}
+/* ============================================
+ Footer Styles
+ ============================================ */
+footer {
+	height: 250px; /* Fixed height for the footer */
+	background-color: #101010;
+	padding: 55px 50px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between; /* Three column layout */
+	align-items: flex-start;
+	flex-wrap: wrap;
+	scroll-snap-align: none; /* No scroll snap for the footer */
+}
+
+/* Left Column - Logo and Links */
+.footer-left {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-logo {
+	max-width: 50px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.footer-links {
+	margin: 20px 0;
+}
+
+.footer-links a {
+	color: #ffffff;
+	text-decoration: none;
+	margin: 0 5px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.footer-company-name {
+	color: #8f9296;
+	font-size: px;
+	margin-left: 10px;
+}
+
+/* Center Column - Location and Contact Info */
+.footer-center {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-center div {
+	margin-bottom: 20px;
+	margin-top: 20;
+}
+
+.footer-center i {
+	background-color: #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.footer-center p {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 16px;
+	margin-top: 75px;
+}
+
+/* Right Column - About the Company and Social Icons */
+.footer-right {
+	flex: 1;
+	text-align: right;
+	padding-left: 20px;
+	max-width: 400px;
+	position: relative;
+}
+
+/* Company About Section */
+.footer-company-about {
+	color: #8f9296;
+	font-size: 14px;
+	margin-bottom: 20px;
+	text-align: left;
+	margin-right: 60px; /* Adjust to align text */
+}
+
+/* Heading for About the Company */
+.footer-company-heading {
+	color: #ffffff;
+	font-size: 14px; /* Increase font size */
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+/* ============================================
+	Social Icons Alignment
+ ============================================ */
+.footer-icons {
+	display: flex;
+	align-items: center; /* Align icons vertically */
+	justify-content: flex-start;
+	margin-top: -5px; /* Align icons with text */
+}
+
+.footer-icons a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color: #33383b;
+	color: #ffffff;
+	border-radius: 2px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 10px; /* Adjust for proper spacing */
+}
+
+/* ============================================
+ Responsive Design
+ ============================================ */
+@media (max-width: 880px) {
+	.footer-distributed {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer-left,
+	.footer-center,
+	.footer-right {
+		flex: none;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.skills-container {
+		flex-direction: column;
+	}
+
+	.languages-section,
+	.software-section {
+		margin-right: 0;
+		margin-bottom: 20px;
+	}
+}
+
+.software-icons {
+	display: flex;
+	flex-direction: row; /* Arrange icons in a vertical column */
+	align-items: center; /* Center icons horizontally */
+	margin-top: 20px; /* Add some space above the icons */
+}
+
+.software-icons .icon {
+	width: 40px; /* Set the width of the icons */
+	height: auto; /* Maintain aspect ratio */
+}
+.software-icons .icon:not(:first-child) {
+	margin-left: 10px; /* Add space between the icons except the first one */
+}
+
+/* Highlight class for green text */
+.highlight {
+	color: #d4ff00; /* Set the color to green */
+}
+/* Skills Container Styles */
+.skills-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 25px;
+}
+
+.languages-section,
+.software-section {
+	flex: 1;
+	margin-right: 20px;
+}
+
+.languages-section:last-child,
+.software-section:last-child {
+	margin-right: 0;
+}

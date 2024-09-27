@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>.clm</title>
+
+		<!-- External Stylesheets -->
+		<link rel="stylesheet" href="https://use.typekit.net/ppe6pmy.css" />
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+
+		<!-- Prevent right-click context menu -->
+		<script>
+			document.addEventListener("contextmenu", function (e) {
+				e.preventDefault();
+			});
+		</script>
+
+		<!-- FontAwesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+	</head>
+
+	<body>
+		<!-- ============================================
+         Navigation Bar
+         ============================================ -->
+		<header>
+			<nav class="navbar">
+				<div class="logo">CAIT LORENZO-MAHON</div>
+				<ul class="nav-links">
+					<li><a href="about.html">.about</a></li>
+					<li><a href="#timeline">.timeline</a></li>
+					<li><a href="#blog">.blog</a></li>
+					<li><a href="#contact">.contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- ============================================
+         Hero Section
+         ============================================ -->
+				 <section id="hero" class="full-page-section hero">
+					<div class="hero-content">
+							<h1 class="gradient-text">HI, I'M CAIT.</h1>
+							<p id="typed-text">
+									I'm a <span id="dynamic-text" class="highlight"></span
+									><span class="cursor">|</span>
+							</p>
+							<div class="scrolldown-wrapper">
+									<div class="scrolldown">
+											<div class="scrolldown-p1"></div>
+											<div class="scrolldown-p2"></div>
+									</div>
+							</div>
+					</div>
+			</section>
+	
+
+		<!-- ============================================
+         About Section
+         ============================================ -->
+		<section id="about" class="full-page-section about-section">
+				<div class="text-content">
+					<h1>
+						<span class="highlight">FRONT-END DEVELOPER</span>,
+						<span class="highlight">DESIGNER</span>, <br />
+						AND <span class="highlight">CREATIVE</span>
+						BASED IN DONCASTER, UK. COMBINING CREATIVE DESIGN WITH CODING
+						EXPERTISE TO BUILD VISUALLY STUNNING, SEAMLESS DIGITAL EXPERIENCES.
+					</h1>
+					<a href="about.html" class="btn about-btn"
+						>Want to know more about me? →
+					</a>
+				</div>
+				<div class="image-content">
+					<img
+						src="white outline.png"
+						alt="Cait Lorenzo-Mahon Portrait"
+						width="400px"
+						draggable="false"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================
+         Experience Section
+         ============================================ -->
+				 <section id="experience" class="full-page-section experience-section">
+					<div class="experience-content">
+							<div class="image-content">
+									<img
+											src="image-removebg-preview-modified.png"
+											alt="Experience Image"
+											width="400px"
+									/>
+							</div>
+							<div class="text-content">
+									<h1>
+											I'VE WORKED ACROSS <span class="highlight">CONSTRUCTION</span>,
+											<span class="highlight">ENGINEERING</span>,
+											<span class="highlight">HEALTHCARE</span>,
+											AND <span class="highlight">CHARITY</span>
+											SECTORS WITH OVER 10 YEARS EXPERIENCE.
+									</h1>
+									<a href="#contact" class="btn about-btn">View my projects and experience →</a>
+							</div>
+					</div>
+			</section>
+
+		<!-- ============================================
+         Contact Section
+         ============================================ -->
+		<section id="contact" class="full-page-section contact">
+			<div class="contact-content">
+				<div class="contact-text">
+					<h1 id="contact-heading">LET'S GET CONNECTED.</h1>
+					<h3 id="contact-subheading">
+						Got a project in mind or just want to chat about web magic? <br />
+						Drop me a message and let's make it happen.
+					</h3>
+				</div>
+
+				<!-- Image container for the green box -->
+				<div class="image-container">
+					<img
+						src="astronaught-removebg-preview-modified.png"
+						alt="Your image description"
+						draggable="false"
+					/>
+				</div>
+
+				<!-- Contact Form Main -->
+				<div class="contact-form">
+					<form id="contactForm">
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="name" required />
+						<label for="email">Email:</label>
+						<input type="email" id="email" name="email" required />
+						<label for="message">Message:</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+						<button type="submit" class="btn">Submit →</button>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================
+         Footer Section
+         ============================================ -->
+		<footer class="footer-distributed">
+			<div class="footer-left">
+				<img
+					src="CLM Logo Main.png"
+					alt="Your Brand Logo"
+					class="footer-logo"
+					draggable="false"
+				/>
+				<p class="footer-links">
+					<a href="#home">Home</a> · <a href="#blog">Blog</a> ·
+					<a href="#about">About</a> · <a href="#contact">Contact</a>
+				</p>
+				<p class="footer-company-name">Made with 🤍 in 2024</p>
+			</div>
+
+			<div class="footer-right">
+				<!-- Bold heading -->
+				<p class="footer-company-about">
+					We are a front-end development agency that focuses on bringing your
+					ideas to life.
+				</p>
+				<h5 class="footer-company-heading">Useful links</h5>
+				<div class="footer-icons">
+					<a href="https://github.com/clorenzomahon"
+						><i class="fa fa-github"></i
+					></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
