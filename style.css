@@ -271,14 +271,12 @@ label {
  About Section Styles
  ============================================ */
 .about-section {
-	height: 100vh; /* Ensure full-screen for the about section */
-	padding: 50px;
-	background-color: #1a1a1a;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	flex-wrap: wrap;
-	position: relative; /* Ensure correct placement for absolute children */
+	min-height: 80vh;
+	padding: 50px;
+	background-color: #000000; /* Adjust the background color as per your theme */
 }
 
 .about-content {
