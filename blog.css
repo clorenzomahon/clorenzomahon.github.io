@@ -152,6 +152,7 @@ Blog Styles
 	flex-direction: column;
 	justify-content: space-between;
 	max-height: 450px; /* Ensure consistent height for all cards */
+	
 }
 
 .blog-post:hover {
@@ -174,6 +175,7 @@ Blog Styles
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between; /* Distribute content */
+	margin
 }
 
 /* H1 Styling from the About Section (reuse for Blog Section) */
