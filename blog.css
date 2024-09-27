@@ -152,6 +152,8 @@ Blog Styles
 	flex-direction: column;
 	justify-content: space-between;
 	max-height: 450px; /* Ensure consistent height for all cards */
+	padding-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .blog-post:hover {
