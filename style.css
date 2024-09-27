@@ -879,3 +879,22 @@ BLOG STYLES
 		text-align: center; /* Center the text */
 	}
 }
+/* On smaller screens, stack the image and text vertically */
+@media (max-width: 768px) {
+	.about-section,
+	.experience-section {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.about-section .text-content,
+	.experience-section .text-content {
+		max-width: 100%; /* Full width for text */
+	}
+
+	.about-section .image-content,
+	.experience-section .image-content {
+		max-width: 100%; /* Full width for image */
+		margin-bottom: 30px; /* Add spacing below the image */
+	}
+}
