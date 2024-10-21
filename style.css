@@ -96,12 +96,13 @@ label {
 	color: #ffffff; /* Default text color for links */
 	text-decoration: none;
 	font-size: 16px;
-	font-weight: bold !important; /* Force bold links for all sections */
-	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth color transition */
+	font-weight: bold; /* Keep bold font-weight */
+	padding: 2px; /* Add padding for better hover area */
+	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth transition */
 }
 
 .nav-links a:hover {
-	color: #d4ff00; /* Change color on hover */
+	color: #d4ff00 !important; /* Change color to yellow on hover */
 }
 
 .logo a {
