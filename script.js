@@ -3,8 +3,7 @@ const dynamicTextElement = document.getElementById("dynamic-text");
 const words = [
 	"front-end developer",
 	"problem solver",
-	"debugger",
-	"gamer",
+	"designer",
 	"creative",
 	"learner",
 	"woman",
