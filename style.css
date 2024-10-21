@@ -609,7 +609,7 @@ label {
  Contact Section Styles
  ============================================ */
 .contact {
-	height: 55vh; /* Full viewport height for contact section */
+	height: 60vh; /* Full viewport height for contact section */
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
@@ -649,7 +649,6 @@ label {
 .contact-form,
 #contact-heading,
 #contact-subheading {
-	opacity: 0;
 	transform: translateY(30px); /* Add slight upward movement */
 	transition: opacity 1.5s ease, transform 1.5s ease;
 }
