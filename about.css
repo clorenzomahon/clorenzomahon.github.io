@@ -103,8 +103,8 @@ label {
 	transition: color 0.3s ease;
 }
 
-.navbar ul li a:hover {
-	color: #d4ff00;
+.nav-links a:hover {
+	color: #d4ff00 !important; /* Change color to yellow on hover */
 }
 
 .nav-links a {

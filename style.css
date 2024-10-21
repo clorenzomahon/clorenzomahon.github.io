@@ -104,7 +104,10 @@ label {
 .nav-links a:hover {
 	color: #d4ff00 !important; /* Change color to yellow on hover */
 }
-
+/* When contact section is in view, remove the yellow hover */
+body.contact-in-view .nav-links a:hover {
+	color: #ffffff !important; /* Keep the links white when contact is in view */
+}
 .logo a {
 	text-decoration: none; /* Remove underline */
 	color: inherit; /* Inherit color from the parent (logo styling) */
