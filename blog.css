@@ -74,7 +74,7 @@ label {
 	align-items: center;
 	position: fixed;
 	padding: 20px;
-	background-color: #0c0c0c;
+	background-color: #1a1a1a;
 	top: 0;
 	z-index: 1000;
 	width: 100%;
@@ -118,9 +118,17 @@ label {
 	font-weight: bold !important; /* Force bold links for all sections */
 	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth color transition */
 }
+/* Ensure the logo link looks like regular text */
+.logo a {
+	text-decoration: none; /* Remove underline */
+	color: inherit; /* Inherit color from the parent (logo styling) */
+	font-weight: inherit; /* Inherit font weight */
+}
 
+/* Optional: You can adjust this depending on your logo style */
 .logo {
-	font-weight: 900 !important; /* Strong bold to ensure consistency */
+	font-weight: bold; /* Example styling for the logo */
+	font-size: 24px; /* Example size for the logo text */
 }
 
 /*============================================
@@ -153,7 +161,7 @@ Blog Styles
 	justify-content: space-between;
 	max-height: 450px; /* Ensure consistent height for all cards */
 	padding-bottom: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 }
 
 .blog-post:hover {

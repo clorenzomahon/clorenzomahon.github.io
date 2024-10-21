@@ -92,17 +92,6 @@ label {
 	margin-left: 20px;
 }
 
-.navbar ul li a {
-	font-size: 16px;
-	color: #ffffff;
-	text-decoration: none;
-	transition: color 0.3s ease;
-}
-
-.navbar ul li a:hover {
-	color: #d4ff00;
-}
-
 .nav-links a {
 	color: #ffffff; /* Default text color for links */
 	text-decoration: none;
@@ -111,8 +100,20 @@ label {
 	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth color transition */
 }
 
+.nav-links a:hover {
+	color: #d4ff00; /* Change color on hover */
+}
+
+.logo a {
+	text-decoration: none; /* Remove underline */
+	color: inherit; /* Inherit color from the parent (logo styling) */
+	font-weight: inherit; /* Inherit font weight */
+}
+
+/* Optional: You can adjust this depending on your logo style */
 .logo {
-	font-weight: 900 !important; /* Strong bold to ensure consistency */
+	font-weight: bold; /* Example styling for the logo */
+	font-size: 24px; /* Example size for the logo text */
 }
 
 /* ============================================

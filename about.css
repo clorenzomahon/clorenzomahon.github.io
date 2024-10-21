@@ -70,7 +70,7 @@ label {
 	align-items: center;
 	position: fixed;
 	padding: 20px;
-	background-color: #0c0c0c;
+	background-color: #1a1a1a;
 	top: 0;
 	z-index: 1000;
 	width: 100%;
@@ -115,8 +115,17 @@ label {
 	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth color transition */
 }
 
+/* Ensure the logo link looks like regular text */
+.logo a {
+	text-decoration: none; /* Remove underline */
+	color: inherit; /* Inherit color from the parent (logo styling) */
+	font-weight: inherit; /* Inherit font weight */
+}
+
+/* Optional: You can adjust this depending on your logo style */
 .logo {
-	font-weight: 900 !important; /* Strong bold to ensure consistency */
+	font-weight: bold; /* Example styling for the logo */
+	font-size: 24px; /* Example size for the logo text */
 }
 
 /* ============================================
@@ -155,7 +164,7 @@ label {
 .about-section {
 	height: 70vh; /* Ensure full-screen for the about section */
 	padding: 50px;
-	background-color: #1a1a1a;
+	background-color: #000000;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
