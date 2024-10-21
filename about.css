@@ -162,7 +162,7 @@ label {
  About Section Styles
  ============================================ */
 .about-section {
-	height: 70vh; /* Ensure full-screen for the about section */
+	height: 67vh; /* Ensure full-screen for the about section */
 	padding: 50px;
 	background-color: #000000;
 	display: flex;

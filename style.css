@@ -614,7 +614,7 @@ body.contact-in-view .nav-links a:hover {
  Contact Section Styles
  ============================================ */
 .contact {
-	height: 60vh; /* Full viewport height for contact section */
+	height: 57vh; /* Full viewport height for contact section */
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
