@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Intersection Observer to handle fade-in for sections
 	const aboutSection = document.querySelector(".about-section");
 	const experienceSection = document.querySelector(".experience-section");
-
+	const contactSection = document.querySelector(".contact-section");
 	const fadeInObserver = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
