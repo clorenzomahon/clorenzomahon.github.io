@@ -194,7 +194,7 @@ Blog Styles
 	text-align: left;
 	margin-bottom: 40px;
 	margin-top: 100px;
-	margin-bottom: 100px;
+	margin-bottom: 10px;
 	margin-left: 50px;
 }
 
@@ -534,4 +534,13 @@ footer {
 .back-btn:hover {
 	background-color: #c4ef00;
 	color: #000000;
+}
+/* If this is the blog page */
+.blog-subtitle {
+	color: white; /* Make the text white */
+	display: inline-block; /* Ensure it's inline with other elements */
+	font-size: 1.2rem; /* Adjust the size to match the title */
+	margin-left: 50px; /* Adjust as needed to align it with the title */
+	vertical-align: middle; /* Align vertically with the title */
+	margin-bottom: 100px;
 }
