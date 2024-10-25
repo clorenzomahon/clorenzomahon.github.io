@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Blog Post | Cait Lorenzo-Mahon</title>
+
+		<!-- External Stylesheets -->
+		<link rel="stylesheet" href="https://use.typekit.net/ppe6pmy.css" />
+		<link rel="stylesheet" href="blog.css" />
+		<link rel="icon" href="Assets-main/Favicon.ico" type="image/x-icon" />
+		<script defer src="script.js"></script>
+
+		<!-- Prevent right-click context menu -->
+		<script>
+			document.addEventListener("contextmenu", function (e) {
+				e.preventDefault();
+			});
+		</script>
+
+		<!-- FontAwesome for icons -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar">
+				<div class="logo">
+					<a href="index.html">CAIT LORENZO-MAHON</a>
+				</div>
+				<ul class="nav-links">
+					<li><a href="about.html">.about</a></li>
+					<li><a href="timeline.html">.timeline</a></li>
+					<li><a href="blog.html">.blog</a></li>
+					<li><a href="index.html#contact">.contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<section id="blog-post" class="blog-section">
+			<div class="container">
+				<!-- Full Blog Post Box -->
+				<article class="blog-post-full">
+					<!-- Blog Post Image -->
+					<img
+						src="Image Folder/blog3.png"
+						alt="Blog Post Image"
+						class="blog-image-large"
+					/>
+
+					<!-- Blog Post Content -->
+					<div class="blog-content-full">
+						<h1>Inline CSS vs External CSS: Which One Should You Use?</h1>
+						<p class="date">Posted on October 26, 2024</p>
+						<!-- The rest of the blog content will go here -->
+						<p>
+							<strong
+								>When it comes to styling a website, CSS (Cascading Style
+								Sheets) is the go-to tool for front-end developers. It’s the
+								language that controls the look and feel of a webpage, from
+								layout to colors, fonts, and more. However, there are different
+								ways to implement CSS in a project, with inline CSS and external
+								CSS being two of the most common methods. In this blog, we’ll
+								break down the differences between the two, discuss their pros
+								and cons, and help you decide when to use each.
+							</strong>
+						</p>
+						<h2>👉 What is inline CSS?</h2>
+						<p>
+							Inline CSS involves embedding CSS directly into the HTML element
+							using the style attribute. It is used to apply specific styles to
+							a single element. While this method offers immediate control over
+							the look of an individual tag, it is not considered the best
+							practice for larger projects.
+						</p>
+						<h2>✅ Advantages of Inline CSS</h2>
+						<p>
+							• <strong>Quick and Simple</strong>: Inline CSS is quick to apply
+							when you need to style one element in particular. You don’t have
+							to worry about managing external files, making it a fast solution
+							for small changes. <br /><br />
+							• <strong>High Specificity</strong>: Inline CSS takes precedence
+							over both external and internal styles, allowing you to override
+							other CSS rules without needing to restructure existing code.<br /><br />
+							• <strong>Email Compatibility</strong>: Email clients often strip
+							out external stylesheets, making inline CSS necessary for
+							formatting within emails.<br /><br />
+						</p>
+						<h2>❌ Disadvantages of Inline CSS</h2>
+						<p>
+							• <strong>Not Reusable</strong>: Since the styles are applied
+							directly to individual elements, you can’t reuse them across your
+							project. If you want the same style on multiple elements, you’ll
+							need to repeat the inline CSS, making it inefficient. <br /><br />
+							• <strong>Harder to Maintain</strong>: As the number of styled
+							elements grows, maintaining and updating inline CSS can become
+							chaotic and time-consuming. <br /><br />
+							• <strong>Larger HTML Files</strong>: Including CSS within your
+							HTML tags increases the file size, leading to potentially slower
+							loading times. <br /><br />
+						</p>
+						<h2>👉 What is External CSS?</h2>
+						<p>
+							External CSS involves writing all the CSS rules in a separate .css
+							file and linking it to your HTML document. This method separates
+							content (HTML) from design (CSS), making it a more organized and
+							scalable approach for larger websites. <br /><br />
+						</p>
+						<h2>✅ Advantages of External CSS</h2>
+						<p>
+							• <strong>Reusable</strong> External CSS allows you to apply the
+							same styles across multiple pages or elements by referencing a
+							single stylesheet. This makes your code more efficient and easier
+							to manage. <br /><br />
+							• <strong>Cleaner Code</strong>: By keeping your CSS in a separate
+							file, your HTML code remains clean and focused on structure,
+							making it more readable and maintainable. <br /><br />
+							• <strong>Easier Maintenance</strong> If you need to update a
+							style, you can make the change in one place (the external CSS
+							file), and it will automatically apply to all pages that reference
+							that file.<br /><br />
+							• <strong>Better Performance</strong> External CSS files are often
+							cached by the browser, so they don’t need to be reloaded on every
+							page visit, improving site performance. <br /><br />
+						</p>
+						<h2>❌ Disadvantages of External CSS</h2>
+						<p>
+							• <strong>Requires Multiple Files</strong>: External CSS requires
+							managing and linking additional files, which can be inconvenient
+							for very small projects or one-off pages. <br /><br />
+							• <strong>More Complex for Small Tweaks</strong>: If you need to
+							make a quick styling change, you’ll need to edit the external
+							stylesheet, which might feel cumbersome for minor adjustments.
+							<br /><br />
+						</p>
+						<h2>💭 When Should You Use Inline CSS?</h2>
+						<p>
+							<strong
+								>Inline CSS is most suitable for very specific scenarios. If
+								you’re working on a small project or need to style a single
+								element without affecting anything else, inline CSS can be an
+								effective solution. Here are a few instances when it makes sense
+								to use inline CSS:</strong
+							>>
+						</p>
+						<p>
+							• <strong>Quick Fixes</strong>: When you need to make a minor
+							adjustment to the appearance of a single element, inline CSS can
+							save you time. <br /><br />
+							• <strong>Email Templates</strong>: Because many email clients do
+							not fully support external stylesheets, inline CSS is often
+							necessary for ensuring the design appears as intended in emails.
+							<br /><br />
+							• <strong>Testing or Debugging</strong>: If you’re troubleshooting
+							a style issue and want to temporarily override other CSS rules,
+							using inline CSS can be a quick way to see the effect of the
+							change. <br /><br />
+						</p>
+						<h2>💭 When Should You Use External CSS?</h2>
+						<p>
+							<strong
+								>External CSS should be your go-to approach for most projects,
+								especially larger websites or applications. By keeping your
+								styles separate from your content, you can maintain a clear
+								structure and easily update or expand your site in the future.
+								Here’s when external CSS is the best choice:</strong
+							>
+						</p>
+						<p>
+							• <strong>Multi-Page Websites</strong>: If you’re building a
+							website with multiple pages, external CSS allows you to apply a
+							consistent style across all pages. <br /><br />
+							• <strong>Reusable Styles</strong>: When your site requires the
+							same style on multiple elements or across different sections,
+							external CSS is far more efficient than inline CSS. <br /><br />
+							• <strong>Better Organisation</strong>>: For larger projects,
+							separating your styling into an external file keeps your code
+							organized and makes it easier to collaborate with other
+							developers.<br /><br />
+						</p>
+						<h2>🔍 Conclusion</h2>
+						<p>
+							Both inline and external CSS have their place in web development,
+							and knowing when to use each is key to building an efficient,
+							maintainable project. For the most part, external CSS is preferred
+							for larger projects due to its reusability and organization, while
+							inline CSS is useful in more limited, specific contexts like email
+							design or quick fixes. <br /><br />
+							By understanding the strengths and limitations of both methods,
+							you’ll be able to make informed decisions about how to style your
+							web projects effectively. <strong>Happy coding!</strong>
+						</p>
+					</div>
+				</article>
+			</div>
+			<a href="blog.html" class="btn back-btn">Back to More Blogs →</a>
+		</section>
+
+		<footer class="footer-distributed">
+			<div class="footer-left">
+				<img
+					src="CLM Logo Main.png"
+					alt="Your Brand Logo"
+					class="footer-logo"
+					draggable="false"
+				/>
+				<p class="footer-links">
+					<a href="#home">Home</a> · <a href="#blog">Blog</a> ·
+					<a href="#about">About</a> · <a href="#contact">Contact</a>
+				</p>
+				<p class="footer-company-name">Made with 🤍 in 2024</p>
+			</div>
+
+			<div class="footer-right">
+				<p class="footer-company-about">
+					Just a front-end developer focusing on bringing your ideas to life.
+				</p>
+				<h5 class="footer-company-heading">Useful links</h5>
+				<div class="footer-icons">
+					<a href="https://github.com/clorenzomahon"
+						><i class="fa fa-github"></i
+					></a>
+					<a href="#"><i class="fa fa-linkedin"></i></a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
