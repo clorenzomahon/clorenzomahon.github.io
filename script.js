@@ -189,3 +189,14 @@ messageBox.addEventListener("input", function () {
 	this.style.height = "auto";
 	this.style.height = this.scrollHeight + "px";
 });
+
+// Stop Text from being copied
+document.addEventListener("copy", function (e) {
+	e.preventDefault();
+	alert("Copying is disabled on this text.");
+});
+
+// objects dragable = false
+document.querySelectorAll("nav a").forEach((item) => {
+	item.setAttribute("draggable", "false");
+});

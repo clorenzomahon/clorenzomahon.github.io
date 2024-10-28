@@ -30,15 +30,15 @@
          Navigation Bar
          ============================================ -->
 		<header>
-			<nav class="navbar">
+			<nav class="navbar no-select">
 				<div class="logo">
-					<a href="index.html">CAIT LORENZO-MAHON</a>
+					<a draggable="false" href="index.html">CAIT LORENZO-MAHON</a>
 				</div>
 				<ul class="nav-links">
-					<li><a href="index.html">.home</a></li>
-					<li><a href="timeline.html">.experience</a></li>
-					<li><a href="about.html">.about</a></li>
-					<li><a href="index.html#contact">.contact</a></li>
+					<li><a draggable="false" href="index.html">.home</a></li>
+					<li><a draggable="false" href="timeline.html">.experience</a></li>
+					<li><a draggable="false" href="about.html">.about</a></li>
+					<li><a draggable="false" href="index.html#contact">.contact</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -46,7 +46,7 @@
 		<!-- ============================================
          Blog Section
          ============================================ -->
-		<section id="blog" class="blog-section">
+		<section id="blog" class="blog-section no-select">
 			<div class="blog-header">
 				<!-- Your blog header (Explore My Blog) -->
 				<h1>
@@ -58,7 +58,7 @@
 					tech, IT, and development, or sharing useful tips and tricks.
 				</h2>
 			</div>
-			<div class="blog-grid" <div class="blog-posts">
+			<div class="blog-grid no-select" <div class="blog-posts no-select">
 				<!-- Blog Post 3 -->
 				<article class="blog-post">
 					<img
@@ -71,7 +71,7 @@
 						<p class="date">
 							<strong>Technical / </strong>Posted on October 26, 2024
 						</p>
-						<p class="blog-description">
+						<p class="blog-description no-select">
 							When it comes to styling a website, CSS (Cascading Style Sheets)
 							is the go-to tool for front-end developers. It’s the language that
 							controls the look and feel of a webpage, from layout to colors,
@@ -135,7 +135,7 @@
 		<!-- ============================================
          Footer Section
          ============================================ -->
-		<footer class="footer-distributed">
+		<footer class="footer-distributed no-select">
 			<div class="footer-left">
 				<img
 					src="CLM Logo Main.png"
@@ -143,9 +143,11 @@
 					class="footer-logo"
 					draggable="false"
 				/>
-				<p class="footer-links">
-					<a href="#home">Home</a> · <a href="#blog">Blog</a> ·
-					<a href="#about">About</a> · <a href="#contact">Contact</a>
+				<p class="footer-links no-select">
+					<a draggable="false" href="#home">Home</a> ·
+					<a draggable="false" href="#blog">Blog</a> ·
+					<a draggable="false" href="#about">About</a> ·
+					<a draggable="false" href="#contact">Contact</a>
 				</p>
 				<p class="footer-company-name">Made with 🤍 in 2024</p>
 			</div>
@@ -157,10 +159,10 @@
 				</p>
 				<h5 class="footer-company-heading">Useful links</h5>
 				<div class="footer-icons">
-					<a href="https://github.com/clorenzomahon"
+					<a draggable="false" href="https://github.com/clorenzomahon"
 						><i class="fa fa-github"></i
 					></a>
-					<a href="#"><i class="fa fa-linkedin"></i></a>
+					<a draggable="false" href="#"><i class="fa fa-linkedin"></i></a>
 				</div>
 			</div>
 		</footer>

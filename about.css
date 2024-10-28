@@ -508,3 +508,11 @@ footer {
 .software-section:last-child {
 	margin-right: 0;
 }
+
+/* Script to stop highlighting from happening*/
+.no-select {
+	user-select: none;
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
