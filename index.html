@@ -9,7 +9,7 @@
 		<!-- External Stylesheets -->
 		<link rel="stylesheet" href="https://use.typekit.net/ppe6pmy.css" />
 		<link rel="stylesheet" href="style.css" />
-		<link rel="icon" href="Assets-main/Favicon.ico" type="image/x-icon">
+		<link rel="icon" href="Assets-main/Favicon.ico" type="image/x-icon" />
 
 		<script defer src="script.js"></script>
 
@@ -26,16 +26,20 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 		/>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZY66EK290"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-5ZY66EK290"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-  gtag('config', 'G-5ZY66EK290');
-</script>
-
+			gtag("config", "G-5ZY66EK290");
+		</script>
 	</head>
 
 	<body>
@@ -49,9 +53,9 @@
 				</div>
 				<ul class="nav-links no-select">
 					<li><a draggable="false" href="about.html">.about</a></li>
-					<li><a draggable="false"href="#timeline">.experience</a></li>
-					<li><a draggable="false"href="blog.html">.blog</a></li>
-					<li><a draggable="false"href="#contact">.contact</a></li>
+					<li><a draggable="false" href="#timeline">.experience</a></li>
+					<li><a draggable="false" href="blog.html">.blog</a></li>
+					<li><a draggable="false" href="#contact">.contact</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -78,32 +82,40 @@
 		<!-- ============================================
          About Section
          ============================================ -->
-				 <section id="about" class="full-page-section about-section">
-					<div class="about-content">
-						<!-- Text content -->
-						<div class="text-content about-text no-select">
-							<h2>
-								<span class="highlight no-select">FRONT-END DEVELOPER</span>,
-								<span class="highlight no-select">DESIGNER</span>, <br />
-								AND <span class="highlight no-select">CREATIVE</span>
-								BASED IN DONCASTER, UK. COMBINING CREATIVE DESIGN WITH CODING
-								EXPERTISE TO BUILD VISUALLY STUNNING, SEAMLESS DIGITAL EXPERIENCES.
-							</h2>
-							<a draggable="false" href="about.html" class="btn about-btn no-select">Want to know more about me? →</a>
-						</div>
-				
-						<!-- Image content -->
-						<div class="image-content about-image no-select">
-							<img src="white outline.png" alt="Cait Lorenzo-Mahon Portrait" draggable="false" />
-						</div>
-					</div>
-				</section>
+		<section id="about" class="full-page-section about-section">
+			<div class="about-content">
+				<!-- Text content -->
+				<div class="text-content about-text no-select">
+					<h2>
+						<span class="highlight no-select">FRONT-END DEVELOPER</span>,
+						<span class="highlight no-select">DESIGNER</span>, <br />
+						AND <span class="highlight no-select">CREATIVE</span>
+						BASED IN DONCASTER, UK. COMBINING CREATIVE DESIGN WITH CODING
+						EXPERTISE TO BUILD VISUALLY STUNNING, SEAMLESS DIGITAL EXPERIENCES.
+					</h2>
+					<a draggable="false" href="about.html" class="btn about-btn no-select"
+						>Want to know more about me? →</a
+					>
+				</div>
+
+				<!-- Image content -->
+				<div class="image-content about-image no-select">
+					<img
+						src="white outline.png"
+						alt="Cait Lorenzo-Mahon Portrait"
+						draggable="false"
+					/>
+				</div>
+			</div>
 		</section>
 
 		<!-- ============================================
          Experience Section
          ============================================ -->
-		<section id="experience" class="full-page-section experience-section no-select">
+		<section
+			id="experience"
+			class="full-page-section experience-section no-select"
+		>
 			<div class="experience-content no-select">
 				<div class="image-content">
 					<img
@@ -152,7 +164,11 @@
 
 				<!-- Contact Form Main -->
 				<div class="contact-form">
-					<form id="contactForm" action="https://formspree.io/f/mqakapzd" method="post">
+					<form
+						id="contactForm"
+						action="https://formspree.io/f/mqakapzd"
+						method="post"
+					>
 						<label for="name">Name:</label>
 						<input type="text" id="name" name="name" required />
 						<label for="email">Email:</label>
@@ -186,8 +202,7 @@
 			<div class="footer-right">
 				<!-- Bold heading -->
 				<p class="footer-company-about">
-					Just a front-end developer focusing on bringing your
-					ideas to life.
+					Just a front-end developer focusing on bringing your ideas to life.
 				</p>
 				<h5 class="footer-company-heading">Useful links</h5>
 				<div class="footer-icons">
