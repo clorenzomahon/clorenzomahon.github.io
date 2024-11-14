@@ -393,6 +393,50 @@ body.contact-in-view .nav-links a:hover {
 	.about-image img {
 		max-width: 80%; /* Reduce image size on smaller screens */
 	}
+} /* Responsive Design for Smaller Screens */
+
+/* Styles for larger screens (default layout) */
+.experience-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: left;
+}
+
+.image-content img {
+	width: 400px; /* Keep the default width */
+}
+
+.text-content h1 {
+	font-size: 2rem; /* Adjust as needed */
+}
+
+.text-content .btn {
+	font-size: 1rem;
+	padding: 10px 20px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+	.experience-content {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.image-content img {
+		width: 300px; /* Adjust image width for smaller screens */
+		margin-bottom: 20px; /* Add space between image and text */
+	}
+
+	.text-content h1 {
+		font-size: 1.5rem; /* Adjust font size for smaller screens */
+	}
+
+	.text-content .btn {
+		font-size: 0.9rem;
+		padding: 8px 16px;
+	}
 }
 
 .btn {
@@ -537,13 +581,13 @@ body.contact-in-view .nav-links a:hover {
 	position: relative;
 }
 
+/* Styles for larger screens (default layout) */
 .experience-content {
 	display: flex;
+	flex-direction: row; /* Ensure horizontal layout on large screens */
 	align-items: center;
 	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: 20px;
-	flex-direction: row; /* This will switch the order */
+	text-align: left;
 }
 
 .experience-section .text-content {
