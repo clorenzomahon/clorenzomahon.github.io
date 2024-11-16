@@ -147,6 +147,7 @@ Blog Styles
 	grid-template-columns: repeat(4, 1fr); /* 2 columns */
 	gap: 40px; /* Adjust spacing between the blog posts */
 	padding: 0 50px; /* Add padding around the grid */
+	border-radius: 20px; /* Match the radius of your blog cards */
 }
 
 /* Blog Post Card */
@@ -162,6 +163,7 @@ Blog Styles
 	max-height: 450px; /* Ensure consistent height for all cards */
 	padding-bottom: 10px;
 	margin-bottom: 40px;
+	border-radius: 20px; /* Match the radius of your blog cards */
 }
 
 .blog-post:hover {
@@ -186,6 +188,17 @@ Blog Styles
 	justify-content: space-between; /* Distribute content */
 }
 
+@media (max-width: 768px) {
+	.blog-container {
+		grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+	}
+}
+
+@media (max-width: 480px) {
+	.blog-container {
+		grid-template-columns: 1fr; /* 1 column for small screens */
+	}
+}
 /* H1 Styling from the About Section (reuse for Blog Section) */
 .blog-header h1 {
 	font-size: 45px;
