@@ -1,0 +1,668 @@
+/* Experience Section */
+.experience-section {
+	margin-top: 600px;
+	margin-bottom: 800px;
+	height: 100vh; /* Full viewport height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-snap-align: start;
+	background-color: #0c0c0c;
+}
+.skills {
+	color: #d4ff00; /* Yellow color */
+	font-weight: bold; /* Make the text bold */
+	font-size: 1rem; /* Adjust size as needed */
+	margin-top: auto; /* Push it to the bottom of the box */
+	padding: 20px 30px; /* Add space inside the container on all sides */
+	display: block; /* Ensure it stays on its own line */
+	margin-bottom: 0;
+	width: 100%; /* Take the full width of the parent container */
+	box-sizing: border-box; /* Include padding in the width calculation */
+	text-align: left; /* Align text to the left */
+}
+/* Experience Content Grid Layout */
+.experience-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr; /* Two equal columns */
+	align-items: center;
+	max-width: 1200px;
+	width: 100%;
+	padding: 0 50px;
+	gap: 20px; /* Space between image and text */
+}
+
+/* Left-Aligned Image */
+.image-content img {
+	width: 100%; /* Ensure image takes up full width of column */
+	height: auto;
+}
+
+/* Right-Aligned Text and Button */
+.text-content {
+	color: #f4f4f4;
+	text-align: right;
+}
+
+.text-content h1 {
+	font-size: 2.5rem;
+	color: #ffffff;
+	line-height: 1.4;
+	margin-bottom: 20px;
+}
+
+.text-content .highlight {
+	color: #d4ff00; /* Highlight color */
+}
+
+.about-btn {
+	display: inline-block;
+	background-color: #d4ff00;
+	color: #000000;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-weight: bold;
+	text-decoration: none;
+	margin-top: 40px;
+	margin-left: 30px;
+	margin-bottom: -20px;
+	transition: background-color 0.3s ease;
+}
+
+.about-btn:hover {
+	background-color: #444;
+	color: #f4f4f4;
+}
+/* ============================================
+   General Styles
+   ============================================ */
+
+/* Ensure each section takes up the full viewport and snaps to the top */
+.full-page-section {
+	height: 100vh; /* Full viewport height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-snap-align: start; /* Snap to the start of each section */
+	scroll-snap-stop: always; /* Force the scroll to snap even during fast scrolling */
+	margin-top: 0;
+	padding-top: 0;
+}
+
+html {
+	scroll-snap-type: none; /* Snap sections along the y-axis */
+	scrollbar-width: thin;
+	height: 100%;
+	scrollbar-color: #333 #101010;
+}
+
+section {
+	padding: 0; /* Remove extra padding that may affect snapping */
+	margin: 0;
+}
+
+body {
+	font-family: "zuume-bold", sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	color: #333;
+	height: 100%; /* Ensure the body takes full viewport height */
+	overflow-x: hidden;
+	background-color: #0c0c0c; /* Replace with your desired color */
+}
+
+h1,
+h2,
+h3 {
+	font-family: "zuume-bold", sans-serif;
+	margin: 0 0 20px;
+}
+
+p,
+a,
+input,
+textarea,
+button {
+	font-family: "zuume-bold", sans-serif;
+}
+
+label {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/* ============================================
+ Navigation Styles
+ ============================================ */
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	padding: 20px;
+	background-color: #0c0c0c;
+	top: 0;
+	z-index: 1000;
+	width: 100%;
+	left: 0;
+	margin-bottom: 0; /* Ensure no margin below the navbar */
+}
+
+.navbar .logo {
+	font-size: 24px;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.navbar ul {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	margin-right: 60px;
+	margin-top: 10px;
+}
+
+.navbar ul li {
+	margin-left: 20px;
+}
+
+.nav-links a {
+	color: #ffffff; /* Default text color for links */
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold; /* Keep bold font-weight */
+	padding: 2px; /* Add padding for better hover area */
+	transition: color 0.3s ease, font-weight 0.3s ease; /* Smooth transition */
+}
+
+.nav-links a:hover {
+	color: #d4ff00 !important; /* Change color to yellow on hover */
+}
+/* When contact section is in view, remove the yellow hover */
+body.contact-in-view .nav-links a:hover {
+	color: #ffffff !important; /* Keep the links white when contact is in view */
+}
+.logo a {
+	text-decoration: none; /* Remove underline */
+	color: inherit; /* Inherit color from the parent (logo styling) */
+	font-weight: inherit; /* Inherit font weight */
+}
+
+/* Optional: You can adjust this depending on your logo style */
+.logo {
+	font-weight: bold; /* Example styling for the logo */
+	font-size: 24px; /* Example size for the logo text */
+}
+
+/* ============================================
+ Footer Styles
+ ============================================ */
+footer {
+	height: 250px; /* Fixed height for the footer */
+	background-color: #101010;
+	padding: 55px 50px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between; /* Three column layout */
+	align-items: flex-start;
+	flex-wrap: wrap;
+	scroll-snap-align: none; /* No scroll snap for the footer */
+}
+
+/* Left Column - Logo and Links */
+.footer-left {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-logo {
+	max-width: 50px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+.footer-links {
+	margin: 20px 0;
+}
+
+.footer-links a {
+	color: #ffffff;
+	text-decoration: none;
+	margin: 0 5px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.footer-company-name {
+	color: #8f9296;
+	font-size: px;
+	margin-left: 10px;
+}
+
+/* Center Column - Location and Contact Info */
+.footer-center {
+	flex: 1;
+	padding-right: 20px;
+}
+
+.footer-center div {
+	margin-bottom: 20px;
+	margin-top: 20;
+}
+
+.footer-center i {
+	background-color: #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin-right: 15px;
+	display: inline-block;
+}
+
+.footer-center p {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 16px;
+	margin-top: 75px;
+}
+
+/* Right Column - About the Company and Social Icons */
+.footer-right {
+	flex: 1;
+	text-align: right;
+	padding-left: 20px;
+	max-width: 400px;
+	position: relative;
+}
+
+/* Company About Section */
+.footer-company-about {
+	color: #8f9296;
+	font-size: 14px;
+	margin-bottom: 20px;
+	text-align: left;
+	margin-right: 60px; /* Adjust to align text */
+}
+
+/* Heading for About the Company */
+.footer-company-heading {
+	color: #ffffff;
+	font-size: 14px; /* Increase font size */
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	text-align: left;
+}
+
+/* ============================================
+	Social Icons Alignment
+ ============================================ */
+.footer-icons {
+	display: flex;
+	align-items: center; /* Align icons vertically */
+	justify-content: flex-start;
+	margin-top: -5px; /* Align icons with text */
+}
+
+.footer-icons a {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color: #33383b;
+	color: #ffffff;
+	border-radius: 2px;
+	font-size: 20px;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 10px; /* Adjust for proper spacing */
+}
+
+/* ============================================
+ Responsive Design
+ ============================================ */
+@media (max-width: 880px) {
+	.footer-distributed {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer-left,
+	.footer-center,
+	.footer-right {
+		flex: none;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+}
+
+/* Script to stop highlighting from happening*/
+.no-select {
+	user-select: none;
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+
+/* EXPERIENCE PAGE STYLING */
+* {
+	box-sizing: border-box;
+}
+/* If this is the blog page */
+.blog-subtitle {
+	color: white; /* Make the text white */
+	display: inline-block; /* Ensure it's inline with other elements */
+	font-size: 1.2rem; /* Adjust the size to match the title */
+	margin-left: 50px; /* Adjust as needed to align it with the title */
+	vertical-align: middle; /* Align vertically with the title */
+	margin-bottom: 150px;
+	max-width: 50%; /* Limit the width of the paragraph to 50% of its parent container */
+}
+
+/* H1 Styling from the About Section (reuse for Blog Section) */
+.blog-header h1 {
+	font-size: 45px;
+	line-height: 1.2;
+	color: #ffffff;
+	text-align: left;
+	margin-bottom: 40px;
+	margin-top: 200px;
+	margin-bottom: 10px;
+	margin-left: 50px;
+}
+
+.blog-header .highlight {
+	color: #d4ff00;
+} /* Experience Section */
+.experience-section {
+	position: relative;
+	padding: 50px 0;
+	background-color: #0c0c0c;
+}
+
+/* Timeline */
+.timeline {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 0 auto;
+	max-width: 1200px;
+	scroll-snap-align: none !important; /* Ensure the boxes themselves don’t snap */
+}
+
+/* Yellow Line on the Right */
+.timeline::after {
+	content: "";
+	position: absolute;
+	right: -200px; /* Align the line to the right */
+	top: 0;
+	width: 4px;
+	height: 100%;
+	background-color: #d4ff00;
+}
+/* Connecting Yellow Line */
+.timeline-item::before {
+	content: "";
+	position: absolute;
+	right: -300px; /* Adjust position to align with the yellow vertical line */
+	top: 50%; /* Center vertically */
+	width: 300px; /* Length of the connecting line */
+	height: 4px; /* Thickness of the line */
+	background-color: #d4ff00; /* Yellow line color */
+	transform: translateY(-50%); /* Ensure it remains vertically centered */
+	z-index: 0; /* Place the line below the box */
+}
+
+/* Timeline Item */
+.timeline-item {
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	margin-bottom: 50px;
+	scroll-snap-align: none !important; /* Ensure the boxes themselves don’t snap */
+	margin-left: -100px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-item .content {
+	background-color: #1a1a1a;
+	color: #ffffff;
+	border-radius: 8px;
+	padding: 10px;
+	min-height: 500px;
+	width: 3000px; /* Make the boxes larger */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	margin-left: 0; /* Align the box to the left */
+	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Add a space for images */
+.job-image {
+	width: 60%;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 15px;
+}
+
+/* Heading Styles */
+.content {
+	padding: 20px; /* Adjust overall padding */
+	padding-bottom: 10px; /* Reduce bottom padding */
+}
+
+.content h3 {
+	font-size: 2.3rem; /* Adjust font size */
+	color: #d4ff00; /* Keep the highlight color */
+	margin-top: 10px; /* Space above */
+	margin-bottom: 5px; /* Space below */
+	padding-top: 0; /* Remove extra padding */
+	padding-bottom: 0; /* Remove extra padding */
+	padding-left: 30px;
+}
+.content h4 {
+	font-size: 1.8rem; /* Adjust font size */
+	color: #f4f4f4; /* Keep the font color */
+	margin-top: 5px; /* Space above */
+	margin-bottom: 5px; /* Space below */
+	padding-top: 0; /* Remove extra padding */
+	padding-bottom: 20px; /* Remove extra padding */
+	padding-left: 30px;
+}
+/* Heading Styles for h5 */
+.content h5 {
+	font-size: 1rem; /* Adjust font size */
+	color: #f4f4f4; /* Keep the font color */
+	margin-top: 5px; /* Space above */
+	margin-bottom: 0; /* Space below */
+	padding-top: 30px; /* Remove extra padding */
+	padding-bottom: 0; /* Remove extra padding */
+	padding-left: 30px;
+}
+
+.content p {
+	margin-bottom: 15px;
+	font-size: 1.15rem;
+	line-height: 1.6;
+	padding-left: 30px;
+	width: 60%;
+}
+
+.content ul {
+	list-style: disc;
+	padding-left: 30px;
+}
+
+.content ul li {
+	font-size: 1rem;
+	margin-bottom: 5px;
+	padding-left: 30px;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+	.timeline::after {
+		right: 10px; /* Slightly adjust the yellow line for smaller screens */
+	}
+
+	.content {
+		width: 90%; /* Make the boxes smaller on small screens */
+	}
+
+	.timeline-item {
+		margin-bottom: 30px;
+	}
+}
+.job-image {
+	position: absolute; /* Make the logo/image absolute */
+	right: 30px; /* Adjust distance from the right edge */
+	top: 30px; /* Adjust distance from the top */
+	width: 70px;
+	height: auto;
+	background: none;
+}
+.timeline-item {
+	position: relative;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer; /* Change cursor to indicate interactivity */
+	/* Timeline Item */
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 50px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect on Content Box */
+.timeline-item:hover .content {
+	transform: scale(1.05); /* Slight zoom effect */
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-container {
+	margin-top: 20px;
+}
+/* General button styles */
+.btn {
+	background-color: #d4ff00; /* Yellow */
+	color: #101010; /* Dark grey/black */
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	margin-left: 0;
+}
+
+/* Experience Button Specific Styles */
+.btn.experience-btn {
+	background-color: #d4ff00; /* Yellow */
+	color: #101010; /* Dark grey/black */
+}
+
+/* Hover for all buttons */
+.btn:hover {
+	background-color: #444 !important; /* Dark grey */
+	color: #f4f4f4; /* Light grey/white */
+}
+/* Large Screens (Desktops) */
+@media (min-width: 1024px) {
+	.timeline-item {
+		flex-direction: row; /* Maintain horizontal layout */
+	}
+	.content {
+		width: 70%; /* Maintain content width */
+	}
+	.job-image {
+		width: 80px; /* Ensure image alignment */
+	}
+	.skills {
+		font-size: 1.2rem; /* Slightly larger text */
+		padding: 20px 50px; /* Increase padding */
+	}
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) and (min-width: 768px) {
+	.timeline-item {
+		flex-direction: column; /* Stack content vertically */
+		align-items: center; /* Center-align items */
+	}
+	.content {
+		width: 90%; /* Reduce width to fit */
+		text-align: center; /* Center-align text */
+		padding: 15px 20px; /* Adjust padding */
+	}
+	.job-image {
+		width: 80px; /* Reduce image width */
+		margin-bottom: 15px; /* Add space below image */
+	}
+	.skills {
+		font-size: 1rem; /* Adjust font size */
+		padding: 15px 20px; /* Adjust padding */
+		text-align: center; /* Center-align text */
+	}
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 768px) {
+	.timeline-item {
+		flex-direction: column; /* Stack items vertically */
+		align-items: flex-start; /* Align items to the left */
+	}
+	.content {
+		width: 100%; /* Take full width */
+		text-align: left; /* Align text to the left */
+		padding: 10px 15px; /* Reduce padding */
+	}
+	.job-image {
+		width: 80px; /* Take full width */
+		margin-bottom: 20px; /* Add spacing */
+	}
+	.skills {
+		font-size: 0.9rem; /* Reduce font size */
+		padding: 10px 15px; /* Reduce padding */
+	}
+}
+
+/* Extra Small Screens (Tiny Phones) */
+@media (max-width: 480px) {
+	.timeline-item {
+		flex-direction: column; /* Stack items vertically */
+	}
+	.content {
+		width: 100%; /* Full width for content */
+		padding: 10px; /* Minimal padding */
+		text-align: left; /* Align text */
+	}
+	.job-image {
+		width: 80px; /* Full width */
+		margin-bottom: 10px; /* Minimal spacing */
+	}
+	.skills {
+		font-size: 0.8rem; /* Smaller font size */
+		padding: 8px 10px; /* Smaller padding */
+		text-align: center; /* Center-align for compact screens */
+	}
+}
+.inline-link {
+	color: #d4ff00; /* Match your theme's highlight color */
+	text-decoration: none; /* Remove underline */
+	font-weight: bold; /* Make the link bold */
+	transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.inline-link:hover {
+	color: #ffffff; /* Change color on hover */
+	text-decoration: underline; /* Optional: add underline on hover */
+}
+i {
+	color: #575656; /* Light grey for the entire text */
+	font-style: italic;
+}

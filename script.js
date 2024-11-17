@@ -2,9 +2,9 @@
 const dynamicTextElement = document.getElementById("dynamic-text");
 const words = [
 	"front-end developer",
-	"problem solver",
 	"designer",
 	"creative",
+	"problem solver",
 	"learner",
 	"woman",
 	"dog mum",
@@ -200,3 +200,20 @@ document.addEventListener("copy", function (e) {
 document.querySelectorAll("nav a").forEach((item) => {
 	item.setAttribute("draggable", "false");
 });
+function revealOnScroll() {
+	const timelineItems = document.querySelectorAll(".timeline-item");
+	const windowHeight = window.innerHeight;
+
+	timelineItems.forEach((item) => {
+		const positionFromTop = item.getBoundingClientRect().top;
+
+		if (positionFromTop < windowHeight - 100) {
+			item.classList.add("visible");
+		} else {
+			item.classList.remove("visible");
+		}
+	});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll(); // Run on page load
