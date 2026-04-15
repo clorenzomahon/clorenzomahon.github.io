@@ -1,82 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cait Lorenzo-Mahon — Front-End Developer</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Cait Lorenzo-Mahon — Front-End Developer</title>
 
-  <!-- Meta -->
-  <meta name="description" content="Front-end developer and digital specialist based in the UK." />
-  <meta property="og:title" content="Cait Lorenzo-Mahon" />
-  <meta property="og:description" content="Front-end developer and digital specialist based in the UK." />
-  <meta property="og:type" content="website" />
+		<!-- Meta -->
+		<meta
+			name="description"
+			content="Front-end developer and digital specialist based in the UK."
+		/>
+		<meta property="og:title" content="Cait Lorenzo-Mahon" />
+		<meta
+			property="og:description"
+			content="Front-end developer and digital specialist based in the UK."
+		/>
+		<meta property="og:type" content="website" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700&display=swap"
+			rel="stylesheet"
+		/>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles/base.css" />
-  <link rel="stylesheet" href="styles/layout.css" />
-  <link rel="stylesheet" href="styles/components.css" />
-  <link rel="stylesheet" href="styles/animations.css" />
+		<!-- Styles -->
+		<link rel="stylesheet" href="styles/base.css" />
+		<link rel="stylesheet" href="styles/layout.css" />
+		<link rel="stylesheet" href="styles/components.css" />
+		<link rel="stylesheet" href="styles/animations.css" />
 
-  <!-- FOUC prevention -->
-  <script>
-    (function() {
-      const t = localStorage.getItem('theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
-    })();
-  </script>
-</head>
-<body>
+		<!-- FOUC prevention -->
+		<script>
+			(function () {
+				const t = localStorage.getItem("theme");
+				if (t) document.documentElement.setAttribute("data-theme", t);
+			})();
+		</script>
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+		<header class="site-header">
+			<nav class="nav container" aria-label="Main navigation">
+				<a href="#" class="nav__logo" aria-label="Cait Lorenzo-Mahon home">
+					<img
+						src="assets/icons/CLM_Logo_Main.png"
+						alt="CLM"
+						width="40"
+						height="40"
+					/>
+				</a>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
+				<ul class="nav__links" id="nav-menu" role="list">
+					<li><a href="#about" class="nav__link">About</a></li>
+					<li><a href="#projects" class="nav__link">Projects</a></li>
+					<li><a href="#skills" class="nav__link">Skills</a></li>
+					<li><a href="#experience" class="nav__link">Experience</a></li>
+					<li><a href="#contact" class="nav__link">Contact</a></li>
+				</ul>
 
-      <a href="#" class="nav__logo" aria-label="Cait Lorenzo-Mahon home">
-        <img src="assets/icons/CLM_Logo_Main.png" alt="CLM" width="40" height="40" />
-      </a>
+				<div class="nav__actions">
+					<button id="theme-toggle" aria-label="Switch to dark mode">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="20"
+							height="20"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							aria-hidden="true"
+						>
+							<circle cx="12" cy="12" r="5" />
+							<line x1="12" y1="1" x2="12" y2="3" />
+							<line x1="12" y1="21" x2="12" y2="23" />
+							<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+							<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+							<line x1="1" y1="12" x2="3" y2="12" />
+							<line x1="21" y1="12" x2="23" y2="12" />
+							<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+							<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+						</svg>
+					</button>
 
-      <ul class="nav__links" id="nav-menu" role="list">
-        <li><a href="#about" class="nav__link">About</a></li>
-        <li><a href="#projects" class="nav__link">Projects</a></li>
-        <li><a href="#skills" class="nav__link">Skills</a></li>
-        <li><a href="#experience" class="nav__link">Experience</a></li>
-        <li><a href="#contact" class="nav__link">Contact</a></li>
-      </ul>
+					<button
+						class="nav__toggle"
+						aria-expanded="false"
+						aria-controls="nav-menu"
+						aria-label="Open navigation menu"
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+			</nav>
+		</header>
 
-      <div class="nav__actions">
-        <button id="theme-toggle" aria-label="Switch to dark mode">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-          </svg>
-        </button>
+		<main id="main-content">
+			<!-- Hero -->
+			<section id="hero" class="hero">
+				<div class="container">
+					<div class="hero__inner">
+						<span class="section-eyebrow animate-on-scroll stagger-1"
+							>Front-End Developer</span
+						>
+						<h1 class="hero__title animate-on-scroll stagger-2">
+							Hi, I'm <span class="accent">Cait</span> —<br />
+							I build things<br />
+							for the web.
+						</h1>
+						<p class="section-lead animate-on-scroll stagger-3">
+							Digital specialist and front-end developer based in the UK. I care
+							about clean code, accessibility, and thoughtful design.
+						</p>
+						<div class="hero__ctas animate-on-scroll stagger-4">
+							<a href="#projects" class="btn btn--primary">View my work</a>
+							<a href="#contact" class="btn btn--ghost">Get in touch</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
 
-        <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-    </nav>
-  </header>
-
-  <main id="main-content">
-
-    <!-- Hero -->
-    <section id="hero" class="hero">
-      <div class="container">
-        <div class="hero__inner
+		<script src="js/main.js"></script>
+	</body>
+</html>
