@@ -81,14 +81,12 @@
 	background-color: var(--color-bg-subtle);
 }
 
-/* Nav controls wrapper (theme toggle + hamburger) */
 .nav__controls {
 	display: flex;
 	align-items: center;
 	gap: var(--space-1);
 }
 
-/* Theme toggle button */
 .nav__theme-toggle {
 	display: flex;
 	align-items: center;
@@ -113,7 +111,6 @@
 	flex-shrink: 0;
 }
 
-/* Icon visibility based on active theme */
 .nav__theme-toggle .icon-sun {
 	display: none;
 }
@@ -160,7 +157,6 @@
 	display: block;
 }
 
-/* Mobile Nav Overlay */
 @media (max-width: 640px) {
 	.nav__controls {
 		position: relative;
@@ -205,7 +201,6 @@
    HERO
    -------------------------------------------------------------------------- */
 
-/* Decorative background mesh — split across ::before and ::after for independent animation */
 .hero::before,
 .hero::after {
 	content: "";
@@ -395,18 +390,11 @@
 	position: relative;
 }
 
-/* Portrait image */
 .about__avatar-img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	object-position: center top;
-	/* White outline — works on dark bg (About section is always dark) */
-}
-
-/* If ever used on a light background, invert to dark lines */
-.about__avatar-img--on-light {
-	filter: invert(1);
 }
 
 .about__content {
@@ -775,7 +763,6 @@
 	color: var(--color-accent);
 }
 
-/* Available badge — green pulse dot */
 .about__stat--available {
 	color: #4ade80;
 	border-color: rgba(74, 222, 128, 0.3);
@@ -939,12 +926,12 @@
 	transform: rotate(180deg);
 }
 
-/* Smooth inline expand using CSS grid trick */
+/* ---- THE FIX: transparent border when closed ---- */
 .timeline__panel {
 	display: grid;
 	grid-template-rows: 0fr;
 	transition: grid-template-rows var(--duration-slow) var(--ease-out);
-	border: 1px solid var(--color-border);
+	border: 1px solid transparent;
 	border-top: none;
 	border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 	overflow: hidden;
@@ -1008,7 +995,6 @@
 	list-style: none;
 }
 
-/* Transition divider */
 .timeline__transition {
 	display: flex;
 	align-items: center;
