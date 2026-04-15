@@ -67,3 +67,64 @@ section {
 #main-content {
 	outline: none;
 }
+/* --- Hero Layout --- */
+.hero {
+	min-height: calc(100svh - var(--header-height));
+	display: flex;
+	align-items: center;
+	padding-block: var(--space-20);
+	position: relative;
+	overflow: hidden;
+}
+
+.hero__inner {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-5);
+	max-width: 800px;
+	position: relative;
+	z-index: 1;
+}
+
+/* --- About layout --- */
+.about__inner {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: var(--space-16);
+	align-items: center;
+}
+
+@media (max-width: 768px) {
+	.about__inner {
+		grid-template-columns: 1fr;
+		gap: var(--space-10);
+	}
+}
+
+/* --- Projects Layout -- */
+.projects__header {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	margin-bottom: var(--space-12);
+	flex-wrap: wrap;
+	gap: var(--space-4);
+}
+
+.projects__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--space-6);
+}
+
+@media (max-width: 900px) {
+	.projects__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 580px) {
+	.projects__grid {
+		grid-template-columns: 1fr;
+	}
+}
