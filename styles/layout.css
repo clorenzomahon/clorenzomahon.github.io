@@ -1,6 +1,4 @@
-/* Layout (Container section spacing, grids, header & footer */
-
-/* --- Container --- */
+/* ---- Container ---- */
 .container {
 	width: 100%;
 	max-width: var(--container-max);
@@ -8,30 +6,7 @@
 	padding-inline: var(--container-padding);
 }
 
-/* --- Section base --- */
-section {
-	padding-block: var(--space-24);
-}
-
-@media (max-width: 768px) {
-	section {
-		padding-block: var(--space-16);
-	}
-}
-
-@media (max-width: 480px) {
-	section {
-		padding-block: var(--space-12);
-	}
-}
-
-/* --- Dark section --- */
-.section--dark {
-	background-color: var(--color-dark-bg);
-	color: var(--color-dark-text);
-}
-
-/* --- Header --- */
+/* ---- Header ---- */
 .site-header {
 	position: sticky;
 	top: 0;
@@ -48,11 +23,14 @@ section {
 	border-color: var(--color-border);
 	backdrop-filter: blur(12px);
 	-webkit-backdrop-filter: blur(12px);
-	background: rgba(250, 249, 245, 0.85);
+	background-color: rgba(250, 249, 245, 0.85);
 }
+
+/* Dark mode header */
 [data-theme="dark"] .site-header {
 	background-color: rgba(15, 14, 20, 0.9);
 }
+
 [data-theme="dark"] .site-header.is-scrolled {
 	background-color: rgba(15, 14, 20, 0.85);
 }
@@ -64,10 +42,35 @@ section {
 	gap: var(--space-6);
 }
 
+/* ---- Main ---- */
 #main-content {
 	outline: none;
 }
-/* --- Hero Layout --- */
+
+/* ---- Section Base ---- */
+section {
+	padding-block: var(--space-24);
+}
+
+@media (max-width: 768px) {
+	section {
+		padding-block: var(--space-16);
+	}
+}
+
+@media (max-width: 480px) {
+	section {
+		padding-block: var(--space-12);
+	}
+}
+
+/* ---- Dark Section ---- */
+.section--dark {
+	background-color: var(--color-dark-bg);
+	color: var(--color-dark-text);
+}
+
+/* ---- Hero Layout ---- */
 .hero {
 	min-height: calc(100svh - var(--header-height));
 	display: flex;
@@ -86,7 +89,7 @@ section {
 	z-index: 1;
 }
 
-/* --- About layout --- */
+/* ---- About Layout ---- */
 .about__inner {
 	display: grid;
 	grid-template-columns: 200px 1fr;
@@ -101,7 +104,7 @@ section {
 	}
 }
 
-/* --- Projects Layout -- */
+/* ---- Projects Layout ---- */
 .projects__header {
 	display: flex;
 	align-items: flex-end;
@@ -129,14 +132,21 @@ section {
 	}
 }
 
-/* --- Contact layout --- */
+/* ---- Skills Layout — handled in components.css ---- */
+
+/* ---- Experience Layout ---- */
+.experience {
+	padding-block: var(--space-24);
+}
+
+/* ---- Contact Layout ---- */
 .contact__inner {
 	max-width: 600px;
 	margin-inline: auto;
 	text-align: center;
 }
 
-/* --- Footer layout --- */
+/* ---- Footer Layout ---- */
 .site-footer {
 	padding-block: var(--space-8);
 	border-top: 1px solid var(--color-border);
