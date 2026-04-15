@@ -128,3 +128,24 @@ section {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* --- Contact layout --- */
+.contact__inner {
+	max-width: 600px;
+	margin-inline: auto;
+	text-align: center;
+}
+
+/* --- Footer layout --- */
+.site-footer {
+	padding-block: var(--space-8);
+	border-top: 1px solid var(--color-border);
+}
+
+.footer__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+	flex-wrap: wrap;
+}
