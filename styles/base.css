@@ -82,6 +82,7 @@
 	--container-padding: clamp(1.25rem, 5vw, 2rem);
 	--header-height: 64px;
 }
+
 /* ---- Dark Mode Tokens ---- */
 [data-theme="dark"] {
 	--color-bg: #0f0e14;
@@ -100,6 +101,7 @@
 	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
 	--shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.45);
 }
+
 /* ---- Modern CSS Reset ---- */
 *,
 *::before,
@@ -128,6 +130,7 @@ body {
 	text-rendering: optimizeLegibility;
 	overflow-x: hidden;
 }
+
 /* Subtle noise grain over the whole page */
 body::after {
 	content: "";
@@ -180,14 +183,15 @@ button {
 	font: inherit;
 	color: inherit;
 }
-/* --- Skip Link --- */
+
+/* ---- Skip Link ---- */
 .skip-link {
 	position: absolute;
 	top: -100%;
 	left: var(--space-4);
 	padding: var(--space-2) var(--space-5);
 	background-color: var(--color-text);
-	color: var(color --color-bg);
+	color: var(--color-bg);
 	font-size: var(--font-size-sm);
 	font-weight: var(--font-weight-semibold);
 	border-radius: var(--radius-sm);
@@ -200,9 +204,9 @@ button {
 	top: var(--space-4);
 }
 
-/* --- Focus Styles (WCAG 2.1 (AA)) --- */
+/* ---- Focus Styles (WCAG 2.1 AA) ---- */
 :focus-visible {
-	outline: 2px solid var(--color-accent-2);
+	outline: 2px solid var(--color-accent);
 	outline-offset: 4px;
 	border-radius: var(--radius-sm);
 }
@@ -211,7 +215,7 @@ button {
 	outline-color: var(--color-accent-2);
 }
 
-/* --- Typography scale --- */
+/* ---- Typography Scale ---- */
 .section-eyebrow {
 	display: inline-block;
 	font-size: var(--font-size-xs);
@@ -237,16 +241,20 @@ button {
 
 .section-lead {
 	font-size: var(--font-size-lg);
-	color: var(--color-dark-muted);
+	color: var(--color-text-muted);
 	line-height: var(--line-height-relaxed);
 	max-width: 52ch;
+}
+
+.section--dark .section-lead {
+	color: var(--color-dark-muted);
 }
 
 .section-title-group {
 	margin-bottom: var(--space-12);
 }
 
-/* --- Accent --- */
+/* ---- Accent ---- */
 .accent {
 	color: var(--color-accent);
 }
