@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Cait Lorenzo-Mahon - Front End Developer. I build fast, accessible, and beautifully crafted web experiences."
+		/>
+		<meta name="author" content="Cait Lorenzo-Mahon" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:title"
+			content="Cait Lorenzo-Mahon | Front End Developer"
+		/>
+		<meta
+			property="og:description"
+			content="I build fast, accessible, and beautifully crafted web experiences."
+		/>
+		<meta property="og:image" content="assets/images/og-image.png" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="Cait Lorenzo-Mahon | Front End Developer"
+		/>
+		<meta
+			name="twitter:description"
+			content="I build fast, accessible, and beautifully crafted web experiences."
+		/>
+
+		<title>Cait Lorenzo-Mahon | Front End Developer</title>
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Styles -->
+		<link rel="stylesheet" href="styles/base.css" />
+		<link rel="stylesheet" href="styles/layout.css" />
+		<link rel="stylesheet" href="styles/components.css" />
+		<link rel="stylesheet" href="styles/animations.css" />
+		<!-- Theme: prevent flash of wrong theme -->
+		<script>
+			(function () {
+				var s = localStorage.getItem("theme");
+				var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				document.documentElement.setAttribute(
+					"data-theme",
+					s || (d ? "dark" : "light"),
+				);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<!-- Skip to content (keyboard/screen reader) -->
+		<a class="skip-link" href="#main-content">Skip to main content</a>
+
+		<!-- Header -->
+		<header class="site-header" role="banner">
+			<nav class="nav container" aria-label="Primary navigation">
+				<a
+					href="#hero"
+					class="nav__logo"
+					aria-label="Cait Lorenzo-Mahon - back to top"
+				>
+					<img
+						class="nav__logo-img nav__logo-img--dark"
+						src="assets/icons/clm_logo.png"
+						alt="CLM logo"
+						height="36"
+					/>
+					<img
+						class="nav__logo-img nav__logo-img--light"
+						src="assets/icons/CLM_Logo_Main.png"
+						alt="CLM logo"
+						height="36"
+					/>
+				</a>
+
+				<!-- Nav controls: theme toggle + mobile hamburger -->
+				<div class="nav__controls">
+					<button
+						class="nav__theme-toggle"
+						id="theme-toggle"
+						aria-label="Switch to dark mode"
+					>
+						<!-- Moon icon (shown in light mode) -->
+						<svg
+							class="icon-moon"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+							/>
+						</svg>
+						<!-- Sun icon (shown in dark mode) -->
+						<svg
+							class="icon-sun"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+							/>
+						</svg>
+					</button>
+
+					<button
+						class="nav__toggle"
+						aria-controls="nav-menu"
+						aria-expanded="false"
+						aria-label="Open navigation menu"
+					>
+						<!-- Hamburger icon -->
+						<svg
+							class="icon-menu"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+							/>
+						</svg>
+						<!-- Close icon -->
+						<svg
+							class="icon-close"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M6 18 18 6M6 6l12 12"
+							/>
+						</svg>
+					</button>
+				</div>
+
+				<ul id="nav-menu" class="nav__menu" role="list">
+					<li><a class="nav__link" href="#about">About</a></li>
+					<li><a class="nav__link" href="#experience">Experience</a></li>
+					<li><a class="nav__link" href="#projects">Projects</a></li>
+					<li><a class="nav__link" href="#skills">Skills</a></li>
+					<li>
+						<a class="nav__link nav__cta" href="#contact"> Get in touch </a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<!------ MAIN SECTION ------>
+		<main id="main-content" tabindex="-1">
+			<!-- Hero Section-->
+			<section id="hero" class="hero" aria-labelledby="hero-heading">
+				<div class="hero__inner container">
+					<p class="hero__eyebrow animate-on-scroll stagger-1">
+						Front End Developer / Drupal Developer
+					</p>
+
+					<h1 id="hero-heading" class="hero__title animate-on-scroll stagger-2">
+						Hi, I'm <span class="accent">Cait.</span>
+					</h1>
+
+					<p class="hero__subtitle animate-on-scroll stagger-3">
+						I build for the web.
+					</p>
+
+					<p class="hero__tagline animate-on-scroll stagger-4">
+						I craft fast, accessible, and thoughtfully designed interfaces -
+						where every detail is intentional and every interaction feels right.
+					</p>
+
+					<div
+						class="hero__ctas animate-on-scroll stagger-5"
+						role="group"
+						aria-label="Primary actions"
+					>
+						<a href="#projects" class="btn btn--primary">View my work</a>
+						<a href="#contact" class="btn btn--ghost">Get in touch</a>
+					</div>
+
+					<p
+						class="hero__scroll-hint animate-on-scroll stagger-6"
+						aria-hidden="true"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="m19.5 8.25-7.5 7.5-7.5-7.5"
+							/>
+						</svg>
+						Scroll to explore
+					</p>
+				</div>
+			</section>
+			<!-- About Section -->
+			<section
+				id="about"
+				class="about section--dark"
+				aria-labelledby="about-heading"
+			>
+				<div class="container">
+					<div class="about__inner">
+						<div class="about__avatar-wrap animate-on-scroll">
+							<img
+								src="assets/images/cait-photo.jpg"
+								alt="Cait Lorenzo-Mahon"
+								class="about__avatar-img"
+							/>
+						</div>
+
+						<div class="about__content">
+							<span class="section-eyebrow animate-on-scroll stagger-1"
+								>About me</span
+							>
+							<h2
+								id="about-heading"
+								class="section-title animate-on-scroll stagger-2"
+							>
+								Building with care,<br />shipping with confidence.
+							</h2>
+							<span class="accent-line animate-on-scroll stagger-2"></span>
+
+							<p class="about__bio animate-on-scroll stagger-3">
+								I'm a front end developer with a background rooted in Graphic
+								Design - a combination that shapes everything I build. I came up
+								understanding colour, typography, and visual hierarchy before I
+								ever wrote a line of code, which means I bring a genuine eye for
+								branding and aesthetics to every project, not just as an
+								afterthought.
+							</p>
+
+							<p class="about__bio animate-on-scroll stagger-4">
+								That intersection of design thinking and technical craft is what
+								sets my work apart. I don't just implement interfaces - I
+								understand why they should look and feel the way they do. With a
+								strong foundation in HTML, CSS, and JavaScript, I bridge the gap
+								between brand vision and polished, performant web experiences
+								that feel as good as they look.
+							</p>
+
+							<ul
+								class="about__stats animate-on-scroll stagger-5"
+								role="list"
+								aria-label="Key facts about Cait"
+							>
+								<li class="about__stat about__stat--available">
+									<span class="about__stat-pulse" aria-hidden="true"></span>
+									Available for work
+								</li>
+								<li class="about__stat">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+										/>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+										/>
+									</svg>
+									Yorkshire, UK
+								</li>
+								<li class="about__stat">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+										/>
+									</svg>
+									10+ Years Experience
+								</li>
+								<li class="about__stat">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"
+										/>
+									</svg>
+									Graphic Design Background
+								</li>
+								<li class="about__stat">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.038 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.038-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253M3.157 7.582A8.96 8.96 0 0 0 3 12c0 .778.099 1.533.284 2.253m0 0a9.02 9.02 0 0 0 5.966 5.966m-5.966-5.966L12 12m9.716-3.253a9.02 9.02 0 0 1-5.966 5.966M12 12l9.716 3.247"
+										/>
+									</svg>
+									Open to Remote
+								</li>
+								<li class="about__stat">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+										/>
+									</svg>
+									BSc Computing &amp; IT
+								</li>
+							</ul>
+
+							<div class="about__links animate-on-scroll stagger-6">
+								<a href="#projects" class="btn btn--ghost-light"
+									>See my projects</a
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Experience section -->
+			<section
+				id="experience"
+				class="experience"
+				aria-labelledby="experience-heading"
+			>
+				<div class="container">
+					<div class="experience__header">
+						<span class="section-eyebrow animate-on-scroll"
+							>Where I've worked</span
+						>
+						<h2 id="experience-heading" class="section-title animate-on-scroll">
+							Experience
+						</h2>
+						<span class="accent-line animate-on-scroll"></span>
+					</div>
+
+					<ol class="timeline" role="list">
+						<!-- Web: Job 1 -->
+						<li class="timeline__item animate-on-scroll stagger-1">
+							<button
+								class="timeline__trigger"
+								aria-expanded="false"
+								aria-controls="exp-1-panel"
+								id="exp-1-trigger"
+							>
+								<div class="timeline__head">
+									<span class="timeline__role">Web &amp; Content Lead</span>
+									<div class="timeline__meta">
+										<a
+											href="https://www.salvationarmy.org.uk"
+											class="timeline__company timeline__company--link"
+											target="_blank"
+											rel="noopener noreferrer"
+											>The Salvation Army</a
+										>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__sector">Non-Profit</span>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__tech">Drupal</span>
+									</div>
+								</div>
+								<div class="timeline__aside">
+									<span class="timeline__period">2025 - Present</span>
+									<svg
+										class="timeline__chevron"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="m19.5 8.25-7.5 7.5-7.5-7.5"
+										/>
+									</svg>
+								</div>
+							</button>
+							<div
+								class="timeline__panel"
+								id="exp-1-panel"
+								role="region"
+								aria-labelledby="exp-1-trigger"
+							>
+								<div class="timeline__panel-inner">
+									<ul class="timeline__bullets">
+										<li>
+											Sole web professional responsible for the charity's entire
+											digital presence - main site and multiple subsites -
+											managing strategy, content, and technical decisions
+											end-to-end
+										</li>
+										<li>
+											Lead web content strategy and governance across a Drupal
+											CMS environment, ensuring consistency, accessibility, and
+											performance at scale
+										</li>
+										<li>
+											Drive SEO strategy and URL architecture, coordinating
+											audits and keyword analysis with external agencies
+										</li>
+										<li>
+											Deliver digital accessibility training in collaboration
+											with specialist partners (GAIN/Nomensa)
+										</li>
+										<li>
+											Actively developing Drupal theming and frontend
+											development skills alongside BSc Computing &amp; IT
+											studies
+										</li>
+									</ul>
+									<ul
+										class="timeline__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">Drupal</li>
+										<li class="tag">HTML &amp; CSS</li>
+										<li class="tag">Web Strategy</li>
+										<li class="tag">SEO</li>
+										<li class="tag">Accessibility (WCAG)</li>
+										<li class="tag">Content Architecture</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<!-- Web: Job 2 -->
+						<li class="timeline__item animate-on-scroll stagger-2">
+							<button
+								class="timeline__trigger"
+								aria-expanded="false"
+								aria-controls="exp-2-panel"
+								id="exp-2-trigger"
+							>
+								<div class="timeline__head">
+									<span class="timeline__role"
+										>Senior Digital Designer &amp; Web Lead</span
+									>
+									<div class="timeline__meta">
+										<a
+											href="https://www.svp.org.uk"
+											class="timeline__company timeline__company--link"
+											target="_blank"
+											rel="noopener noreferrer"
+											>St Vincent de Paul Society</a
+										>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__sector">Non-Profit</span>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__tech">Drupal</span>
+									</div>
+								</div>
+								<div class="timeline__aside">
+									<span class="timeline__period">2023 - 2025</span>
+									<svg
+										class="timeline__chevron"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="m19.5 8.25-7.5 7.5-7.5-7.5"
+										/>
+									</svg>
+								</div>
+							</button>
+							<div
+								class="timeline__panel"
+								id="exp-2-panel"
+								role="region"
+								aria-labelledby="exp-2-trigger"
+							>
+								<div class="timeline__panel-inner">
+									<ul class="timeline__bullets">
+										<li>
+											Combined web lead and senior design responsibilities -
+											overseeing the organisation's Drupal CMS, handling
+											theming, content architecture, and module configuration
+										</li>
+										<li>
+											Built and maintained UI components with a focus on
+											semantic HTML, accessibility, and mobile-first CSS
+										</li>
+										<li>
+											Managed stakeholder relationships and translated briefs
+											into technical and design solutions
+										</li>
+									</ul>
+									<ul
+										class="timeline__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">Drupal</li>
+										<li class="tag">PHP (Twig)</li>
+										<li class="tag">CSS</li>
+										<li class="tag">HTML</li>
+										<li class="tag">UI Design</li>
+										<li class="tag">CMS Architecture</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<!-- Transition divider -->
+						<li class="timeline__transition" aria-hidden="true">
+							<span class="timeline__transition-label">Design Foundations</span>
+						</li>
+
+						<!-- Design: Job 3 -->
+						<li class="timeline__item animate-on-scroll stagger-3">
+							<button
+								class="timeline__trigger"
+								aria-expanded="false"
+								aria-controls="exp-3-panel"
+								id="exp-3-trigger"
+							>
+								<div class="timeline__head">
+									<span class="timeline__role"
+										>Senior UI &amp; Brand Designer</span
+									>
+									<div class="timeline__meta">
+										<a
+											href="https://www.more-life.co.uk/"
+											class="timeline__company timeline__company--link"
+											target="_blank"
+											rel="noopener noreferrer"
+											>MoreLife Ltd</a
+										>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__sector">Healthcare</span>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__tech">WordPress</span>
+									</div>
+								</div>
+								<div class="timeline__aside">
+									<span class="timeline__period">2021 - 2023</span>
+									<svg
+										class="timeline__chevron"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="m19.5 8.25-7.5 7.5-7.5-7.5"
+										/>
+									</svg>
+								</div>
+							</button>
+							<div
+								class="timeline__panel"
+								id="exp-3-panel"
+								role="region"
+								aria-labelledby="exp-3-trigger"
+							>
+								<div class="timeline__panel-inner">
+									<ul class="timeline__bullets">
+										<li>
+											Designed digital-first assets for healthcare products,
+											building strong foundations in design systems, visual
+											hierarchy, and component thinking
+										</li>
+										<li>
+											Collaborated with web and product teams, bridging design
+											and development workflows
+										</li>
+									</ul>
+									<ul
+										class="timeline__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">UI Design</li>
+										<li class="tag">Design Systems</li>
+										<li class="tag">Brand</li>
+										<li class="tag">WordPress</li>
+										<li class="tag">Figma</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<!-- Design: Job 4 -->
+						<li class="timeline__item animate-on-scroll stagger-4">
+							<button
+								class="timeline__trigger"
+								aria-expanded="false"
+								aria-controls="exp-4-panel"
+								id="exp-4-trigger"
+							>
+								<div class="timeline__head">
+									<span class="timeline__role">Digital Designer</span>
+									<div class="timeline__meta">
+										<a
+											href="https://www.allroundercricket.com"
+											class="timeline__company timeline__company--link"
+											target="_blank"
+											rel="noopener noreferrer"
+											>All Rounder Cricket Ltd</a
+										>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__sector">Ecommerce</span>
+										<span class="timeline__sep" aria-hidden="true"
+											>&middot;</span
+										>
+										<span class="timeline__tech">WordPress</span>
+									</div>
+								</div>
+								<div class="timeline__aside">
+									<span class="timeline__period">2020 - 2021</span>
+									<svg
+										class="timeline__chevron"
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.75"
+										stroke="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="m19.5 8.25-7.5 7.5-7.5-7.5"
+										/>
+									</svg>
+								</div>
+							</button>
+							<div
+								class="timeline__panel"
+								id="exp-4-panel"
+								role="region"
+								aria-labelledby="exp-4-trigger"
+							>
+								<div class="timeline__panel-inner">
+									<ul class="timeline__bullets">
+										<li>
+											Created digital marketing assets and ecommerce-focused
+											design for a retail brand
+										</li>
+										<li>
+											Gained exposure to conversion-focused design, UX
+											principles, and digital campaign workflows
+										</li>
+									</ul>
+									<ul
+										class="timeline__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">Digital Design</li>
+										<li class="tag">Ecommerce</li>
+										<li class="tag">WordPress</li>
+										<li class="tag">Marketing</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ol>
+				</div>
+			</section>
+			<!-- Projects Section -->
+			<section
+				id="projects"
+				class="projects"
+				aria-labelledby="projects-heading"
+			>
+				<div class="container">
+					<header class="projects__header">
+						<div>
+							<span class="section-eyebrow animate-on-scroll"
+								>Selected work</span
+							>
+							<h2 id="projects-heading" class="section-title animate-on-scroll">
+								Projects
+							</h2>
+							<span class="accent-line animate-on-scroll"></span>
+						</div>
+						<a
+							href="https://github.com/clorenzomahon"
+							class="btn btn--ghost animate-on-scroll"
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label="View all projects on GitHub (opens in new tab)"
+						>
+							View all on GitHub
+						</a>
+					</header>
+
+					<ul class="projects__grid" role="list">
+						<!-- Project 1 -->
+						<li class="animate-on-scroll stagger-1">
+							<article class="card" aria-labelledby="project-1-title">
+								<div class="card__header">
+									<div class="card__icon" aria-hidden="true">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"
+											/>
+										</svg>
+									</div>
+									<div
+										class="card__links"
+										aria-label="Links for Luminary Design System"
+									>
+										<a
+											href="https://github.com/clorenzomahon"
+											class="card__link"
+											aria-label="View Luminary Design System on GitHub (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</a>
+										<a
+											href="#"
+											class="card__link"
+											aria-label="View live demo of Luminary Design System (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.75"
+												stroke="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+												/>
+											</svg>
+										</a>
+									</div>
+								</div>
+								<h3 id="project-1-title" class="card__title">
+									Luminary Design System
+								</h3>
+								<p class="card__desc">
+									A modular, accessible component library built with vanilla CSS
+									custom properties and Web Components. Designed for scalability
+									across multiple projects with zero framework dependencies.
+								</p>
+								<footer class="card__footer">
+									<ul
+										class="card__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">HTML</li>
+										<li class="tag">CSS</li>
+										<li class="tag">Web Components</li>
+										<li class="tag">Accessibility</li>
+									</ul>
+								</footer>
+							</article>
+						</li>
+
+						<!-- Project 2 -->
+						<li class="animate-on-scroll stagger-2">
+							<article class="card" aria-labelledby="project-2-title">
+								<div class="card__header">
+									<div class="card__icon" aria-hidden="true">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"
+											/>
+										</svg>
+									</div>
+									<div
+										class="card__links"
+										aria-label="Links for Wanderlust App"
+									>
+										<a
+											href="https://github.com/clorenzomahon"
+											class="card__link"
+											aria-label="View Wanderlust App on GitHub (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</a>
+										<a
+											href="#"
+											class="card__link"
+											aria-label="View live demo of Wanderlust App (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.75"
+												stroke="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+												/>
+											</svg>
+										</a>
+									</div>
+								</div>
+								<h3 id="project-2-title" class="card__title">Wanderlust</h3>
+								<p class="card__desc">
+									A responsive travel planning app built with React and
+									integrated with the Google Maps and REST Country APIs.
+									Features itinerary building, offline caching, and a fully
+									keyboard-navigable UI.
+								</p>
+								<footer class="card__footer">
+									<ul
+										class="card__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">React</li>
+										<li class="tag">TypeScript</li>
+										<li class="tag">REST API</li>
+										<li class="tag">CSS Modules</li>
+									</ul>
+								</footer>
+							</article>
+						</li>
+
+						<!-- Project 3 -->
+						<li class="animate-on-scroll stagger-3">
+							<article class="card" aria-labelledby="project-3-title">
+								<div class="card__header">
+									<div class="card__icon" aria-hidden="true">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
+											/>
+										</svg>
+									</div>
+									<div
+										class="card__links"
+										aria-label="Links for The Type Studio"
+									>
+										<a
+											href="https://github.com/clorenzomahon"
+											class="card__link"
+											aria-label="View The Type Studio on GitHub (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</a>
+										<a
+											href="#"
+											class="card__link"
+											aria-label="View live demo of The Type Studio (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.75"
+												stroke="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+												/>
+											</svg>
+										</a>
+									</div>
+								</div>
+								<h3 id="project-3-title" class="card__title">
+									The Type Studio
+								</h3>
+								<p class="card__desc">
+									An interactive browser-based typography playground that lets
+									users explore font pairings, spacing, and scale in real time.
+									Built with vanilla JavaScript and the Google Fonts API.
+								</p>
+								<footer class="card__footer">
+									<ul
+										class="card__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">JavaScript</li>
+										<li class="tag">CSS</li>
+										<li class="tag">Google Fonts API</li>
+										<li class="tag">Canvas API</li>
+									</ul>
+								</footer>
+							</article>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- =================================================================
+         SKILLS
+         ================================================================= -->
+			<section
+				id="skills"
+				class="skills section--dark"
+				aria-labelledby="skills-heading"
+			>
+				<div class="container">
+					<div class="skills__header">
+						<span class="section-eyebrow animate-on-scroll">What I bring</span>
+						<h2 id="skills-heading" class="section-title animate-on-scroll">
+							Craft &amp; Code
+						</h2>
+						<span class="accent-line animate-on-scroll"></span>
+					</div>
+
+					<div class="skills__editorial">
+						<div class="skills__chapter animate-on-scroll stagger-1">
+							<span class="skills__num" aria-hidden="true">01</span>
+							<h3 class="skills__chapter-title">Design</h3>
+							<p class="skills__chapter-body">
+								I think visually before I think technically. Years spent in
+								Graphic Design means typography, hierarchy, colour, and brand
+								aren't things I learned alongside code — they came first. That
+								foundation shows in everything I build.
+							</p>
+							<p
+								class="skills__chapter-tools"
+								aria-label="Design tools and skills"
+							>
+								Figma &middot; Illustrator &middot; Photoshop &middot; InDesign
+								&middot; Typography &middot; Colour Theory &middot; Brand
+								Identity
+							</p>
+						</div>
+
+						<div class="skills__chapter animate-on-scroll stagger-2">
+							<span class="skills__num" aria-hidden="true">02</span>
+							<h3 class="skills__chapter-title">Build</h3>
+							<p class="skills__chapter-body">
+								Fast, accessible, and maintainable isn't a bonus — it's the
+								baseline. I build with semantics, performance, and real users in
+								mind. Whether it's a component library or a Drupal platform, the
+								standard doesn't change.
+							</p>
+							<p
+								class="skills__chapter-tools"
+								aria-label="Development tools and skills"
+							>
+								HTML &middot; CSS &middot; JavaScript &middot; TypeScript
+								&middot; React &middot; Drupal &middot; Sass &middot; Web
+								Components &middot; WCAG Accessibility &middot; Git
+							</p>
+						</div>
+
+						<div class="skills__chapter animate-on-scroll stagger-3">
+							<span class="skills__num" aria-hidden="true">03</span>
+							<h3 class="skills__chapter-title">Grow</h3>
+							<p class="skills__chapter-body">
+								I'm always in something new. The best developers I know stay
+								curious and honest about where they're growing. Currently
+								investing time in Next.js, animation, and design systems built
+								for scale.
+							</p>
+							<p
+								class="skills__chapter-tools"
+								aria-label="Currently learning and exploring"
+							>
+								Next.js &middot; Playwright &middot; Storybook &middot; CSS
+								Animation &middot; Web Performance &middot; Node.js
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- =================================================================
+         CONTACT
+         ================================================================= -->
+			<section id="contact" class="contact" aria-labelledby="contact-heading">
+				<div class="container">
+					<div class="contact__inner">
+						<span class="section-eyebrow animate-on-scroll">Let's talk</span>
+						<h2 id="contact-heading" class="section-title animate-on-scroll">
+							Get in touch
+						</h2>
+						<span
+							class="accent-line animate-on-scroll"
+							style="margin-inline: auto"
+						></span>
+
+						<p class="contact__lead animate-on-scroll">
+							I'm open to new opportunities, interesting projects, and good
+							conversations. Drop me a message - I'd love to hear from you.
+						</p>
+
+						<div class="contact__email animate-on-scroll">
+							<a
+								href="mailto:hello@caitlorenzomahon.com"
+								class="btn btn--primary"
+								aria-label="Send Cait an email"
+							>
+								Say hello
+							</a>
+						</div>
+
+						<div
+							class="contact__divider animate-on-scroll"
+							aria-hidden="true"
+						></div>
+
+						<ul
+							class="contact__socials animate-on-scroll"
+							role="list"
+							aria-label="Social media links"
+						>
+							<li>
+								<a
+									href="https://github.com/clorenzomahon"
+									class="social-link"
+									aria-label="Cait's GitHub profile (opens in new tab)"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											fill-rule="evenodd"
+											d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+											clip-rule="evenodd"
+										/>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://linkedin.com/in/caitlorenzomahon"
+									class="social-link"
+									aria-label="Cait's LinkedIn profile (opens in new tab)"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+										/>
+									</svg>
+								</a>
+							</li>
+							<li>
+								<a
+									href="https://twitter.com/caitlorenzomahon"
+									class="social-link"
+									aria-label="Cait's X / Twitter profile (opens in new tab)"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 24 24"
+										fill="currentColor"
+										aria-hidden="true"
+									>
+										<path
+											d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+										/>
+									</svg>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- =====================================================================
+       FOOTER
+       ===================================================================== -->
+		<footer class="site-footer" role="contentinfo">
+			<div class="container footer__inner">
+				<p class="footer__copy">
+					&copy; <span id="footer-year"></span> Cait Lorenzo-Mahon. Built with
+					care.
+				</p>
+				<a
+					href="#hero"
+					class="footer__back-to-top"
+					aria-label="Back to top of page"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.75"
+						stroke="currentColor"
+						aria-hidden="true"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="m4.5 15.75 7.5-7.5 7.5 7.5"
+						/>
+					</svg>
+					Back to top
+				</a>
+			</div>
+		</footer>
+		<script src="js/main.js" defer></script>
+	</body>
+</html>
