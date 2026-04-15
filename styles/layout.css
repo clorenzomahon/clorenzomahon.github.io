@@ -1,4 +1,4 @@
-/* Layout (Containerm section spacing, grids, header & footer */
+/* Layout (Container section spacing, grids, header & footer */
 
 /* --- Container --- */
 .container {
@@ -29,4 +29,41 @@ section {
 .section--dark {
 	background-color: var(--color-dark-bg);
 	color: var(--color-dark-text);
+}
+
+/* --- Header --- */
+.site-header {
+	position: sticky;
+	top: 0;
+	height: var(--header-height);
+	z-index: 100;
+	background-color: rgba(250, 249, 245, 0.9);
+	border-bottom: 1px solid transparent;
+	transition:
+		border-color var(--duration-base) var(--ease-out),
+		background-color var(--duration-base) var(--ease-out);
+}
+
+.site-header.is-scrolled {
+	border-color: var(--color-border);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	background: rgba(250, 249, 245, 0.85);
+}
+[data-theme="dark"] .site-header {
+	background-color: rgba(15, 14, 20, 0.9);
+}
+[data-theme="dark"] .site-header.is-scrolled {
+	background-color: rgba(15, 14, 20, 0.85);
+}
+
+.nav {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: var(--space-6);
+}
+
+#main-content {
+	outline: none;
 }
