@@ -60,5 +60,124 @@
 		</script>
 	</head>
 
-	<body></body>
+	<body>
+		<!-- Skip to content (keyboard/screen reader) -->
+		<a class="skip-link" href="#main-content">Skip to main content</a>
+
+		<!-- Header -->
+		<header class="site-header" role="banner">
+			<nav class="nav container" aria-label="Primary navigation">
+				<a
+					href="#hero"
+					class="nav__logo"
+					aria-label="Cait Lorenzo-Mahon - back to top"
+				>
+					<img
+						class="nav__logo-img nav__logo-img--dark"
+						src="assets/icons/clm logo.png"
+						alt="CLM logo"
+						height="36"
+					/>
+					<img
+						class="nav__logo-img nav__logo-img--light"
+						src="assets/icons/CLM Logo Main.png"
+						alt="CLM logo"
+						height="36"
+					/>
+				</a>
+
+				<!-- Nav controls: theme toggle + mobile hamburger -->
+				<div class="nav__controls">
+					<button
+						class="nav__theme-toggle"
+						id="theme-toggle"
+						aria-label="Switch to dark mode"
+					>
+						<!-- Moon icon (shown in light mode) -->
+						<svg
+							class="icon-moon"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+							/>
+						</svg>
+						<!-- Sun icon (shown in dark mode) -->
+						<svg
+							class="icon-sun"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+							/>
+						</svg>
+					</button>
+
+					<button
+						class="nav__toggle"
+						aria-controls="nav-menu"
+						aria-expanded="false"
+						aria-label="Open navigation menu"
+					>
+						<!-- Hamburger icon -->
+						<svg
+							class="icon-menu"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+							/>
+						</svg>
+						<!-- Close icon -->
+						<svg
+							class="icon-close"
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="1.75"
+							stroke="currentColor"
+							aria-hidden="true"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M6 18 18 6M6 6l12 12"
+							/>
+						</svg>
+					</button>
+				</div>
+
+				<ul id="nav-menu" class="nav__menu" role="list">
+					<li><a class="nav__link" href="#about">About</a></li>
+					<li><a class="nav__link" href="#experience">Experience</a></li>
+					<li><a class="nav__link" href="#projects">Projects</a></li>
+					<li><a class="nav__link" href="#skills">Skills</a></li>
+					<li>
+						<a class="nav__link nav__cta" href="#contact"> Get in touch </a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+	</body>
 </html>
