@@ -3,25 +3,42 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Cait Lorenzo-Mahon — Front-End Developer</title>
-
-		<!-- Meta -->
 		<meta
 			name="description"
-			content="Front-end developer and digital specialist based in the UK."
+			content="Cait Lorenzo-Mahon - Front End Developer. I build fast, accessible, and beautifully crafted web experiences."
 		/>
-		<meta property="og:title" content="Cait Lorenzo-Mahon" />
+		<meta name="author" content="Cait Lorenzo-Mahon" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:title"
+			content="Cait Lorenzo-Mahon | Front End Developer"
+		/>
 		<meta
 			property="og:description"
-			content="Front-end developer and digital specialist based in the UK."
+			content="I build fast, accessible, and beautifully crafted web experiences."
 		/>
-		<meta property="og:type" content="website" />
+		<meta property="og:image" content="assets/images/og-image.png" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta
+			name="twitter:title"
+			content="Cait Lorenzo-Mahon | Front End Developer"
+		/>
+		<meta
+			name="twitter:description"
+			content="I build fast, accessible, and beautifully crafted web experiences."
+		/>
+
+		<title>Cait Lorenzo-Mahon | Front End Developer</title>
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 
@@ -30,234 +47,18 @@
 		<link rel="stylesheet" href="styles/layout.css" />
 		<link rel="stylesheet" href="styles/components.css" />
 		<link rel="stylesheet" href="styles/animations.css" />
-
-		<!-- FOUC prevention -->
+		<!-- Theme: prevent flash of wrong theme -->
 		<script>
 			(function () {
-				const t = localStorage.getItem("theme");
-				if (t) document.documentElement.setAttribute("data-theme", t);
+				var s = localStorage.getItem("theme");
+				var d = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				document.documentElement.setAttribute(
+					"data-theme",
+					s || (d ? "dark" : "light"),
+				);
 			})();
 		</script>
 	</head>
-	<body>
-		<a href="#main-content" class="skip-link">Skip to main content</a>
 
-		<header class="site-header">
-			<nav class="nav container" aria-label="Main navigation">
-				<a href="#" class="nav__logo" aria-label="Cait Lorenzo-Mahon home">
-					<img
-						src="assets/icons/CLM_Logo_Main.png"
-						alt="CLM"
-						width="40"
-						height="40"
-					/>
-				</a>
-
-				<ul class="nav__links" id="nav-menu" role="list">
-					<li><a href="#about" class="nav__link">About</a></li>
-					<li><a href="#projects" class="nav__link">Projects</a></li>
-					<li><a href="#skills" class="nav__link">Skills</a></li>
-					<li><a href="#experience" class="nav__link">Experience</a></li>
-					<li><a href="#contact" class="nav__link">Contact</a></li>
-				</ul>
-
-				<div class="nav__actions">
-					<button id="theme-toggle" aria-label="Switch to dark mode">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="20"
-							height="20"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							aria-hidden="true"
-						>
-							<circle cx="12" cy="12" r="5" />
-							<line x1="12" y1="1" x2="12" y2="3" />
-							<line x1="12" y1="21" x2="12" y2="23" />
-							<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-							<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-							<line x1="1" y1="12" x2="3" y2="12" />
-							<line x1="21" y1="12" x2="23" y2="12" />
-							<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-							<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-						</svg>
-					</button>
-
-					<button
-						class="nav__toggle"
-						aria-expanded="false"
-						aria-controls="nav-menu"
-						aria-label="Open navigation menu"
-					>
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-				</div>
-			</nav>
-		</header>
-
-		<main id="main-content">
-			<!-- Hero -->
-			<section id="hero" class="hero">
-				<div class="container">
-					<div class="hero__inner">
-						<span class="section-eyebrow animate-on-scroll stagger-1"
-							>Front-End Developer</span
-						>
-						<h1 class="hero__title animate-on-scroll stagger-2">
-							Hi, I'm <span class="accent">Cait</span> —<br />
-							I build things<br />
-							for the web.
-						</h1>
-						<p class="section-lead animate-on-scroll stagger-3">
-							Digital specialist and front-end developer based in the UK. I care
-							about clean code, accessibility, and thoughtful design.
-						</p>
-						<div class="hero__ctas animate-on-scroll stagger-4">
-							<a href="#projects" class="btn btn--primary">View my work</a>
-							<a href="#contact" class="btn btn--ghost">Get in touch</a>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- About -->
-			<section id="about" class="about">
-				<div class="container">
-					<div class="about__inner">
-						<div class="about__image animate-on-scroll">
-							<img
-								src="assets/images/cait-photo.jpg"
-								alt="Cait Lorenzo-Mahon"
-								width="200"
-								height="200"
-							/>
-						</div>
-						<div class="about__content">
-							<span class="section-eyebrow animate-on-scroll">About me</span>
-							<h2 class="section-title animate-on-scroll">
-								Digital specialist turned developer
-							</h2>
-							<p class="section-lead animate-on-scroll">
-								I'm a front-end developer and digital specialist with a
-								background in graphic design, marketing, and Drupal CMS.
-								Currently studying for a BSc in Computer Science while working
-								as Senior Website Officer at The Salvation Army UK.
-							</p>
-							<p class="animate-on-scroll">
-								I'm passionate about accessible, well-crafted web experiences
-								and am actively transitioning into a front-end development role.
-							</p>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- Projects -->
-			<section id="projects" class="projects">
-				<div class="container">
-					<div class="projects__header">
-						<div class="section-title-group">
-							<span class="section-eyebrow animate-on-scroll">Work</span>
-							<h2 class="section-title animate-on-scroll">Selected projects</h2>
-						</div>
-					</div>
-					<div class="projects__grid">
-						<article class="project-card animate-on-scroll stagger-1">
-							<div class="project-card__header">
-								<span class="project-card__tag">HTML/CSS/JS</span>
-							</div>
-							<div class="project-card__body">
-								<h3 class="project-card__title">CineSearch</h3>
-								<p class="project-card__desc">
-									A TV show discovery app built with vanilla JS and the TVMaze
-									API. Features live search, dynamic card rendering and a modal
-									detail view.
-								</p>
-							</div>
-							<div class="project-card__footer">
-								<a
-									href="https://github.com/clorenzomahon/cinesearch"
-									class="btn btn--ghost"
-									target="_blank"
-									rel="noopener"
-									>View on GitHub</a
-								>
-							</div>
-						</article>
-
-						<article class="project-card animate-on-scroll stagger-2">
-							<div class="project-card__header">
-								<span class="project-card__tag">HTML/CSS/JS</span>
-							</div>
-							<div class="project-card__body">
-								<h3 class="project-card__title">CLM Portfolio</h3>
-								<p class="project-card__desc">
-									This portfolio site — built from scratch with semantic HTML,
-									modular CSS and vanilla JS. Features dark mode, scroll
-									animations and full accessibility support.
-								</p>
-							</div>
-							<div class="project-card__footer">
-								<a
-									href="https://github.com/clorenzomahon/clorenzomahon.github.io"
-									class="btn btn--ghost"
-									target="_blank"
-									rel="noopener"
-									>View on GitHub</a
-								>
-							</div>
-						</article>
-					</div>
-				</div>
-			</section>
-			<!-- Skills -->
-			<section id="skills" class="skills section--dark">
-				<div class="container">
-					<div class="section-title-group">
-						<span class="section-eyebrow animate-on-scroll"
-							>What I work with</span
-						>
-						<h2 class="section-title animate-on-scroll">Skills</h2>
-					</div>
-					<div class="skills__grid">
-						<div class="skill-group animate-on-scroll stagger-1">
-							<h3 class="skill-group__title">Frontend</h3>
-							<ul role="list" class="skill-group__list">
-								<li class="skill-tag">HTML</li>
-								<li class="skill-tag">CSS</li>
-								<li class="skill-tag">JavaScript</li>
-								<li class="skill-tag">Accessibility</li>
-								<li class="skill-tag">Responsive Design</li>
-							</ul>
-						</div>
-
-						<div class="skill-group animate-on-scroll stagger-2">
-							<h3 class="skill-group__title">Tools & Platforms</h3>
-							<ul role="list" class="skill-group__list">
-								<li class="skill-tag">Git & GitHub</li>
-								<li class="skill-tag">Drupal</li>
-								<li class="skill-tag">VS Code</li>
-								<li class="skill-tag">Figma</li>
-								<li class="skill-tag">Google Analytics</li>
-							</ul>
-						</div>
-
-						<div class="skill-group animate-on-scroll stagger-3">
-							<h3 class="skill-group__title">Currently Learning</h3>
-							<ul role="list" class="skill-group__list">
-								<li class="skill-tag">React</li>
-								<li class="skill-tag">Node.js</li>
-								<li class="skill-tag">Python</li>
-								<li class="skill-tag">SQL</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
-
-		<script src="js/main.js"></script>
-	</body>
+	<body></body>
 </html>
