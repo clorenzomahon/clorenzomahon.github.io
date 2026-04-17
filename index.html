@@ -41,13 +41,7 @@
 
 		<title>Cait Lorenzo-Mahon | Front End Developer</title>
 
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
-			rel="stylesheet"
-		/>
+		<!-- Fonts (self-hosted) -->
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="styles/base.css" />
@@ -323,11 +317,16 @@
 				<div class="container">
 					<div class="about__inner">
 						<div class="about__avatar-wrap animate-on-scroll">
-							<img
-								src="assets/images/cait-photo.jpg"
-								alt="Cait Lorenzo-Mahon"
-								class="about__avatar-img"
-							/>
+							<picture>
+								<source srcset="assets/images/cait-photo.webp" type="image/webp" />
+								<img
+									src="assets/images/cait-photo.jpg"
+									alt="Cait Lorenzo-Mahon"
+									class="about__avatar-img"
+									loading="lazy"
+									decoding="async"
+								/>
+							</picture>
 						</div>
 
 						<div class="about__content">
@@ -1333,6 +1332,10 @@
        ===================================================================== -->
 		<footer class="site-footer" role="contentinfo">
 			<div class="container footer__inner">
+				<p class="footer__sustainability">
+					This site is designed with performance and sustainability in mind -
+					optimised for speed, accessibility, and a low carbon footprint.
+				</p>
 				<p class="footer__copy">
 					&copy; <span id="footer-year"></span> Cait Lorenzo-Mahon. Built with
 					love in 🇬🇧.
