@@ -20,11 +20,29 @@
 		background-color var(--duration-base) var(--ease-out);
 }
 
+/* Blur on a pseudo-element, NOT the header itself.
+   backdrop-filter on a direct parent traps position:fixed children in WebKit,
+   clipping the mobile menu to the header height when scrolled. */
+.site-header::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	transition:
+		-webkit-backdrop-filter var(--duration-base) var(--ease-out),
+		backdrop-filter var(--duration-base) var(--ease-out);
+}
+
 .site-header.is-scrolled {
 	border-color: var(--color-border);
-	backdrop-filter: blur(12px);
-	-webkit-backdrop-filter: blur(12px);
 	background-color: rgba(250, 249, 245, 0.85);
+}
+
+.site-header.is-scrolled::before {
+	-webkit-backdrop-filter: blur(12px);
+	backdrop-filter: blur(12px);
 }
 
 /* Dark mode header */
