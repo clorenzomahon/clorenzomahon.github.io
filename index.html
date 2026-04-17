@@ -3,6 +3,21 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-MJC1JHJ900"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-MJC1JHJ900");
+		</script>
+
 		<meta
 			name="description"
 			content="Cait Lorenzo-Mahon - Front End Developer. I build fast, accessible, and beautifully crafted web experiences."
@@ -519,241 +534,238 @@
 					</header>
 
 					<ul class="projects__grid" role="list">
-							<!-- Project 1: CineSearch -->
-							<li class="animate-on-scroll stagger-1">
-								<article class="card" aria-labelledby="project-1-title">
-									<div class="card__header">
-										<div class="card__icon" aria-hidden="true">
+						<!-- Project 1: CineSearch -->
+						<li class="animate-on-scroll stagger-1">
+							<article class="card" aria-labelledby="project-1-title">
+								<div class="card__header">
+									<div class="card__icon" aria-hidden="true">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M6 20.25h12m-7.5-3v3m-4.5-3v3m-2.25-3h15A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
+											/>
+										</svg>
+									</div>
+									<div class="card__links" aria-label="Links for CineSearch">
+										<!-- TODO: replace # with CineSearch GitHub repo URL -->
+										<a
+											href="https://github.com/clorenzomahon/CineSearch"
+											class="card__link"
+											aria-label="View CineSearch on GitHub (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</a>
+										<!-- TODO: replace # with CineSearch live URL -->
+										<a
+											href="#"
+											class="card__link"
+											aria-label="Coming soon"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												fill="none"
 												viewBox="0 0 24 24"
-												stroke-width="1.5"
+												stroke-width="1.75"
 												stroke="currentColor"
+												aria-hidden="true"
 											>
 												<path
 													stroke-linecap="round"
 													stroke-linejoin="round"
-													d="M6 20.25h12m-7.5-3v3m-4.5-3v3m-2.25-3h15A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
+													d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
 												/>
 											</svg>
-										</div>
-										<div class="card__links" aria-label="Links for CineSearch">
-											<!-- TODO: replace # with CineSearch GitHub repo URL -->
-											<a
-												href="https://github.com/clorenzomahon/CineSearch"
-												class="card__link"
-												aria-label="View CineSearch on GitHub (opens in new tab)"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													viewBox="0 0 24 24"
-													fill="currentColor"
-													aria-hidden="true"
-												>
-													<path
-														fill-rule="evenodd"
-														d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
-														clip-rule="evenodd"
-													/>
-												</svg>
-											</a>
-											<!-- TODO: replace # with CineSearch live URL -->
-											<a
-												href="#"
-												class="card__link"
-												aria-label="Coming soon"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke-width="1.75"
-													stroke="currentColor"
-													aria-hidden="true"
-												>
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-													/>
-												</svg>
-											</a>
-										</div>
+										</a>
 									</div>
-									<h3 id="project-1-title" class="card__title">CineSearch</h3>
-									<p class="card__desc">
-										A TV show discovery app built with vanilla JavaScript,
-										integrating the TVMaze API. Features search, modals,
-										localStorage favourites, and full keyboard accessibility -
-										built using a PR-based Git workflow with conventional
-										commits.
-									</p>
-									<footer class="card__footer">
-										<ul
-											class="card__tags"
-											role="list"
-											aria-label="Technologies used"
-										>
-											<li class="tag">JavaScript</li>
-											<li class="tag">REST API</li>
-											<li class="tag">DOM Manipulation</li>
-											<li class="tag">localStorage</li>
-											<li class="tag">Accessibility</li>
-											<li class="tag">Git</li>
-										</ul>
-									</footer>
-								</article>
-							</li>
+								</div>
+								<h3 id="project-1-title" class="card__title">CineSearch</h3>
+								<p class="card__desc">
+									A TV show discovery app built with vanilla JavaScript,
+									integrating the TVMaze API. Features search, modals,
+									localStorage favourites, and full keyboard accessibility -
+									built using a PR-based Git workflow with conventional commits.
+								</p>
+								<footer class="card__footer">
+									<ul
+										class="card__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">JavaScript</li>
+										<li class="tag">REST API</li>
+										<li class="tag">DOM Manipulation</li>
+										<li class="tag">localStorage</li>
+										<li class="tag">Accessibility</li>
+										<li class="tag">Git</li>
+									</ul>
+								</footer>
+							</article>
+						</li>
 
-							<!-- Project 2: Portfolio -->
-							<li class="animate-on-scroll stagger-2">
-								<article class="card" aria-labelledby="project-2-title">
-									<div class="card__header">
-										<div class="card__icon" aria-hidden="true">
+						<!-- Project 2: Portfolio -->
+						<li class="animate-on-scroll stagger-2">
+							<article class="card" aria-labelledby="project-2-title">
+								<div class="card__header">
+									<div class="card__icon" aria-hidden="true">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+											/>
+										</svg>
+									</div>
+									<div
+										class="card__links"
+										aria-label="Links for This portfolio"
+									>
+										<a
+											href="https://github.com/clorenzomahon/clorenzomahon.github.io"
+											class="card__link"
+											aria-label="View portfolio source on GitHub (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="currentColor"
+												aria-hidden="true"
+											>
+												<path
+													fill-rule="evenodd"
+													d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+													clip-rule="evenodd"
+												/>
+											</svg>
+										</a>
+										<a
+											href="https://clorenzomahon.github.io"
+											class="card__link"
+											aria-label="View portfolio live site (opens in new tab)"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												fill="none"
 												viewBox="0 0 24 24"
-												stroke-width="1.5"
+												stroke-width="1.75"
 												stroke="currentColor"
+												aria-hidden="true"
 											>
 												<path
 													stroke-linecap="round"
 													stroke-linejoin="round"
-													d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+													d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
 												/>
 											</svg>
-										</div>
-										<div
-											class="card__links"
-											aria-label="Links for This portfolio"
-										>
-											<a
-												href="https://github.com/clorenzomahon/clorenzomahon.github.io"
-												class="card__link"
-												aria-label="View portfolio source on GitHub (opens in new tab)"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													viewBox="0 0 24 24"
-													fill="currentColor"
-													aria-hidden="true"
-												>
-													<path
-														fill-rule="evenodd"
-														d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
-														clip-rule="evenodd"
-													/>
-												</svg>
-											</a>
-											<a
-												href="https://clorenzomahon.github.io"
-												class="card__link"
-												aria-label="View portfolio live site (opens in new tab)"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													fill="none"
-													viewBox="0 0 24 24"
-													stroke-width="1.75"
-													stroke="currentColor"
-													aria-hidden="true"
-												>
-													<path
-														stroke-linecap="round"
-														stroke-linejoin="round"
-														d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-													/>
-												</svg>
-											</a>
-										</div>
+										</a>
 									</div>
-									<h3 id="project-2-title" class="card__title">
-										This portfolio
-									</h3>
-									<p class="card__desc">
-										Designed and built from scratch in plain HTML, CSS, and
-										JavaScript. Modular CSS architecture, feature branch Git
-										workflow, and conventional commits throughout - built to
-										demonstrate real developer process, not just output.
-									</p>
-									<footer class="card__footer">
-										<ul
-											class="card__tags"
-											role="list"
-											aria-label="Technologies used"
-										>
-											<li class="tag">HTML</li>
-											<li class="tag">CSS</li>
-											<li class="tag">JavaScript</li>
-											<li class="tag">Git</li>
-											<li class="tag">Modular CSS</li>
-											<li class="tag">Accessibility</li>
-										</ul>
-									</footer>
-								</article>
-							</li>
+								</div>
+								<h3 id="project-2-title" class="card__title">This portfolio</h3>
+								<p class="card__desc">
+									Designed and built from scratch in plain HTML, CSS, and
+									JavaScript. Modular CSS architecture, feature branch Git
+									workflow, and conventional commits throughout - built to
+									demonstrate real developer process, not just output.
+								</p>
+								<footer class="card__footer">
+									<ul
+										class="card__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">HTML</li>
+										<li class="tag">CSS</li>
+										<li class="tag">JavaScript</li>
+										<li class="tag">Git</li>
+										<li class="tag">Modular CSS</li>
+										<li class="tag">Accessibility</li>
+									</ul>
+								</footer>
+							</article>
+						</li>
 
-							<!-- Project 3: Component Library (coming soon) -->
-							<li class="animate-on-scroll stagger-3">
-								<article class="card" aria-labelledby="project-3-title">
-									<div class="card__header">
-										<div class="card__icon" aria-hidden="true">
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke-width="1.5"
-												stroke="currentColor"
-											>
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
-												/>
-											</svg>
-										</div>
-										<div
-											class="card__links"
-											aria-label="Links for Component Library"
+						<!-- Project 3: Component Library (coming soon) -->
+						<li class="animate-on-scroll stagger-3">
+							<article class="card" aria-labelledby="project-3-title">
+								<div class="card__header">
+									<div class="card__icon" aria-hidden="true">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke-width="1.5"
+											stroke="currentColor"
 										>
-											<span class="card__coming-soon">Coming soon</span>
-										</div>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"
+											/>
+										</svg>
 									</div>
-									<h3 id="project-3-title" class="card__title">
-										Component Library
-									</h3>
-									<p class="card__desc">
-										A collection of reusable, accessible UI components built in
-										plain HTML, CSS, and JavaScript - with live documentation.
-										Currently in development.
-									</p>
-									<footer class="card__footer">
-										<ul
-											class="card__tags"
-											role="list"
-											aria-label="Technologies used"
-										>
-											<li class="tag">HTML</li>
-											<li class="tag">CSS</li>
-											<li class="tag">JavaScript</li>
-											<li class="tag">Design Systems</li>
-											<li class="tag">Accessibility</li>
-											<li class="tag">Web Components</li>
-										</ul>
-									</footer>
-								</article>
-							</li>
-						</ul>
+									<div
+										class="card__links"
+										aria-label="Links for Component Library"
+									>
+										<span class="card__coming-soon">Coming soon</span>
+									</div>
+								</div>
+								<h3 id="project-3-title" class="card__title">
+									Component Library
+								</h3>
+								<p class="card__desc">
+									A collection of reusable, accessible UI components built in
+									plain HTML, CSS, and JavaScript - with live documentation.
+									Currently in development.
+								</p>
+								<footer class="card__footer">
+									<ul
+										class="card__tags"
+										role="list"
+										aria-label="Technologies used"
+									>
+										<li class="tag">HTML</li>
+										<li class="tag">CSS</li>
+										<li class="tag">JavaScript</li>
+										<li class="tag">Design Systems</li>
+										<li class="tag">Accessibility</li>
+										<li class="tag">Web Components</li>
+									</ul>
+								</footer>
+							</article>
+						</li>
+					</ul>
 				</div>
 			</section>
 			<!-- =================================================================
@@ -1403,10 +1415,19 @@
 					type="button"
 					aria-label="Close Space Snake game"
 				>
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-						stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-linejoin="round" aria-hidden="true" width="20" height="20">
-						<path d="M18 6 6 18M6 6l12 12"/>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+						width="20"
+						height="20"
+					>
+						<path d="M18 6 6 18M6 6l12 12" />
 					</svg>
 				</button>
 				<iframe
