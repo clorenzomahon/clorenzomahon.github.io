@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Snake</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+
+    <div id="hud">
+      <div class="score-box">
+        <span class="label">SCORE</span>
+        <span id="score">0</span>
+      </div>
+      <div id="title-hud">SPACE SNAKE</div>
+      <div class="score-box">
+        <span class="label">BEST</span>
+        <span id="high-score">0</span>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button id="theme-btn" title="Toggle theme">☀</button>
+      <button id="restart-btn">↺ RESTART</button>
+      <button id="customize-btn">⚙ CUSTOMISE</button>
+    </div>
+
+    <canvas id="game" width="600" height="600"></canvas>
+
+    <p id="game-credit">built by me &times; Claude Code!</p>
+
+  </div>
+
+  <!-- Customisation modal -->
+  <div id="modal-overlay" class="hidden">
+    <div id="modal">
+      <h2>CUSTOMISE SNAKE</h2>
+
+      <div class="modal-section">
+        <div class="modal-label">SNAKE COLOUR</div>
+        <div id="color-options"></div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-label">HEAD STYLE</div>
+        <div id="head-options"></div>
+      </div>
+
+      <button id="modal-close">DONE</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') window.parent.postMessage({ type: 'snake-escape' }, '*');
+    });
+  </script>
+</body>
+</html>

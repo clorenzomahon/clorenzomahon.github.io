@@ -327,6 +327,54 @@
 	}
 
 	/* -------------------------------------------------------------------------
+     Space Snake Easter Egg
+     ------------------------------------------------------------------------- */
+	function initSnakeEasterEgg() {
+		var trigger  = document.getElementById("snake-trigger");
+		var modal    = document.getElementById("snake-modal");
+		var closeBtn = document.getElementById("snake-modal-close");
+		var backdrop = modal ? modal.querySelector(".snake-modal__backdrop") : null;
+		var iframe   = document.getElementById("snake-iframe");
+
+		if (!trigger || !modal || !closeBtn || !backdrop || !iframe) return;
+
+		var previousFocus = null;
+		var iframeLoaded  = false;
+
+		function openModal() {
+			if (!iframeLoaded) {
+				iframe.src = "games/space-snake/index.html";
+				iframeLoaded = true;
+			}
+			previousFocus = document.activeElement;
+			modal.removeAttribute("hidden");
+			document.body.style.overflow = "hidden";
+			trapFocus(modal);
+			requestAnimationFrame(function () { closeBtn.focus(); });
+			document.addEventListener("keydown", handleEscape);
+		}
+
+		function closeModal() {
+			modal.setAttribute("hidden", "");
+			document.body.style.overflow = "";
+			document.removeEventListener("keydown", handleEscape);
+			if (previousFocus && previousFocus.focus) previousFocus.focus();
+		}
+
+		function handleEscape(e) {
+			if (e.key === "Escape") { e.stopPropagation(); closeModal(); }
+		}
+
+		trigger.addEventListener("click", openModal);
+		closeBtn.addEventListener("click", closeModal);
+		backdrop.addEventListener("click", closeModal);
+
+		window.addEventListener("message", function (e) {
+			if (e.data && e.data.type === "snake-escape") closeModal();
+		});
+	}
+
+	/* -------------------------------------------------------------------------
      Boot
      ------------------------------------------------------------------------- */
 	initTimeline();
@@ -337,4 +385,5 @@
 	initActiveNav();
 	initFooterYear();
 	initThemeToggle();
+	initSnakeEasterEgg();
 })();

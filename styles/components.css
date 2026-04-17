@@ -1176,3 +1176,105 @@
 		animation: none;
 	}
 }
+
+/* ==========================================================================
+   PROJECTS HEADER ACTIONS + SNAKE EASTER EGG
+   ========================================================================== */
+
+.projects__header-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: var(--space-3);
+}
+
+.btn--snake {
+	border-color: var(--color-accent);
+	color: var(--color-accent);
+}
+
+.btn--snake:hover {
+	background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+}
+
+/* ---- Snake modal overlay ---- */
+.snake-modal {
+	position: fixed;
+	inset: 0;
+	z-index: 9000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-4);
+}
+
+.snake-modal[hidden] {
+	display: none;
+}
+
+.snake-modal__backdrop {
+	position: absolute;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	cursor: pointer;
+}
+
+.snake-modal__panel {
+	position: relative;
+	z-index: 1;
+	width: min(640px, 100%);
+	/* tall enough for 600px canvas + HUD + controls on any viewport */
+	height: min(760px, calc(100dvh - var(--space-8)));
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7);
+	background-color: #0f0e14;
+	display: flex;
+	flex-direction: column;
+}
+
+.snake-modal__close {
+	position: absolute;
+	top: var(--space-3);
+	right: var(--space-3);
+	z-index: 2;
+	width: 36px;
+	height: 36px;
+	border-radius: var(--radius-md);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-accent-2, #c4b5fd);
+	background-color: rgba(139, 127, 255, 0.12);
+	border: 1px solid rgba(139, 127, 255, 0.25);
+	transition:
+		background-color var(--duration-fast) var(--ease-out),
+		color var(--duration-fast) var(--ease-out);
+}
+
+.snake-modal__close:hover {
+	background-color: rgba(139, 127, 255, 0.25);
+	color: #fff;
+}
+
+.snake-modal__iframe {
+	width: 100%;
+	flex: 1;
+	border: none;
+	display: block;
+	min-height: 0;
+}
+
+@media (max-width: 680px) {
+	.snake-modal__panel {
+		width: 100%;
+		height: 100dvh;
+		border-radius: 0;
+	}
+
+	.snake-modal {
+		padding: 0;
+	}
+}

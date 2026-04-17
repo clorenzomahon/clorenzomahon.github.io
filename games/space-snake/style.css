@@ -1,0 +1,272 @@
+/* ── Tokens — matched to CLM Portfolio design tokens ────────────────────── */
+:root {
+  --bg:           #0f0e14;
+  --hud-text:     #f0eeff;
+  --accent:       #8b7fff;
+  --purple:       #c4b5fd;
+  --dim:          #9d96c0;
+  --canvas-bdr:   #2e2a42;
+  --shadow-a:     rgba(139,127,255,0.3);
+  --shadow-b:     rgba(139,127,255,0.1);
+  --btn-bg:       rgba(139,127,255,0.08);
+  --btn-bdr:      #2e2a42;
+  --btn-hover:    rgba(139,127,255,0.18);
+  --modal-bg:     #1a1825;
+  --modal-bdr:    #8b7fff;
+}
+
+[data-theme="light"] {
+  --bg:           #faf9f5;
+  --hud-text:     #141413;
+  --accent:       #6d5cff;
+  --purple:       #6d5cff;
+  --dim:          #5a5954;
+  --canvas-bdr:   #e5e3d8;
+  --shadow-a:     rgba(109,92,255,0.2);
+  --shadow-b:     rgba(109,92,255,0.08);
+  --btn-bg:       rgba(109,92,255,0.06);
+  --btn-bdr:      #e5e3d8;
+  --btn-hover:    rgba(109,92,255,0.12);
+  --modal-bg:     #f3f1ea;
+  --modal-bdr:    #6d5cff;
+}
+
+/* ── Reset ───────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Page ────────────────────────────────────────────────────────────────── */
+body {
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100%;
+  padding: 12px 0;
+  font-family: 'Orbitron', monospace;
+  color: var(--hud-text);
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+/* ── App shell ───────────────────────────────────────────────────────────── */
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── HUD ─────────────────────────────────────────────────────────────────── */
+#hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  padding: 0 4px;
+}
+
+.score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 100px;
+}
+
+.label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--dim);
+}
+
+#score, #high-score {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent), 0 0 20px color-mix(in srgb, var(--accent) 50%, transparent);
+  transition: text-shadow 0.1s;
+}
+
+#title-hud {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: var(--purple);
+  text-shadow: 0 0 12px var(--purple);
+}
+
+/* ── Controls row ────────────────────────────────────────────────────────── */
+#controls {
+  display: flex;
+  gap: 8px;
+  width: 600px;
+  justify-content: center;
+}
+
+#controls button {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--purple);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-bdr);
+  border-radius: 4px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+#controls button:hover {
+  background: var(--btn-hover);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+#theme-btn { font-size: 15px; padding: 4px 10px; }
+
+/* ── Canvas ──────────────────────────────────────────────────────────────── */
+#game {
+  display: block;
+  border: 1px solid var(--canvas-bdr);
+  border-radius: 4px;
+  box-shadow:
+    0 0 20px var(--shadow-a),
+    0 0 60px var(--shadow-b),
+    inset 0 0 40px rgba(0,0,0,0.2);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* ── Score flash ─────────────────────────────────────────────────────────── */
+@keyframes scoreFlash {
+  0%   { text-shadow: 0 0 10px var(--accent), 0 0 20px color-mix(in srgb,var(--accent) 50%,transparent); }
+  50%  { text-shadow: 0 0 30px var(--accent), 0 0 60px var(--accent), 0 0 80px #fff; }
+  100% { text-shadow: 0 0 10px var(--accent), 0 0 20px color-mix(in srgb,var(--accent) 50%,transparent); }
+}
+.flash { animation: scoreFlash 0.3s ease-out; }
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(3px);
+}
+#modal-overlay.hidden { display: none; }
+
+#modal {
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-bdr);
+  border-radius: 10px;
+  padding: 28px 32px 24px;
+  width: 380px;
+  max-width: 92vw;
+  box-shadow: 0 0 50px var(--shadow-a);
+  transition: background 0.3s;
+}
+
+#modal h2 {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--purple);
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.modal-section { margin-bottom: 20px; }
+
+.modal-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--dim);
+  margin-bottom: 10px;
+}
+
+/* ── Color swatches ──────────────────────────────────────────────────────── */
+#color-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+.color-swatch:hover    { transform: scale(1.12); }
+.color-swatch.selected { border-color: #fff; transform: scale(1.18); box-shadow: 0 0 12px #fff8; }
+
+/* ── Head style buttons ──────────────────────────────────────────────────── */
+#head-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.head-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 14px;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-bdr);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  font-family: 'Orbitron', monospace;
+  color: var(--dim);
+  min-width: 72px;
+  outline: none;
+}
+.head-btn:hover    { background: var(--btn-hover); color: var(--purple); }
+.head-btn.selected { border-color: var(--purple); color: var(--purple); background: var(--btn-hover); }
+
+.head-icon  { font-size: 20px; line-height: 1; }
+.head-label { font-size: 8px; letter-spacing: 1px; font-weight: 700; }
+
+/* ── Modal close ─────────────────────────────────────────────────────────── */
+#modal-close {
+  width: 100%;
+  margin-top: 6px;
+  font-family: 'Orbitron', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#modal-close:hover { background: rgba(0,200,220,0.12); }
+
+/* ── Credit line ─────────────────────────────────────────────────────────── */
+#game-credit {
+  font-family: 'Orbitron', monospace;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  #game, #hud, #controls { width: 100vw; max-width: 600px; }
+  #game { height: 100vw; max-height: 600px; }
+  #controls { padding: 0 8px; }
+}
