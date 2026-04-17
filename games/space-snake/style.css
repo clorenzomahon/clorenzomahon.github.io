@@ -264,9 +264,20 @@ body {
   margin-top: 4px;
 }
 
-/* ── Responsive ──────────────────────────────────────────────────────────── */
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+/* Scale to fit both viewport width AND height (canvas is always square).
+   160px = approx. height of HUD + controls + gaps + body padding.
+   min(100vw, calc(100vh - 160px), 600px) picks the tightest constraint. */
+#game {
+  width:  min(100vw, calc(100vh - 160px), 600px);
+  height: min(100vw, calc(100vh - 160px), 600px);
+}
+
+#hud,
+#controls {
+  width: min(100vw, calc(100vh - 160px), 600px);
+}
+
 @media (max-width: 640px) {
-  #game, #hud, #controls { width: 100vw; max-width: 600px; }
-  #game { height: 100vw; max-height: 600px; }
   #controls { padding: 0 8px; }
 }
