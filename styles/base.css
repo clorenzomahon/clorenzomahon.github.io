@@ -266,13 +266,26 @@ button {
 }
 
 /* ---- Focus Styles (WCAG 2.1 AA) ---- */
+/* :focus covers Safari (inconsistent :focus-visible support);
+   :focus:not(:focus-visible) removes the ring for mouse/pointer users */
+:focus {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 4px;
+	border-radius: var(--radius-sm);
+}
+
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
 :focus-visible {
 	outline: 2px solid var(--color-accent);
 	outline-offset: 4px;
 	border-radius: var(--radius-sm);
 }
 
-.section--dark :focus-visible {
+.section--dark :focus-visible,
+.section--dark :focus {
 	outline-color: var(--color-accent-2);
 }
 
@@ -311,9 +324,6 @@ button {
 	color: var(--color-dark-muted);
 }
 
-.section-title-group {
-	margin-bottom: var(--space-12);
-}
 
 /* ---- Accent ---- */
 .accent {

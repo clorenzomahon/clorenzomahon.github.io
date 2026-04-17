@@ -5,12 +5,8 @@
 	margin-right: auto;
 }
 
-.nav__logo {
-	opacity: 0.75;
-}
-
 .nav__logo:hover {
-	opacity: 1;
+	opacity: 0.65;
 }
 
 .nav__logo-img {
@@ -25,14 +21,12 @@
 }
 .nav__logo-img--dark {
 	display: block;
-	mix-blend-mode: multiply;
 }
 [data-theme="dark"] .nav__logo-img--dark {
 	display: none;
 }
 [data-theme="dark"] .nav__logo-img--light {
 	display: block;
-	mix-blend-mode: screen;
 }
 
 .nav__menu {
@@ -207,15 +201,11 @@
    HERO
    -------------------------------------------------------------------------- */
 
-.hero::before,
-.hero::after {
+.hero::before {
 	content: "";
 	position: absolute;
 	inset: 0;
 	pointer-events: none;
-}
-
-.hero::before {
 	background: radial-gradient(
 		ellipse 80% 60% at 60% 50%,
 		rgba(109, 92, 255, 0.12) 0%,
@@ -225,29 +215,11 @@
 	z-index: 0;
 }
 
-.hero::after {
-	background: radial-gradient(
-		ellipse 55% 45% at 10% 20%,
-		rgba(167, 139, 250, 0.1) 0%,
-		transparent 60%
-	);
-	animation: heroPulse2 11s ease-in-out infinite alternate;
-	z-index: 0;
-}
-
 [data-theme="dark"] .hero::before {
 	background: radial-gradient(
 		ellipse 80% 60% at 60% 50%,
 		rgba(109, 92, 255, 0.2) 0%,
 		transparent 70%
-	);
-}
-
-[data-theme="dark"] .hero::after {
-	background: radial-gradient(
-		ellipse 55% 45% at 10% 20%,
-		rgba(167, 139, 250, 0.12) 0%,
-		transparent 60%
 	);
 }
 
@@ -992,11 +964,6 @@
 	padding: var(--space-6);
 }
 
-.timeline__desc {
-	font-size: var(--font-size-sm);
-	color: var(--color-text-muted);
-	line-height: var(--line-height-relaxed);
-}
 
 .timeline__bullets {
 	list-style: none;
@@ -1104,14 +1071,6 @@
 	}
 }
 
-@keyframes marquee-right {
-	from {
-		transform: translateX(-50%);
-	}
-	to {
-		transform: translateX(0);
-	}
-}
 
 .marquee-section {
 	background-color: var(--color-dark-bg);
@@ -1158,9 +1117,6 @@
 	animation: marquee-left 80s linear infinite;
 }
 
-.marquee--right .marquee__track {
-	animation: marquee-right 80s linear infinite;
-}
 
 .marquee:hover .marquee__track {
 	animation-play-state: paused;
@@ -1185,8 +1141,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.marquee--left .marquee__track,
-	.marquee--right .marquee__track {
+	.marquee--left .marquee__track {
 		animation: none;
 	}
 }

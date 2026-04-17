@@ -64,14 +64,6 @@
 	}
 }
 
-@keyframes heroPulse2 {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0.4;
-	}
-}
 
 /* ============================================================================================
    IMPORTANT: prefers-reduced-motion MUST remain at the END of this file to guarantee it wins
