@@ -323,11 +323,16 @@
 				<div class="container">
 					<div class="about__inner">
 						<div class="about__avatar-wrap animate-on-scroll">
-							<img
-								src="assets/images/cait-photo.jpg"
-								alt="Cait Lorenzo-Mahon"
-								class="about__avatar-img"
-							/>
+							<picture>
+								<source srcset="assets/images/cait-photo.webp" type="image/webp" />
+								<img
+									src="assets/images/cait-photo.jpg"
+									alt="Cait Lorenzo-Mahon"
+									class="about__avatar-img"
+									loading="lazy"
+									decoding="async"
+								/>
+							</picture>
 						</div>
 
 						<div class="about__content">
@@ -1269,6 +1274,8 @@
 								<li class="tag">AI-assisted development</li>
 								<li class="tag">Web Performance</li>
 								<li class="tag">Design Systems</li>
+								<li class="tag">Sustainable Web Design</li>
+
 								<li class="tag">BSc Computing & IT (yr 2)</li>
 							</ul>
 						</div>
@@ -1357,26 +1364,6 @@
 									</svg>
 								</a>
 							</li>
-							<li>
-								<a
-									href="https://twitter.com/caitlorenzomahon"
-									class="social-link"
-									aria-label="Cait's X / Twitter profile (opens in new tab)"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24"
-										fill="currentColor"
-										aria-hidden="true"
-									>
-										<path
-											d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-										/>
-									</svg>
-								</a>
-							</li>
 						</ul>
 					</div>
 				</div>
@@ -1388,9 +1375,12 @@
        ===================================================================== -->
 		<footer class="site-footer" role="contentinfo">
 			<div class="container footer__inner">
+				<p class="footer__sustainability">
+					This site is designed with performance and sustainability in mind — optimised for speed, accessibility, and a low carbon footprint.
+				</p>
 				<p class="footer__copy">
 					&copy; <span id="footer-year"></span> Cait Lorenzo-Mahon. Built with
-					care.
+					love in 🇬🇧.
 				</p>
 				<a
 					href="#hero"

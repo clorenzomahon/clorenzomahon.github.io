@@ -649,11 +649,11 @@
    -------------------------------------------------------------------------- */
 
 .contact__lead {
-	font-size: clamp(var(--font-size-lg), 2.5vw, var(--font-size-2xl));
+	font-size: var(--font-size-base);
 	color: var(--color-text-muted);
 	line-height: var(--line-height-relaxed);
-	margin-top: var(--space-6);
-	margin-bottom: var(--space-10);
+	margin-top: var(--space-4);
+	margin-bottom: var(--space-6);
 }
 
 .contact__email {
@@ -703,6 +703,15 @@
 /* --------------------------------------------------------------------------
    FOOTER
    -------------------------------------------------------------------------- */
+
+.footer__sustainability {
+	font-size: var(--font-size-xs);
+	color: var(--color-text-muted);
+	opacity: 0.6;
+	text-align: center;
+	width: 100%;
+	margin-bottom: var(--space-3);
+}
 
 .footer__copy {
 	font-size: var(--font-size-sm);
