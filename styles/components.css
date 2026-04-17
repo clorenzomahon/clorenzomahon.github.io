@@ -517,6 +517,15 @@
 	background-color: var(--color-bg-subtle);
 }
 
+.card__coming-soon {
+	font-size: var(--font-size-xs);
+	font-weight: var(--font-weight-medium);
+	color: var(--color-accent);
+	letter-spacing: 0.04em;
+	opacity: 0.7;
+	align-self: center;
+}
+
 .card__link svg {
 	width: 16px;
 	height: 16px;

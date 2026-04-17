@@ -323,16 +323,11 @@
 				<div class="container">
 					<div class="about__inner">
 						<div class="about__avatar-wrap animate-on-scroll">
-							<picture>
-								<source srcset="assets/images/cait-photo.webp" type="image/webp" />
-								<img
-									src="assets/images/cait-photo.jpg"
-									alt="Cait Lorenzo-Mahon"
-									class="about__avatar-img"
-									loading="lazy"
-									decoding="async"
-								/>
-							</picture>
+							<img
+								src="assets/images/cait-photo.jpg"
+								alt="Cait Lorenzo-Mahon"
+								class="about__avatar-img"
+							/>
 						</div>
 
 						<div class="about__content">
@@ -557,13 +552,13 @@
 								<div class="timeline__panel-inner">
 									<ul class="timeline__bullets">
 										<li>
-											Sole owner of a large-scale production Drupal CMS —
-											managing architecture, content systems, and technical
+											Web lead for large-scale production Drupal CMS - managing
+											architecture, content systems, and technical
 											decision-making end-to-end
 										</li>
 										<li>
 											Deliver and manage sitewide charity appeals generating
-											approximately £14m annually — coordinating content,
+											approximately £14m annually - coordinating content,
 											technical execution, and performance across multiple
 											stakeholders
 										</li>
@@ -668,7 +663,7 @@
 											content systems, and module configuration
 										</li>
 										<li>
-											Led a full homepage redesign — conceiving and delivering a
+											Led a full homepage redesign - conceiving and delivering a
 											modernised layout and visual system that resulted in
 											measurable growth in visitor numbers and online donations
 										</li>
@@ -917,7 +912,7 @@
 					</header>
 
 					<ul class="projects__grid" role="list">
-						<!-- Project 1 -->
+						<!-- Project 1: CineSearch -->
 						<li class="animate-on-scroll stagger-1">
 							<article class="card" aria-labelledby="project-1-title">
 								<div class="card__header">
@@ -932,18 +927,16 @@
 											<path
 												stroke-linecap="round"
 												stroke-linejoin="round"
-												d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"
+												d="M6 20.25h12m-7.5-3v3m-4.5-3v3m-2.25-3h15A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z"
 											/>
 										</svg>
 									</div>
-									<div
-										class="card__links"
-										aria-label="Links for Luminary Design System"
-									>
+									<div class="card__links" aria-label="Links for CineSearch">
+										<!-- TODO: replace # with CineSearch GitHub repo URL -->
 										<a
-											href="https://github.com/clorenzomahon"
+											href="https://github.com/clorenzomahon/CineSearch"
 											class="card__link"
-											aria-label="View Luminary Design System on GitHub (opens in new tab)"
+											aria-label="View CineSearch on GitHub (opens in new tab)"
 											target="_blank"
 											rel="noopener noreferrer"
 										>
@@ -960,10 +953,11 @@
 												/>
 											</svg>
 										</a>
+										<!-- TODO: replace # with CineSearch live URL -->
 										<a
 											href="#"
 											class="card__link"
-											aria-label="View live demo of Luminary Design System (opens in new tab)"
+											aria-label="Coming soon"
 											target="_blank"
 											rel="noopener noreferrer"
 										>
@@ -984,13 +978,12 @@
 										</a>
 									</div>
 								</div>
-								<h3 id="project-1-title" class="card__title">
-									Luminary Design System
-								</h3>
+								<h3 id="project-1-title" class="card__title">CineSearch</h3>
 								<p class="card__desc">
-									A modular, accessible component library built with vanilla CSS
-									custom properties and Web Components. Designed for scalability
-									across multiple projects with zero framework dependencies.
+									A TV show discovery app built with vanilla JavaScript,
+									integrating the TVMaze API. Features search, modals,
+									localStorage favourites, and full keyboard accessibility —
+									built using a PR-based Git workflow with conventional commits.
 								</p>
 								<footer class="card__footer">
 									<ul
@@ -998,16 +991,18 @@
 										role="list"
 										aria-label="Technologies used"
 									>
-										<li class="tag">HTML</li>
-										<li class="tag">CSS</li>
-										<li class="tag">Web Components</li>
+										<li class="tag">JavaScript</li>
+										<li class="tag">REST API</li>
+										<li class="tag">DOM Manipulation</li>
+										<li class="tag">localStorage</li>
 										<li class="tag">Accessibility</li>
+										<li class="tag">Git</li>
 									</ul>
 								</footer>
 							</article>
 						</li>
 
-						<!-- Project 2 -->
+						<!-- Project 2: Portfolio -->
 						<li class="animate-on-scroll stagger-2">
 							<article class="card" aria-labelledby="project-2-title">
 								<div class="card__header">
@@ -1022,18 +1017,18 @@
 											<path
 												stroke-linecap="round"
 												stroke-linejoin="round"
-												d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"
+												d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
 											/>
 										</svg>
 									</div>
 									<div
 										class="card__links"
-										aria-label="Links for Wanderlust App"
+										aria-label="Links for This portfolio"
 									>
 										<a
-											href="https://github.com/clorenzomahon"
+											href="https://github.com/clorenzomahon/clorenzomahon.github.io"
 											class="card__link"
-											aria-label="View Wanderlust App on GitHub (opens in new tab)"
+											aria-label="View portfolio source on GitHub (opens in new tab)"
 											target="_blank"
 											rel="noopener noreferrer"
 										>
@@ -1051,9 +1046,9 @@
 											</svg>
 										</a>
 										<a
-											href="#"
+											href="https://clorenzomahon.github.io"
 											class="card__link"
-											aria-label="View live demo of Wanderlust App (opens in new tab)"
+											aria-label="View portfolio live site (opens in new tab)"
 											target="_blank"
 											rel="noopener noreferrer"
 										>
@@ -1074,12 +1069,12 @@
 										</a>
 									</div>
 								</div>
-								<h3 id="project-2-title" class="card__title">Wanderlust</h3>
+								<h3 id="project-2-title" class="card__title">This portfolio</h3>
 								<p class="card__desc">
-									A responsive travel planning app built with React and
-									integrated with the Google Maps and REST Country APIs.
-									Features itinerary building, offline caching, and a fully
-									keyboard-navigable UI.
+									Designed and built from scratch in plain HTML, CSS, and
+									JavaScript. Modular CSS architecture, feature branch Git
+									workflow, and conventional commits throughout — built to
+									demonstrate real developer process, not just output.
 								</p>
 								<footer class="card__footer">
 									<ul
@@ -1087,16 +1082,18 @@
 										role="list"
 										aria-label="Technologies used"
 									>
-										<li class="tag">React</li>
-										<li class="tag">TypeScript</li>
-										<li class="tag">REST API</li>
-										<li class="tag">CSS Modules</li>
+										<li class="tag">HTML</li>
+										<li class="tag">CSS</li>
+										<li class="tag">JavaScript</li>
+										<li class="tag">Git</li>
+										<li class="tag">Modular CSS</li>
+										<li class="tag">Accessibility</li>
 									</ul>
 								</footer>
 							</article>
 						</li>
 
-						<!-- Project 3 -->
+						<!-- Project 3: Component Library (coming soon) -->
 						<li class="animate-on-scroll stagger-3">
 							<article class="card" aria-labelledby="project-3-title">
 								<div class="card__header">
@@ -1117,59 +1114,18 @@
 									</div>
 									<div
 										class="card__links"
-										aria-label="Links for The Type Studio"
+										aria-label="Links for Component Library"
 									>
-										<a
-											href="https://github.com/clorenzomahon"
-											class="card__link"
-											aria-label="View The Type Studio on GitHub (opens in new tab)"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												viewBox="0 0 24 24"
-												fill="currentColor"
-												aria-hidden="true"
-											>
-												<path
-													fill-rule="evenodd"
-													d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
-													clip-rule="evenodd"
-												/>
-											</svg>
-										</a>
-										<a
-											href="#"
-											class="card__link"
-											aria-label="View live demo of The Type Studio (opens in new tab)"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												fill="none"
-												viewBox="0 0 24 24"
-												stroke-width="1.75"
-												stroke="currentColor"
-												aria-hidden="true"
-											>
-												<path
-													stroke-linecap="round"
-													stroke-linejoin="round"
-													d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-												/>
-											</svg>
-										</a>
+										<span class="card__coming-soon">Coming soon</span>
 									</div>
 								</div>
 								<h3 id="project-3-title" class="card__title">
-									The Type Studio
+									Component Library
 								</h3>
 								<p class="card__desc">
-									An interactive browser-based typography playground that lets
-									users explore font pairings, spacing, and scale in real time.
-									Built with vanilla JavaScript and the Google Fonts API.
+									A collection of reusable, accessible UI components built in
+									plain HTML, CSS, and JavaScript — with live documentation.
+									Currently in development.
 								</p>
 								<footer class="card__footer">
 									<ul
@@ -1177,10 +1133,12 @@
 										role="list"
 										aria-label="Technologies used"
 									>
-										<li class="tag">JavaScript</li>
+										<li class="tag">HTML</li>
 										<li class="tag">CSS</li>
-										<li class="tag">Google Fonts API</li>
-										<li class="tag">Canvas API</li>
+										<li class="tag">JavaScript</li>
+										<li class="tag">Design Systems</li>
+										<li class="tag">Accessibility</li>
+										<li class="tag">Web Components</li>
 									</ul>
 								</footer>
 							</article>
@@ -1375,9 +1333,6 @@
        ===================================================================== -->
 		<footer class="site-footer" role="contentinfo">
 			<div class="container footer__inner">
-				<p class="footer__sustainability">
-					This site is designed with performance and sustainability in mind — optimised for speed, accessibility, and a low carbon footprint.
-				</p>
 				<p class="footer__copy">
 					&copy; <span id="footer-year"></span> Cait Lorenzo-Mahon. Built with
 					love in 🇬🇧.
