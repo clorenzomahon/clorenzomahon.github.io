@@ -713,6 +713,17 @@
    FOOTER
    -------------------------------------------------------------------------- */
 
+.footer__carbon-link {
+	white-space: nowrap;
+	text-decoration: none;
+	text-underline-offset: 2px;
+	transition: text-decoration var(--duration-fast) var(--ease-out);
+}
+
+.footer__carbon-link:hover {
+	text-decoration: underline;
+}
+
 .footer__sustainability {
 	font-size: var(--font-size-xs);
 	color: var(--color-text-muted);
