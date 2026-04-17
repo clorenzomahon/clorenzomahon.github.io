@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:css": "csso styles/base.css styles/layout.css styles/components.css styles/animations.css --output dist/styles/main.min.css",
-    "build:js": "terser js/main.js --compress --mangle --output dist/js/main.min.js",
+    "build:css": "cat styles/base.css styles/layout.css styles/components.css styles/animations.css | csso --output styles/main.min.css",
+    "build:js": "terser js/main.js --compress --mangle --output js/main.min.js",
     "build": "npm run build:css && npm run build:js"
   },
   "devDependencies": {
