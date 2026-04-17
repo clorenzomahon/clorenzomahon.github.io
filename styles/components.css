@@ -1100,7 +1100,7 @@
 }
 
 .marquee-section {
-	background-color: #12111a;
+	background-color: var(--color-dark-bg);
 	overflow: hidden;
 	position: relative;
 	padding: var(--space-3) 0;
@@ -1119,12 +1119,12 @@
 
 .marquee-section::before {
 	left: 0;
-	background: linear-gradient(to right, #12111a 40%, transparent);
+	background: linear-gradient(to right, var(--color-dark-bg) 40%, transparent);
 }
 
 .marquee-section::after {
 	right: 0;
-	background: linear-gradient(to left, #12111a 40%, transparent);
+	background: linear-gradient(to left, var(--color-dark-bg) 40%, transparent);
 }
 
 .marquee {
@@ -1165,7 +1165,7 @@
 }
 
 .marquee__sep {
-	color: #7864e6;
+	color: var(--color-accent);
 	margin: 0 var(--space-3);
 	line-height: 1;
 }
