@@ -5,8 +5,12 @@
 	margin-right: auto;
 }
 
+.nav__logo {
+	opacity: 0.75;
+}
+
 .nav__logo:hover {
-	opacity: 0.65;
+	opacity: 1;
 }
 
 .nav__logo-img {
@@ -21,12 +25,14 @@
 }
 .nav__logo-img--dark {
 	display: block;
+	mix-blend-mode: multiply;
 }
 [data-theme="dark"] .nav__logo-img--dark {
 	display: none;
 }
 [data-theme="dark"] .nav__logo-img--light {
 	display: block;
+	mix-blend-mode: screen;
 }
 
 .nav__menu {
@@ -91,8 +97,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 36px;
-	height: 36px;
+	width: 44px;
+	height: 44px;
 	border-radius: var(--radius-md);
 	color: var(--color-text-muted);
 	transition:
@@ -128,8 +134,8 @@
 	display: none;
 	align-items: center;
 	justify-content: center;
-	width: 40px;
-	height: 40px;
+	width: 44px;
+	height: 44px;
 	border-radius: var(--radius-md);
 	color: var(--color-text);
 	transition: background-color var(--duration-fast) var(--ease-out);
@@ -318,6 +324,7 @@
 	align-items: center;
 	justify-content: center;
 	gap: var(--space-2);
+	min-height: 44px;
 	padding: var(--space-3) var(--space-6);
 	border-radius: var(--radius-full);
 	font-size: var(--font-size-sm);
@@ -503,8 +510,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 32px;
-	height: 32px;
+	width: 44px;
+	height: 44px;
 	border-radius: var(--radius-md);
 	color: var(--color-text-muted);
 	transition:
@@ -727,7 +734,6 @@
 .footer__sustainability {
 	font-size: var(--font-size-xs);
 	color: var(--color-text-muted);
-	opacity: 0.6;
 	text-align: center;
 	width: 100%;
 	margin-bottom: var(--space-3);
@@ -1090,13 +1096,21 @@
    ============================================================ */
 
 @keyframes marquee-left {
-	from { transform: translateX(0); }
-	to   { transform: translateX(-50%); }
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
 }
 
 @keyframes marquee-right {
-	from { transform: translateX(-50%); }
-	to   { transform: translateX(0); }
+	from {
+		transform: translateX(-50%);
+	}
+	to {
+		transform: translateX(0);
+	}
 }
 
 .marquee-section {
@@ -1108,7 +1122,7 @@
 
 .marquee-section::before,
 .marquee-section::after {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -1241,8 +1255,8 @@
 	top: var(--space-3);
 	right: var(--space-3);
 	z-index: 2;
-	width: 36px;
-	height: 36px;
+	width: 44px;
+	height: 44px;
 	border-radius: var(--radius-md);
 	display: flex;
 	align-items: center;
