@@ -17,7 +17,8 @@
 	border-bottom: 1px solid transparent;
 	transition:
 		border-color var(--duration-base) var(--ease-out),
-		background-color var(--duration-base) var(--ease-out);
+		background-color var(--duration-base) var(--ease-out),
+		height var(--duration-base) var(--ease-out);
 }
 
 /* Blur on a pseudo-element, NOT the header itself.
@@ -37,6 +38,7 @@
 }
 
 .site-header.is-scrolled {
+	height: 48px;
 	border-color: var(--color-border);
 	background-color: rgba(250, 249, 245, 0.85);
 }
