@@ -278,6 +278,12 @@
 				trigger.setAttribute("aria-expanded", String(opening));
 				item.classList.toggle("is-open", opening);
 				if (panel) panel.classList.toggle("is-open", opening);
+
+				if (opening) {
+					setTimeout(function () {
+						item.scrollIntoView({ behavior: "smooth", block: "start" });
+					}, 50);
+				}
 			});
 		});
 	}
