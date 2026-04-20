@@ -13,6 +13,13 @@
 	height: 36px;
 	width: auto;
 	display: block;
+	transform: scale(1);
+	transform-origin: left center;
+	transition: transform var(--duration-base) var(--ease-out);
+}
+
+.site-header.is-scrolled .nav__logo-img {
+	transform: scale(0.7);
 }
 
 /* Show dark logo in light mode, light logo in dark mode */
