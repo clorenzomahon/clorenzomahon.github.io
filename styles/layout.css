@@ -114,17 +114,22 @@ section {
 }
 
 /* ---- About Layout ---- */
+.about__header {
+	margin-bottom: var(--space-10);
+	max-width: 720px;
+}
+
 .about__inner {
 	display: grid;
-	grid-template-columns: 200px 1fr;
-	gap: var(--space-16);
-	align-items: center;
+	grid-template-columns: 260px 1fr;
+	gap: var(--space-12);
+	align-items: start;
 }
 
 @media (max-width: 768px) {
 	.about__inner {
 		grid-template-columns: 1fr;
-		gap: var(--space-10);
+		gap: var(--space-8);
 	}
 }
 
