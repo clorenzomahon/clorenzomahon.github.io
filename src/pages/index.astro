@@ -119,6 +119,13 @@ const latestPosts = (await getPosts()).slice(0, 3);
 		color: var(--brand-ink);
 	}
 
+	/* Everything without a brand colour, like Typography, uses the site purple instead. */
+	.skill-tag:not([style]):hover {
+		border-color: var(--accent);
+		background: var(--accent);
+		color: var(--on-accent);
+	}
+
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
