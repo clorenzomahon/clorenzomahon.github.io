@@ -406,6 +406,13 @@ import { TECH_ICONS } from "../data/tech-icons";
 		color: var(--brand-ink);
 	}
 
+	/* Unbranded tags use the site purple, except core skills, which are purple already. */
+	.skill-tag:not([style]):not(.skill-tag--core):hover {
+		border-color: var(--accent);
+		background: var(--accent);
+		color: var(--on-accent);
+	}
+
 	.skill-tag svg {
 		flex: none;
 	}
