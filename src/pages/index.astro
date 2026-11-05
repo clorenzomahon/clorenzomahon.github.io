@@ -8,6 +8,7 @@ import Logo from "../assets/clm-logo.svg";
 import FieldPanel from "../components/FieldPanel.astro";
 import { getPosts, getProjects } from "../lib/content";
 import { SKILLS } from "../data/site";
+import { TECH_COLOURS } from "../data/tech-colours";
 
 const featured = (await getProjects()).filter((project) => project.data.featured);
 const latestPosts = (await getPosts()).slice(0, 3);
@@ -51,7 +52,9 @@ const latestPosts = (await getPosts()).slice(0, 3);
 							<h3 class="skill__title">{title}</h3>
 							<p class="skill__body">{body}</p>
 							<ul class="tag-list" role="list">
-								{items.map((item) => <li class="tag">{item}</li>)}
+								{items.map((item) => (
+									<li class="tag skill-tag" style={TECH_COLOURS[item] && `--brand:${TECH_COLOURS[item].colour};--brand-ink:${TECH_COLOURS[item].ink}`}>{item}</li>
+								))}
 							</ul>
 						</li>
 					))
@@ -102,6 +105,20 @@ const latestPosts = (await getPosts()).slice(0, 3);
 </Base>
 
 <style>
+	/* Tools with a brand colour light up in it on hover, as on the About page. */
+	.skill-tag {
+		transition:
+			background-color 0.3s,
+			border-color 0.3s,
+			color 0.3s;
+	}
+
+	.skill-tag[style]:hover {
+		border-color: var(--brand);
+		background: var(--brand);
+		color: var(--brand-ink);
+	}
+
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;
