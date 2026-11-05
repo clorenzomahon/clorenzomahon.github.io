@@ -34,11 +34,7 @@ const meta = [status, year].filter(Boolean).join(" · ");
 			{
 				tags.map((tag) => {
 					const brand = TECH_COLOURS[tag];
-					return brand ? (
-						<li class="tag tile__tag--brand" style={`--brand:${brand.colour};--brand-ink:${brand.ink}`}>{tag}</li>
-					) : (
-						<li class="tag">{tag}</li>
-					);
+					return <li class="tag tile__tag" style={brand && `--brand:${brand.colour};--brand-ink:${brand.ink}`}>{tag}</li>;
 				})
 			}
 		</ul>
@@ -116,7 +112,7 @@ const meta = [status, year].filter(Boolean).join(" · ");
 	}
 
 	/* Sits above the title link's full-tile overlay, or it could never be hovered. */
-	.tile__tag--brand {
+	.tile__tag {
 		position: relative;
 		z-index: 1;
 		cursor: default;
@@ -126,10 +122,17 @@ const meta = [status, year].filter(Boolean).join(" · ");
 			color 0.3s;
 	}
 
-	.tile__tag--brand:hover {
+	/* Tools light up in their brand colour, and everything else in the site purple. */
+	.tile__tag[style]:hover {
 		border-color: var(--brand);
 		background: var(--brand);
 		color: var(--brand-ink);
+	}
+
+	.tile__tag:not([style]):hover {
+		border-color: var(--accent);
+		background: var(--accent);
+		color: var(--on-accent);
 	}
 
 	.tile__title a:focus-visible {
