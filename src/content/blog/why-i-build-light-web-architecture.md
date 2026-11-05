@@ -47,7 +47,7 @@ Most page bloat comes from images, scripts and clutter, so that's where I start.
 
 ## Practising what I preach (mostly)
 
-I built [this site](/work/this-portfolio/) to the same rules, so here are its real numbers.
+I built [this site](/work/this-portfolio/) to the same rules, so here are its real numbers. Website Carbon rates it A+, at 0.02g of CO₂ per page view, cleaner than 97% of web pages globally.
 
 The format change alone makes a big difference. My 560px headshot is 63 KB as a JPEG and 19 KB as a WebP, the same picture at about 70% less weight.
 
