@@ -5,6 +5,7 @@ import Base from "../../layouts/Base.astro";
 import ContactPanel from "../../components/ContactPanel.astro";
 import { getProjects } from "../../lib/content";
 import { SITE } from "../../data/site";
+import { TECH_COLOURS } from "../../data/tech-colours";
 
 export async function getStaticPaths() {
 	const projects = await getProjects();
@@ -61,7 +62,7 @@ const breadcrumbJsonLd = {
 				)
 			}
 			<ul class="tag-list" role="list" aria-label="Technologies used">
-				{tags.map((tag) => <li class="tag">{tag}</li>)}
+				{tags.map((tag) => <li class="tag" style={TECH_COLOURS[tag] && `--brand:${TECH_COLOURS[tag].colour};--brand-ink:${TECH_COLOURS[tag].ink}`}>{tag}</li>)}
 			</ul>
 			{
 				liveElsewhere && (

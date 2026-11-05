@@ -393,25 +393,7 @@ import { TECH_ICONS } from "../data/tech-icons";
 		font-size: clamp(17px, 1.4vw, 20px);
 	}
 
-	.skill-tag {
-		transition:
-			background-color 0.3s,
-			border-color 0.3s,
-			color 0.3s;
-	}
 
-	.skill-tag[style]:hover {
-		border-color: var(--brand);
-		background: var(--brand);
-		color: var(--brand-ink);
-	}
-
-	/* Unbranded tags use the site purple, except core skills, which are purple already. */
-	.skill-tag:not([style]):not(.skill-tag--core):hover {
-		border-color: var(--accent);
-		background: var(--accent);
-		color: var(--on-accent);
-	}
 
 	.skill-tag svg {
 		flex: none;

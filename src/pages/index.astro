@@ -105,27 +105,6 @@ const latestPosts = (await getPosts()).slice(0, 3);
 </Base>
 
 <style>
-	/* Tools with a brand colour light up in it on hover, as on the About page. */
-	.skill-tag {
-		transition:
-			background-color 0.3s,
-			border-color 0.3s,
-			color 0.3s;
-	}
-
-	.skill-tag[style]:hover {
-		border-color: var(--brand);
-		background: var(--brand);
-		color: var(--brand-ink);
-	}
-
-	/* Everything without a brand colour, like Typography, uses the site purple instead. */
-	.skill-tag:not([style]):hover {
-		border-color: var(--accent);
-		background: var(--accent);
-		color: var(--on-accent);
-	}
-
 	.hero-actions {
 		display: flex;
 		flex-wrap: wrap;

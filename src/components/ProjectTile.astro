@@ -116,23 +116,6 @@ const meta = [status, year].filter(Boolean).join(" · ");
 		position: relative;
 		z-index: 1;
 		cursor: default;
-		transition:
-			background-color 0.3s,
-			border-color 0.3s,
-			color 0.3s;
-	}
-
-	/* Tools light up in their brand colour, and everything else in the site purple. */
-	.tile__tag[style]:hover {
-		border-color: var(--brand);
-		background: var(--brand);
-		color: var(--brand-ink);
-	}
-
-	.tile__tag:not([style]):hover {
-		border-color: var(--accent);
-		background: var(--accent);
-		color: var(--on-accent);
 	}
 
 	.tile__title a:focus-visible {
