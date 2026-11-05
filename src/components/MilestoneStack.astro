@@ -1,0 +1,342 @@
+---
+import { MILESTONES } from "../data/about";
+
+// Each card's resting tilt and nudge, so the pile looks dropped by hand. Repeats if there are more cards.
+const LANDINGS = [
+	{ turn: -3, x: -10, y: 8 },
+	{ turn: 2.5, x: 14, y: 0 },
+	{ turn: -1.5, x: -6, y: -8 },
+	{ turn: 3.5, x: 10, y: -4 },
+	{ turn: -2.5, x: -14, y: -10 },
+	{ turn: 1.5, x: 6, y: -14 },
+];
+const years = [...new Set(MILESTONES.map(({ year }) => year))];
+---
+
+<section class="stack section" aria-labelledby="stack-heading" style={`--count:${MILESTONES.length}`}>
+	<div class="stack__pin">
+		<header class="stack__head">
+			<h2 id="stack-heading" class="section__title">Milestones<span class="accent">.</span></h2>
+			<p class="stack__year" aria-hidden="true">
+				{years.map((year, index) => <span class:list={["stack__year-item", { "is-current": index === 0 }]} data-stack-year={year}>{year}</span>)}
+			</p>
+		</header>
+		<ol class="stack__cards" role="list">
+			{
+				MILESTONES.map(({ year, colour, ink, sector, title, body, badge, photo, photoSize, photoPosition, photoTint }, index) => {
+					const { turn, x, y } = LANDINGS[index % LANDINGS.length];
+					return (
+						<li class:list={["card", { "card--badged": badge }]} data-year={year} data-turn={turn} data-x={x} data-y={y} style={`z-index:${index + 1};--card:${colour};--card-ink:${ink}${photoTint ? `;--tint:${photoTint}%` : ""}`}>
+							{photo && <img class="card__photo" src={photo} width={photoSize?.[0]} height={photoSize?.[1]} style={photoPosition && `object-position:${photoPosition}`} alt="" loading="lazy" decoding="async" />}
+							<div class="card__top">
+								<span class="card__label">
+									{sector && <span class="card__sector">{sector}</span>}
+								</span>
+								<span class="card__year">{year}</span>
+							</div>
+							{badge && (
+								<span class:list={["card__badge", { "card__badge--fill": badge.fill }]}>
+									<img src={badge.src} width={badge.width} height={badge.height} alt={badge.alt} loading="lazy" decoding="async" />
+								</span>
+							)}
+							<div>
+								<h3 class="card__title">{title}</h3>
+								<p class="card__body" set:html={body} />
+							</div>
+						</li>
+					);
+				})
+			}
+		</ol>
+	</div>
+</section>
+
+<style>
+	.stack__pin {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	/* Only needed once the cards are pinned, because the plain list shows each card's year. */
+	.stack__year {
+		display: none;
+		margin-top: clamp(8px, 1.4vw, 20px);
+		color: var(--accent);
+		font-size: clamp(48px, 7.4vw, 116px);
+		font-variant-numeric: tabular-nums;
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: -0.05em;
+	}
+
+	.stack.is-live .stack__year {
+		display: grid;
+	}
+
+	/*
+	 * Every year sits in the same spot on a permanent layer, so nothing ever shifts. The new
+	 * one appears solid underneath while the old one fades off the top, which keeps the
+	 * digits they share, like the "20", steady.
+	 */
+	.stack__year-item {
+		grid-area: 1 / 1;
+		z-index: 1;
+		opacity: 0;
+		transition: opacity 0.35s ease;
+		will-change: opacity;
+	}
+
+	.stack__year-item.is-current {
+		z-index: 0;
+		opacity: 1;
+		transition: none;
+	}
+
+	/* Out of sight once the big year takes over, but still read out by screen readers. */
+	.stack.is-live .card__year {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip-path: inset(50%);
+		white-space: nowrap;
+	}
+
+	.stack__cards {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	/* A plain list until the script takes over, so nothing is lost without motion or JS. */
+	.card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 32px;
+		position: relative;
+		min-height: 280px;
+		padding: clamp(24px, 3vw, 40px);
+		border-radius: var(--radius-tile);
+		background: var(--card);
+		box-shadow: 0 18px 50px rgb(14 14 16 / 0.22);
+		color: var(--card-ink);
+		--card: #17171a;
+		--card-ink: #ffffff;
+	}
+
+	/* Keeps the plain list's text clear of the sticker. */
+	.card--badged {
+		min-height: 360px;
+	}
+
+	/* A photo behind the card, tinted by the card's colour on top of it. */
+	.card__photo {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		border-radius: inherit;
+		object-fit: cover;
+		object-position: 50% 0; /* keeps faces and skylines in shot when the photo is cropped */
+		filter: grayscale(1) contrast(1.1);
+	}
+
+	.card:has(.card__photo)::after {
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background: linear-gradient(to top, var(--card) 22%, color-mix(in srgb, var(--card) var(--tint, 68%), transparent) 70%);
+		content: "";
+	}
+
+	.card > :not(.card__photo) {
+		position: relative;
+		z-index: 1;
+	}
+
+	.card__top {
+		display: flex;
+		justify-content: space-between;
+		gap: 16px;
+		font-weight: 500;
+	}
+
+	/* A round logo sticker, stuck on slightly crooked. */
+	.card > .card__badge {
+		position: absolute;
+		top: clamp(52px, 5.4vw, 76px);
+		right: clamp(24px, 3vw, 40px);
+		display: grid;
+		place-items: center;
+		width: clamp(92px, 11vw, 156px);
+		aspect-ratio: 1;
+		overflow: hidden; /* trims the square corners of logos on a white background */
+		border-radius: 50%;
+		background: #ffffff;
+		box-shadow:
+			0 1px 0 rgb(14 14 16 / 0.12),
+			0 8px 20px rgb(14 14 16 / 0.35);
+		rotate: 8deg;
+	}
+
+	.card__badge img {
+		display: block;
+		width: 84%;
+		height: auto;
+	}
+
+	.card__badge--fill img {
+		width: calc(100% - 8px);
+		height: calc(100% - 8px);
+		border-radius: 50%;
+		object-fit: cover;
+	}
+
+	.card__label {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	/* A solid chip in the card's own colours, so it stays readable over any photo. */
+	.card__sector {
+		padding: 3px 10px;
+		border-radius: 999px;
+		background: var(--card-ink);
+		color: var(--card);
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.5;
+		text-transform: uppercase;
+	}
+
+	.card__body :global(strong) {
+		font-weight: 700;
+	}
+
+	.card__title {
+		font-size: clamp(30px, 3.8vw, 56px);
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: -0.04em;
+	}
+
+	.card__body {
+		margin-top: 12px;
+		font-size: clamp(16px, 1.3vw, 19px);
+	}
+
+	/* Live: the section is tall, which gives the scroll distance, while its content stays pinned. */
+	.stack.is-live {
+		height: calc(100svh + var(--count) * 48svh);
+	}
+
+	.stack.is-live .stack__pin {
+		position: sticky;
+		top: var(--header-height);
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+		align-items: center;
+		height: calc(100svh - var(--header-height));
+		overflow: visible clip; /* hides cards still below the fold, but lets tilted corners show */
+	}
+
+	.stack.is-live .stack__cards {
+		position: relative;
+		display: block;
+		height: min(460px, 70%);
+		margin-right: 16px;
+	}
+
+	.stack.is-live .card {
+		position: absolute;
+		inset: 0;
+		min-height: 0;
+		will-change: transform;
+	}
+
+	@media (max-width: 860px) {
+		.stack.is-live .stack__pin {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto minmax(0, 1fr);
+			gap: 16px;
+			padding-block: 16px;
+		}
+
+		.stack.is-live .stack__year {
+			margin-top: 2px;
+		}
+
+		.stack.is-live .stack__cards {
+			height: min(400px, 92%);
+			align-self: center;
+			margin-inline: 12px;
+		}
+	}
+</style>
+
+<script>
+	/**
+	 * Scrolling through the tall section brings each card up from below the screen to land
+	 * on the pile. Tied to scroll position, so it reverses naturally. Visitors with reduced
+	 * motion, or without JS, keep the plain list.
+	 */
+	const HOLD = 0.35; // extra scroll, in cards, to enjoy the finished pile before moving on
+
+	const stack = document.querySelector<HTMLElement>(".stack");
+	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	if (stack && !reduced) {
+		const pin = stack.querySelector<HTMLElement>(".stack__pin");
+		const yearItems = [...stack.querySelectorAll<HTMLElement>("[data-stack-year]")];
+		let shownYear = yearItems[0]?.dataset.stackYear;
+		const cards = [...stack.querySelectorAll<HTMLElement>(".card")].map((el) => ({
+			el,
+			year: el.dataset.year ?? "",
+			turn: Number(el.dataset.turn),
+			x: Number(el.dataset.x),
+			y: Number(el.dataset.y),
+		}));
+		let frame = 0;
+
+		stack.classList.add("is-live");
+
+		const render = () => {
+			frame = 0;
+			const box = stack.getBoundingClientRect();
+			const travel = box.height - (pin?.offsetHeight ?? window.innerHeight);
+			const progress = Math.min(Math.max(-(box.top - (window.innerHeight - (pin?.offsetHeight ?? 0))) / travel, 0), 1);
+			const position = progress * (cards.length + HOLD);
+			// Starts far enough down to clear the bottom of the screen from wherever the card rests.
+			const below = window.innerHeight;
+			// Follows the card on its way in, switching as it passes the halfway point.
+			let year = cards[0]?.year ?? "";
+
+			cards.forEach(({ el, year: cardYear, turn, x, y }, index) => {
+				const t = Math.min(Math.max(position - index, 0), 1);
+				const eased = 1 - (1 - t) ** 3;
+				if (t >= 0.5) year = cardYear;
+				el.style.transform = `translate3d(${x * eased}px, ${y * eased + below * (1 - eased)}px, 0) rotate(${turn * eased + (turn > 0 ? -5 : 5) * (1 - eased)}deg)`;
+			});
+
+			if (year !== shownYear) {
+				shownYear = year;
+				for (const item of yearItems) item.classList.toggle("is-current", item.dataset.stackYear === year);
+			}
+		};
+
+		const request = () => {
+			if (!frame) frame = requestAnimationFrame(render);
+		};
+
+		window.addEventListener("scroll", request, { passive: true });
+		window.addEventListener("resize", request);
+		render();
+	}
+</script>

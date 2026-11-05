@@ -1,0 +1,87 @@
+<div class="field">
+	<picture class="field__walker">
+		<!-- A blank pixel, so small screens, where she's hidden, never download her. -->
+		<source media="(max-width: 960px)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" />
+		<img src="/images/walker-still.webp" alt="" width="299" height="693" decoding="async" />
+	</picture>
+</div>
+
+<style>
+	.field {
+		position: absolute;
+		inset: 0;
+		background-image:
+			linear-gradient(to right, rgb(167 139 250 / 0.2) 1px, transparent 1px),
+			linear-gradient(to bottom, rgb(167 139 250 / 0.2) 1px, transparent 1px);
+		background-size: 36px 36px;
+	}
+
+	/* Stands just above the bottom edge of the panel, so her feet aren't cut off. */
+	.field__walker {
+		position: absolute;
+		right: calc(var(--panel-pad) + 16px);
+		bottom: 10px;
+		height: clamp(170px, 17vw, 250px);
+		aspect-ratio: 299 / 693;
+		margin-bottom: -2px; /* the image has a sliver of empty space under her feet */
+	}
+
+	.field__walker img {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	/* Phones have no free space: a solid figure would sit behind the headline. */
+	@media (max-width: 960px) {
+		.field__walker {
+			display: none;
+		}
+	}
+</style>
+
+<script>
+	const field = document.querySelector<HTMLElement>(".field");
+	const hero = field?.closest<HTMLElement>(".hero");
+
+	/**
+	 * She stands still until the torch finds her, then walks for as long as it stays on
+	 * her. Visitors start and stop it themselves by moving the torch, so no pause button is
+	 * needed, and the animation only downloads if someone finds her.
+	 */
+	const WALK = "/images/walker.webp";
+	const STILL = "/images/walker-still.webp";
+	const walker = field?.querySelector<HTMLImageElement>("img");
+
+	if (hero && walker) {
+		const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+		const small = window.matchMedia("(max-width: 960px)");
+		let lit = false;
+
+		hero.addEventListener("torchmove", ((event: CustomEvent<{ x: number; y: number }>) => {
+			if (small.matches) return; // she's hidden here, so nothing should load
+
+			const box = hero.getBoundingClientRect();
+			const her = walker.getBoundingClientRect();
+			const distance = Math.hypot(
+				event.detail.x - (her.left + her.width / 2 - box.left),
+				event.detail.y - (her.top + her.height / 2 - box.top),
+			);
+			// Matches the torch's size in PageHero: she counts as found once she's clearly in its light.
+			const reach = Math.min(Math.max(200, window.innerWidth * 0.26), 360) * 0.7;
+			const nowLit = distance < reach;
+
+			if (nowLit === lit) return;
+			lit = nowLit;
+
+			walker.src = lit && !reduced.matches ? WALK : STILL;
+		}) as EventListener);
+
+		// The torch stays put when the cursor leaves the hero, so she needs telling to stop.
+		hero.addEventListener("pointerleave", (event) => {
+			if (event.pointerType !== "mouse" || small.matches) return;
+			lit = false;
+			walker.src = STILL;
+		});
+	}
+</script>

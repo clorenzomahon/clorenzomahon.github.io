@@ -1,0 +1,165 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { TECH_COLOURS } from "../data/tech-colours";
+
+interface Props {
+	project: CollectionEntry<"projects">;
+	/** Large black tile that spans the full width of the grid. */
+	feature?: boolean;
+	/** h3 under a section heading, or h2 on a page with no section heading. */
+	heading?: "h2" | "h3";
+}
+
+const { project, feature = false, heading: Heading = "h3" } = Astro.props;
+const { title, summary, tags, status, image, imageAlt, year } = project.data;
+// Every tile opens the project's own page, which links on to the live site.
+const href = `/work/${project.id}/`;
+const meta = [status, year].filter(Boolean).join(" · ");
+---
+
+<article class:list={["tile", { "tile--feature panel": feature }]}>
+	{image && <img class="tile__image" src={image} alt={imageAlt ?? ""} loading="lazy" decoding="async" />}
+	{meta && <p class="tile__meta">{meta}</p>}
+	<div class="tile__body">
+		<Heading class="tile__title">
+			<a href={href}>
+				{title}
+				<svg class="tile__arrow" viewBox="0 0 24 24" aria-hidden="true">
+					<path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2"></path>
+				</svg>
+			</a>
+		</Heading>
+		<p class="tile__summary">{summary}</p>
+		<ul class="tag-list" role="list" aria-label="Technologies used">
+			{
+				tags.map((tag) => {
+					const brand = TECH_COLOURS[tag];
+					return brand ? (
+						<li class="tag tile__tag--brand" style={`--brand:${brand.colour};--brand-ink:${brand.ink}`}>{tag}</li>
+					) : (
+						<li class="tag">{tag}</li>
+					);
+				})
+			}
+		</ul>
+	</div>
+</article>
+
+<style>
+	.tile {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: clamp(24px, 4vw, 64px);
+		height: 100%;
+		padding: clamp(24px, 3vw, 40px);
+		overflow: hidden;
+		border-radius: var(--radius-tile);
+		background: var(--stone);
+		transition: transform 0.35s var(--ease);
+	}
+
+	.tile:hover {
+		transform: translateY(-4px);
+	}
+
+	.tile--feature {
+		background: var(--panel);
+		padding: clamp(28px, 4vw, 64px);
+		border-radius: var(--radius-panel);
+	}
+
+	.tile__image {
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		object-fit: cover;
+		border-radius: calc(var(--radius-tile) - 8px);
+	}
+
+	.tile__meta {
+		color: var(--slate);
+		font-size: 0.9375rem;
+		font-weight: 500;
+	}
+
+	.tile__body {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	.tile__title {
+		font-size: clamp(30px, 3.4vw, 48px);
+		font-weight: 500;
+		line-height: 1.02;
+		letter-spacing: -0.04em;
+	}
+
+	.tile--feature .tile__title {
+		font-size: clamp(32px, 4.2vw, 60px);
+	}
+
+	.tile__title a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.28em;
+		text-decoration: none;
+	}
+
+	/* The whole tile is clickable, through the single title link. */
+	.tile__title a::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+	}
+
+	/* Sits above the title link's full-tile overlay, or it could never be hovered. */
+	.tile__tag--brand {
+		position: relative;
+		z-index: 1;
+		cursor: default;
+		transition:
+			background-color 0.3s,
+			border-color 0.3s,
+			color 0.3s;
+	}
+
+	.tile__tag--brand:hover {
+		border-color: var(--brand);
+		background: var(--brand);
+		color: var(--brand-ink);
+	}
+
+	.tile__title a:focus-visible {
+		outline: none;
+	}
+
+	.tile__title a:focus-visible::after {
+		outline: 2px solid var(--ink);
+		outline-offset: -6px;
+		border-radius: var(--radius-tile);
+	}
+
+	.tile__arrow {
+		flex: none;
+		width: 0.62em;
+		height: 0.62em;
+		transition: transform 0.35s var(--ease);
+	}
+
+	.tile:hover .tile__arrow {
+		color: var(--accent);
+		transform: translateX(0.12em);
+	}
+
+	.tile--feature .tile__arrow {
+		color: var(--accent);
+	}
+
+	.tile__summary {
+		max-width: 62ch;
+		color: var(--slate);
+	}
+</style>

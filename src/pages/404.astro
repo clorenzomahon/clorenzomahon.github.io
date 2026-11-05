@@ -1,0 +1,27 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+---
+
+<Base title="Page not found" description="This page doesn't exist." noindex>
+	<div class="container">
+		<PageHero compact>
+			<div slot="reveal" class="hero-grid"></div>
+			<Fragment slot="title">Page not<br />found<span class="accent">.</span></Fragment>
+			<p slot="intro">This page has moved or never existed. These might help:</p>
+			<div class="not-found__links">
+				<a class="btn btn--primary" href="/">Back to home</a>
+				<a class="btn btn--ghost" href="/work/">See my work</a>
+				<a class="btn btn--ghost" href="/blog/">Read the blog</a>
+			</div>
+		</PageHero>
+	</div>
+</Base>
+
+<style>
+	.not-found__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+</style>

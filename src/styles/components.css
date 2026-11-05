@@ -1,0 +1,238 @@
+/* Shared by more than one component or page. Anything used in one place lives
+   in that component's scoped <style>. */
+
+.section {
+	margin-top: var(--section-gap);
+}
+
+.section__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: end;
+	justify-content: space-between;
+	gap: 16px 32px;
+	margin-bottom: clamp(28px, 4vw, 56px);
+}
+
+.section__title {
+	font-size: clamp(38px, 5.4vw, 80px);
+	font-weight: 500;
+	line-height: 1;
+	letter-spacing: -0.045em;
+	text-wrap: balance;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-height: 48px;
+	padding: 11px 23px; /* keeps the same overall size with the thicker outline */
+	border: var(--outline) solid var(--ink);
+	border-radius: 999px;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.2;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		background-color 0.2s,
+		color 0.2s;
+}
+
+.btn--primary {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.btn--primary:hover {
+	background: transparent;
+	color: var(--ink);
+}
+
+.panel .btn--primary {
+	border-color: var(--accent);
+	background: var(--accent);
+	color: var(--on-accent);
+}
+
+.panel .btn--primary:hover {
+	background: transparent;
+	color: var(--ink);
+}
+
+.accent {
+	color: var(--accent);
+}
+
+.btn--ghost {
+	background: transparent;
+	color: var(--ink);
+}
+
+.btn--ghost:hover {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.text-link {
+	font-weight: 500;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 4px;
+}
+
+.text-link:hover {
+	color: var(--accent);
+	text-decoration-thickness: 2px;
+}
+
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.tag {
+	padding: 2px 10px; /* keeps the same overall size with the thicker outline */
+	border: var(--outline) solid var(--line);
+	border-radius: 999px;
+	color: var(--slate);
+	font-size: 0.8125rem;
+	line-height: 1.5;
+}
+
+/* Long-form text whose elements can't take classes, such as Markdown posts. */
+.prose {
+	max-width: calc(720px + 2 * var(--panel-pad));
+	padding-inline: var(--panel-pad);
+	padding-top: clamp(40px, 5vw, 72px);
+	font-size: 1.125rem;
+	line-height: 1.65;
+}
+
+.prose > * + * {
+	margin-top: 1.25em;
+}
+
+.prose h2 {
+	margin-top: 2.2em;
+	font-size: clamp(28px, 3vw, 40px);
+	font-weight: 500;
+	line-height: 1.1;
+	letter-spacing: -0.035em;
+	text-wrap: balance;
+}
+
+.prose h3 {
+	margin-top: 1.8em;
+	font-size: clamp(21px, 2vw, 26px);
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+
+.prose h2 + *,
+.prose h3 + * {
+	margin-top: 0.75em;
+}
+
+.prose a {
+	color: var(--accent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+.prose a:hover {
+	text-decoration-thickness: 2px;
+}
+
+.prose strong {
+	font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+	padding-left: 1.3em;
+}
+
+.prose li + li {
+	margin-top: 0.5em;
+}
+
+.prose li::marker {
+	color: var(--accent);
+}
+
+.prose blockquote {
+	margin-inline: 0;
+	padding-left: 1.1em;
+	border-left: 3px solid var(--accent);
+	color: var(--slate);
+}
+
+.prose code {
+	padding: 0.1em 0.35em;
+	border-radius: 6px;
+	background: var(--stone);
+	font-size: 0.88em;
+}
+
+.prose pre {
+	overflow-x: auto;
+	padding: 20px;
+	border-radius: var(--radius-tile);
+	font-size: 0.9rem;
+}
+
+.prose pre code {
+	padding: 0;
+	background: none;
+}
+
+.prose img {
+	height: auto;
+	border-radius: var(--radius-tile);
+}
+
+/* The project tiles on the home and Work pages. */
+.tiles {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: clamp(12px, 1.4vw, 20px);
+}
+
+.tiles__wide {
+	grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+	.tiles {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* The hidden grid a compact page hero's torch reveals. */
+.hero-grid {
+	position: absolute;
+	inset: 0;
+	background-image:
+		linear-gradient(to right, rgb(167 139 250 / 0.2) 1px, transparent 1px),
+		linear-gradient(to bottom, rgb(167 139 250 / 0.2) 1px, transparent 1px);
+	background-size: 36px 36px;
+}
+
+.pulse {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--accent);
+	animation: pulse 2.4s ease-in-out 2; /* stops within five seconds, for accessibility */
+}
+
+@keyframes pulse {
+	50% {
+		opacity: 0.3;
+	}
+}

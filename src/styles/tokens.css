@@ -1,0 +1,60 @@
+/* Mono palette plus one accent. "paper" is the page surface and "ink" the main
+   text, so components flip automatically in dark mode and inside dark panels.
+   To change the accent, edit the three --accent values in this file. */
+:root {
+	color-scheme: light;
+	--accent: #5b49f0;
+	--on-accent: #ffffff;
+	--ink: #0b0b0c;
+	--paper: #ffffff;
+	--fog: #f4f4f2;
+	--panel: #0e0e10;
+	--stone: #e3e5e8;
+	--slate: #55555a;
+	--mute: #5e5e63;
+	--line: rgb(11 11 12 / 0.14);
+	--outline: 2px; /* tags, buttons and icon links */
+
+	--font-sans: "Instrument Sans Variable", "Helvetica Neue", system-ui, sans-serif;
+
+	--page-max: 1400px;
+	--gutter: clamp(16px, 3vw, 32px);
+	--panel-pad: clamp(24px, 5vw, 80px);
+	--section-gap: clamp(72px, 10vw, 144px);
+	--radius-panel: clamp(24px, 3vw, 36px);
+	--radius-tile: clamp(20px, 2vw, 28px);
+	--header-height: 72px;
+	--ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--accent: #a78bfa;
+	--on-accent: #0b0b0c;
+	--ink: #f2f2f0;
+	--paper: #0b0b0c;
+	--fog: #141416;
+	--panel: #17171a;
+	--stone: #1e1f22;
+	--slate: #a9a9b0;
+	--mute: #93939a;
+	--line: rgb(242 242 240 / 0.16);
+}
+
+/* Dark panels look the same in either theme, so everything inside them uses
+   the light-on-dark values. */
+.panel {
+	--accent: #a78bfa;
+	--on-accent: #0b0b0c;
+	--ink: #ffffff;
+	--paper: #0e0e10;
+	--slate: rgb(255 255 255 / 0.72);
+	--mute: rgb(255 255 255 / 0.66);
+	--line: rgb(255 255 255 / 0.2);
+	background: var(--panel);
+	color: var(--ink);
+}
+
+:root[data-theme="dark"] .panel {
+	box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.08);
+}

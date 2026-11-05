@@ -1,0 +1,51 @@
+<button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode">
+	<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+		<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
+		<path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"></path>
+	</svg>
+</button>
+
+<style>
+	.theme-toggle {
+		display: grid;
+		place-items: center;
+		width: 44px;
+		height: 44px;
+		padding: 0;
+		border: 0;
+		border-radius: 50%;
+		background: transparent;
+		cursor: pointer;
+		transition: background-color 0.2s;
+	}
+
+	.theme-toggle:hover {
+		background: var(--stone);
+	}
+
+	:global([data-theme="dark"]) .theme-toggle svg {
+		transform: rotate(180deg);
+	}
+</style>
+
+<script>
+	const button = document.getElementById("theme-toggle");
+	const root = document.documentElement;
+
+	if (button) {
+		const sync = () =>
+			button.setAttribute("aria-pressed", String(root.dataset.theme === "dark"));
+
+		sync();
+		button.addEventListener("click", () => {
+			const next = root.dataset.theme === "dark" ? "light" : "dark";
+			root.dataset.theme = next;
+			try {
+				localStorage.setItem("theme", next);
+			} catch {
+				// Storage blocked: the theme still applies for this page view.
+			}
+			sync();
+		});
+	}
+</script>

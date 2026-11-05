@@ -1,0 +1,97 @@
+---
+import "@fontsource-variable/instrument-sans";
+import "../styles/tokens.css";
+import "../styles/base.css";
+import "../styles/components.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { SITE } from "../data/site";
+
+interface Props {
+	/** Page name. Leave out on the home page to use the full site title. */
+	title?: string;
+	/** The whole <title>, for when "Page | Name" isn't the best wording for search. */
+	metaTitle?: string;
+	description?: string;
+	ogType?: "website" | "article";
+	/** Share image in /public, 1200 x 630. PNG or JPEG, as LinkedIn ignores WebP. */
+	image?: string;
+	/** Marks the page as being about Cait, for the home and About pages. */
+	profile?: boolean;
+	noindex?: boolean;
+}
+
+const { title, metaTitle, description = SITE.description, ogType = "website", image = "/images/og-default.png", profile = false, noindex = false } = Astro.props;
+const fullTitle = metaTitle ?? (title ? `${title} | ${SITE.name}` : SITE.title);
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const shareImage = new URL(image, Astro.site);
+
+const personJsonLd = {
+	"@context": "https://schema.org",
+	"@type": "ProfilePage",
+	mainEntity: {
+		"@type": "Person",
+		name: SITE.name,
+		url: Astro.site,
+		image: new URL("/images/cait_headshot.jpeg", Astro.site),
+		jobTitle: "Front End Developer",
+		sameAs: [SITE.github, SITE.linkedin],
+		knowsAbout: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Drupal", "Web Accessibility", "WCAG", "Figma"],
+	},
+};
+---
+
+<!doctype html>
+<html lang="en-GB" data-theme="light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{fullTitle}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content={SITE.name} />
+		<meta name="theme-color" content="#0b0b0c" />
+		{noindex && <meta name="robots" content="noindex" />}
+		<link rel="canonical" href={canonical} />
+		<!-- Browsers cache favicons hard, so rename the files whenever the icon changes. -->
+		<link rel="icon" type="image/svg+xml" href="/favicon-purple.svg" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-purple-32.png" />
+		<link rel="apple-touch-icon" href="/icons/apple-touch-icon-purple.png" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="alternate" type="application/rss+xml" title={`${SITE.name}'s blog`} href="/rss.xml" />
+		<meta property="og:type" content={ogType} />
+		<meta property="og:site_name" content={SITE.name} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={shareImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={fullTitle} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={fullTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={shareImage} />
+		{profile && <script is:inline type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />}
+		<slot name="head" />
+		<script is:inline>
+			try {
+				if (localStorage.getItem("theme") === "dark") {
+					document.documentElement.setAttribute("data-theme", "dark");
+				}
+			} catch (e) {}
+
+			// No right-click "Save image" menu on images. Everything else keeps its normal menu.
+			document.addEventListener("contextmenu", (e) => {
+				if (e.target instanceof HTMLImageElement) e.preventDefault();
+			});
+		</script>
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to main content</a>
+		<Nav />
+		<main id="main">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
