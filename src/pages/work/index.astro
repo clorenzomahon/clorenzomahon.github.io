@@ -1,0 +1,28 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHero from "../../components/PageHero.astro";
+import ProjectGrid from "../../components/ProjectGrid.astro";
+import ContactPanel from "../../components/ContactPanel.astro";
+import { getProjects } from "../../lib/content";
+
+const projects = await getProjects();
+---
+
+<Base
+	metaTitle="Web Development Projects | Cait Lorenzo-Mahon"
+	description="Web development projects by Cait Lorenzo-Mahon, a Front End and Drupal Developer building fast, accessible, sustainable websites."
+>
+	<div class="container">
+		<PageHero compact>
+			<div slot="reveal" class="hero-grid"></div>
+			<Fragment slot="title">My work<span class="accent">.</span></Fragment>
+			<p slot="intro">What I've built so far, with more on the way.</p>
+		</PageHero>
+
+		<section class="section" aria-label="Projects">
+			<ProjectGrid projects={projects} heading="h2" />
+		</section>
+
+		<ContactPanel />
+	</div>
+</Base>

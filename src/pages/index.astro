@@ -1,0 +1,249 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import ProjectGrid from "../components/ProjectGrid.astro";
+import PostRow from "../components/PostRow.astro";
+import ContactPanel from "../components/ContactPanel.astro";
+import Logo from "../assets/clm-logo.svg";
+import FieldPanel from "../components/FieldPanel.astro";
+import { getPosts, getProjects } from "../lib/content";
+import { SKILLS } from "../data/site";
+
+const featured = (await getProjects()).filter((project) => project.data.featured);
+const latestPosts = (await getPosts()).slice(0, 3);
+
+---
+
+<Base profile>
+	<div class="container">
+		<PageHero>
+			<FieldPanel slot="reveal" />
+			<Fragment slot="title">Hi, I'm Cait<span class="accent">.</span><br />I build for the web<span class="accent">.</span></Fragment>
+			<p slot="intro">
+				I'm a Front End and Drupal Developer, crafting fast, accessible, sustainable interfaces that are good for the planet.
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn--primary" href="#work">View my work</a>
+				<a class="btn btn--ghost" href="#contact">Get in touch</a>
+			</div>
+		</PageHero>
+
+		<section id="work" class="section" aria-labelledby="work-heading">
+			<header class="section__head">
+				<div>
+					<h2 id="work-heading" class="section__title">Projects</h2>
+				</div>
+				{featured.length >= 3 && <a class="btn btn--ghost" href="/work/">All projects</a>}
+			</header>
+			<ProjectGrid projects={featured} />
+		</section>
+
+		<section id="skills" class="section" aria-labelledby="skills-heading">
+			<header class="section__head">
+				<div>
+					<h2 id="skills-heading" class="section__title">What I do</h2>
+				</div>
+			</header>
+			<ol class="skills" role="list">
+				{
+					SKILLS.map(({ title, body, items }) => (
+						<li class="skill">
+							<h3 class="skill__title">{title}</h3>
+							<p class="skill__body">{body}</p>
+							<ul class="tag-list" role="list">
+								{items.map((item) => <li class="tag">{item}</li>)}
+							</ul>
+						</li>
+					))
+				}
+			</ol>
+		</section>
+
+		<section class="meet section" aria-labelledby="meet-heading">
+			<svg class="meet__filter" width="0" height="0" aria-hidden="true">
+				<filter id="meet-duotone" color-interpolation-filters="sRGB">
+					<feColorMatrix type="saturate" values="0" />
+					<feComponentTransfer>
+						<feFuncR type="table" tableValues="0.16 0.95" />
+						<feFuncG type="table" tableValues="0.09 0.92" />
+						<feFuncB type="table" tableValues="0.44 1" />
+					</feComponentTransfer>
+				</filter>
+			</svg>
+			<span class="meet__shape" aria-hidden="true"><Logo /></span>
+			<div class="meet__text">
+				<h2 id="meet-heading" class="meet__title">Nice to meet you<span aria-hidden="true">.</span></h2>
+				<p class="meet__lead">
+					A graphic designer turned developer, with 10+ years of experience and a soft spot for accessible, low-carbon websites.
+				</p>
+				<a class="btn btn--primary" href="/about/">More about me</a>
+			</div>
+			<img class="meet__photo" src="/images/cait_cutout.webp" alt="Cait Lorenzo-Mahon" width="900" height="908" loading="lazy" decoding="async" />
+		</section>
+
+		{
+			latestPosts.length > 0 && (
+				<section id="writing" class="section" aria-labelledby="writing-heading">
+					<header class="section__head">
+						<div>
+							<h2 id="writing-heading" class="section__title">Blog</h2>
+						</div>
+						<a class="btn btn--ghost" href="/blog/">All posts</a>
+					</header>
+					<div class="posts">
+						{latestPosts.map((post) => <PostRow post={post} />)}
+					</div>
+				</section>
+			)
+		}
+
+		<ContactPanel />
+	</div>
+</Base>
+
+<style>
+	.hero-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.skills {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: clamp(32px, 4vw, 64px);
+	}
+
+	.skill {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		padding-top: 20px;
+		border-top: 1px solid var(--ink);
+	}
+
+	.skill__title {
+		font-size: clamp(30px, 3.4vw, 48px);
+		font-weight: 500;
+		line-height: 1.02;
+		letter-spacing: -0.04em;
+	}
+
+	.skill__body {
+		flex: 1;
+		color: var(--slate);
+	}
+
+	.posts {
+		border-bottom: 1px solid var(--line);
+	}
+
+	/* Same purple in both themes, so its text and button colours are fixed too. */
+	.meet {
+		--ink: #0e0e10;
+		--paper: #ffffff;
+		--slate: #0e0e10;
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding: clamp(32px, 4vw, 56px) var(--panel-pad);
+		overflow: hidden;
+		border-radius: var(--radius-panel);
+		background: #a78bfa;
+		color: var(--ink);
+	}
+
+	.meet__filter {
+		position: absolute;
+	}
+
+	/* The logo, large and tone-on-tone, for the photo to stand in front of. */
+	.meet__shape {
+		position: absolute;
+		top: 50%;
+		right: -24px;
+		height: 112%;
+		color: #9576f6;
+		translate: 0 -50%;
+	}
+
+	.meet__shape :global(svg) {
+		display: block;
+		width: auto;
+		height: 100%;
+	}
+
+	.meet__text {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		max-width: min(600px, 50%);
+	}
+
+	.meet__title {
+		font-size: clamp(38px, 4.6vw, 68px);
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: -0.05em;
+		white-space: nowrap;
+	}
+
+	.meet__lead {
+		margin-block: clamp(14px, 1.6vw, 20px) clamp(20px, 2vw, 28px);
+		font-size: clamp(17px, 1.3vw, 19px);
+	}
+
+	.meet__photo {
+		position: absolute;
+		right: 0; /* the photo is cropped on this side, so it runs off the box's edge */
+		bottom: 0;
+		width: auto;
+		height: 96%;
+		filter: url(#meet-duotone);
+	}
+
+	/* Slides further off the edge on narrower screens, to stay clear of the text. */
+	@media (max-width: 1400px) {
+		.meet__shape {
+			right: -160px;
+		}
+	}
+
+	@media (max-width: 960px) {
+		.meet {
+			flex-direction: column;
+			align-items: flex-start;
+			padding-bottom: 0;
+		}
+
+		.meet__text {
+			max-width: none;
+		}
+
+		.meet__shape {
+			top: auto;
+			right: -48px;
+			bottom: -16px;
+			height: 220px;
+			translate: none;
+		}
+
+		.meet__photo {
+			position: relative;
+			align-self: flex-end;
+			width: min(50%, 210px);
+			height: auto;
+			margin-top: 20px;
+			margin-right: calc(-1 * var(--panel-pad));
+		}
+	}
+
+	@media (max-width: 860px) {
+		.skills {
+			grid-template-columns: 1fr;
+		}
+	}
+
+</style>

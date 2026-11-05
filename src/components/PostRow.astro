@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formatDate } from "../lib/content";
+
+interface Props {
+	post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, excerpt, tag, publishedAt, draft } = post.data;
+---
+
+<article class="post-row">
+	<span class="post-row__tag">{tag}{draft && " (draft)"}</span>
+	<div>
+		<h3 class="post-row__title"><a href={`/blog/${post.id}/`}>{title}</a></h3>
+		<p class="post-row__excerpt">{excerpt}</p>
+	</div>
+	<time class="post-row__date" datetime={publishedAt.toISOString().slice(0, 10)}>{formatDate(publishedAt)}</time>
+</article>
+
+<style>
+	.post-row {
+		position: relative;
+		display: grid;
+		grid-template-columns: minmax(120px, 1fr) minmax(0, 4fr) auto;
+		gap: 8px 32px;
+		align-items: baseline;
+		padding-block: clamp(20px, 2.4vw, 32px);
+		border-top: 1px solid var(--line);
+		transition: padding-inline-start 0.3s var(--ease);
+	}
+
+	.post-row:hover {
+		padding-inline-start: 8px;
+	}
+
+	.post-row__tag,
+	.post-row__date {
+		color: var(--mute);
+		font-size: 0.9375rem;
+	}
+
+	.post-row__date {
+		white-space: nowrap;
+	}
+
+	.post-row__title {
+		font-size: clamp(22px, 2.4vw, 34px);
+		font-weight: 500;
+		line-height: 1.12;
+		letter-spacing: -0.03em;
+		text-wrap: balance;
+	}
+
+	.post-row__title a {
+		text-decoration: none;
+	}
+
+	.post-row__title a::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	.post-row__excerpt {
+		max-width: 62ch;
+		margin-top: 8px;
+		color: var(--slate);
+	}
+
+	@media (max-width: 720px) {
+		.post-row {
+			grid-template-columns: 1fr auto;
+		}
+
+		.post-row > div {
+			grid-column: 1 / -1;
+			grid-row: 2;
+		}
+	}
+</style>

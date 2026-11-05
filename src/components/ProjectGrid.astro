@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ProjectTile from "./ProjectTile.astro";
+
+interface Props {
+	projects: CollectionEntry<"projects">[];
+	/** h3 under a section heading, or h2 on a page with no section heading. */
+	heading?: "h2" | "h3";
+}
+
+const { projects, heading: Heading = "h3" } = Astro.props;
+// Once there are three projects the grid has enough to fill it: every third tile goes wide,
+// and the message goes away by itself.
+const isFull = projects.length >= 3;
+---
+
+<ul class="tiles" role="list">
+	{
+		!isFull && (
+			<li>
+				<div class="in-progress panel">
+					<Heading class="in-progress__title">Builds in progress<span class="accent">.</span></Heading>
+					<p class="in-progress__text">New projects are on the way. In the meantime, <a class="text-link" href="#contact">get in touch</a>.</p>
+				</div>
+			</li>
+		)
+	}
+	{
+		projects.map((project, index) => {
+			const wide = isFull && index % 3 === 0;
+			return (
+				<li class:list={{ tiles__wide: wide }}>
+					<ProjectTile project={project} feature={wide} heading={Heading} />
+				</li>
+			);
+		})
+	}
+</ul>
+
+<style>
+	.in-progress {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: 16px;
+		height: 100%;
+		padding: clamp(24px, 3vw, 40px);
+		border-radius: var(--radius-tile);
+	}
+
+	.in-progress__title {
+		font-size: clamp(30px, 3.4vw, 48px);
+		font-weight: 500;
+		line-height: 1.02;
+		letter-spacing: -0.04em;
+	}
+
+	.in-progress__text {
+		max-width: 62ch;
+		color: var(--slate);
+	}
+</style>

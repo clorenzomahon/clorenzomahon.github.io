@@ -1,0 +1,214 @@
+---
+interface Props {
+	/** Show Cait's photo in the bottom-right corner of the panel. */
+	photo?: boolean;
+	/** About half the height, for pages other than the home page. */
+	compact?: boolean;
+}
+
+const { photo = false, compact = false } = Astro.props;
+---
+
+<section class:list={["hero panel", { "hero--photo": photo, "hero--compact": compact }]} aria-labelledby="hero-heading">
+	{Astro.slots.has("reveal") && <div class="hero__reveal" aria-hidden="true"><slot name="reveal" /></div>}
+	<div class="hero__orb" aria-hidden="true"></div>
+	{
+		photo && (
+			<img
+				class="hero__photo"
+				src="/images/cait_cutout.webp"
+				alt="Cait Lorenzo-Mahon"
+				width="900"
+				height="908"
+				decoding="async"
+				fetchpriority="high"
+			/>
+		)
+	}
+	<div class="hero__content">
+		<h1 id="hero-heading" class="hero__title"><slot name="title" /></h1>
+		{Astro.slots.has("intro") && <div class="hero__intro"><slot name="intro" /></div>}
+		<slot />
+	</div>
+</section>
+
+<style>
+	.hero {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		min-height: min(720px, calc(100svh - var(--header-height) - 16px));
+		padding: clamp(32px, 6svh, 80px) var(--panel-pad);
+		overflow: hidden;
+		border-radius: var(--radius-panel);
+		--photo-size: clamp(190px, 26vw, 360px);
+		--title-size: clamp(44px, min(8.4vw, 13svh), 128px);
+	}
+
+	.hero--compact {
+		min-height: clamp(280px, 40svh, 380px);
+		--title-size: clamp(44px, 6.4vw, 96px);
+	}
+
+	/*
+	 * Hidden artwork, seen only through a torch-like circle that matches the glow.
+	 * It starts in the middle of the panel, so the artwork is there to be found.
+	 */
+	.hero__reveal {
+		--mx: 50%;
+		--my: 50%;
+		--torch: radial-gradient(circle clamp(200px, 26vw, 360px) at var(--mx) var(--my), #000 50%, transparent 100%);
+		position: absolute;
+		inset: 0;
+		-webkit-mask-image: var(--torch);
+		mask-image: var(--torch);
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.hero__orb {
+		position: absolute;
+		top: -220px;
+		right: -180px;
+		width: 720px;
+		height: 720px;
+		border-radius: 50%;
+		background: radial-gradient(circle, rgb(255 255 255 / 0.13) 0%, transparent 62%);
+		pointer-events: none;
+		will-change: transform;
+	}
+
+	/* Cut-out portrait rising from the panel's bottom-right corner. */
+	.hero__photo {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+		width: var(--photo-size);
+		height: auto;
+		filter: grayscale(1) contrast(1.04);
+		animation: rise 0.8s var(--ease) 0.15s both;
+	}
+
+	/* Keep the text beside the photo clear of it. */
+	.hero--photo .hero__intro {
+		max-width: min(600px, calc(100% + var(--panel-pad) - var(--photo-size) - 32px));
+	}
+
+	.hero__content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: clamp(20px, 3.5svh, 36px);
+		animation: rise 0.8s var(--ease) both;
+	}
+
+	.hero__title {
+		max-width: 1100px;
+		font-size: var(--title-size);
+		font-weight: 500;
+		line-height: 0.95;
+		letter-spacing: -0.05em;
+		text-wrap: balance;
+	}
+
+	.hero__intro {
+		max-width: 760px;
+		color: var(--slate);
+		font-size: clamp(17px, 1.4vw, 20px);
+		text-wrap: pretty;
+	}
+
+	/* On small screens the portrait rises from the bottom of the panel, below the text. */
+	@media (max-width: 720px) {
+		.hero__photo {
+			position: static;
+			order: 1;
+			align-self: flex-end;
+			width: min(68%, 260px);
+			margin-top: 24px;
+			margin-right: calc(-1 * var(--panel-pad));
+			margin-bottom: calc(-1 * clamp(32px, 6svh, 80px));
+		}
+
+		.hero--photo .hero__intro {
+			max-width: none;
+		}
+	}
+</style>
+
+<script>
+	/**
+	 * The glow and any hidden artwork sit together like a torch. It waits in the middle
+	 * of a hero with hidden artwork, or top-right without any, and only moves when a
+	 * cursor or tap draws it over. It never moves by itself, and nothing runs once it
+	 * has settled.
+	 */
+	const SIZE = 720;
+	const FOLLOW = 7; // how quickly the torch catches up with the cursor
+
+	const hero = document.querySelector<HTMLElement>(".hero");
+	const orb = hero?.querySelector<HTMLElement>(".hero__orb");
+	const reveal = hero?.querySelector<HTMLElement>(".hero__reveal");
+
+	if (hero && orb) {
+		let x = hero.clientWidth - 180;
+		let y = 140;
+		let target: { x: number; y: number } | null = null;
+		let touched = false;
+		let frame = 0;
+		let last = 0;
+
+		orb.style.left = "0";
+		orb.style.top = "0";
+		orb.style.right = "auto";
+
+		const place = () => {
+			orb.style.transform = `translate3d(${x - SIZE / 2}px, ${y - SIZE / 2}px, 0)`;
+			reveal?.style.setProperty("--mx", `${x}px`);
+			reveal?.style.setProperty("--my", `${y}px`);
+			// Lets anything hidden in the hero react to being found.
+			hero.dispatchEvent(new CustomEvent("torchmove", { detail: { x, y } }));
+		};
+
+		// Stays centred through resizing, until first touched.
+		const rest = () => {
+			if (touched || !reveal) return;
+			x = hero.clientWidth / 2;
+			y = hero.clientHeight / 2;
+			place();
+		};
+
+		const tick = (now: number) => {
+			const dt = last ? Math.min((now - last) / 1000, 0.1) : 0;
+			last = now;
+			if (!target) return;
+
+			const ease = 1 - Math.exp(-FOLLOW * dt);
+			x += (target.x - x) * ease;
+			y += (target.y - y) * ease;
+			place();
+
+			frame = Math.hypot(target.x - x, target.y - y) > 0.5 ? requestAnimationFrame(tick) : 0;
+		};
+
+		const aim = (event: PointerEvent) => {
+			const box = hero.getBoundingClientRect();
+			touched = true;
+			target = { x: event.clientX - box.left, y: event.clientY - box.top };
+			if (!frame) {
+				last = 0;
+				frame = requestAnimationFrame(tick);
+			}
+		};
+
+		hero.addEventListener("pointermove", aim);
+		hero.addEventListener("pointerdown", aim);
+
+		new ResizeObserver(rest).observe(hero);
+
+		place();
+		rest();
+	}
+</script>

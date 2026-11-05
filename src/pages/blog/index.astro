@@ -1,0 +1,120 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHero from "../../components/PageHero.astro";
+import PostCard from "../../components/PostCard.astro";
+import ContactPanel from "../../components/ContactPanel.astro";
+import { getPosts } from "../../lib/content";
+
+const posts = await getPosts();
+const tags = [...new Set(posts.map((post) => post.data.tag))].sort();
+---
+
+<Base
+	metaTitle="Web Development Blog | Cait Lorenzo-Mahon"
+	description="Notes on building fast, accessible, sustainable websites, from what's working to the mistakes along the way."
+>
+	<div class="container">
+		<PageHero compact>
+			<div slot="reveal" class="hero-grid"></div>
+			<Fragment slot="title">Notes from<br />the build<span class="accent">.</span></Fragment>
+			<p slot="intro">What I'm learning about building fast, accessible, sustainable websites, mistakes included.</p>
+		</PageHero>
+
+		<section class="blog section" aria-label="Blog posts">
+			{
+				tags.length > 1 && (
+					<div class="blog__filter" role="group" aria-label="Filter by topic" data-filter hidden>
+						{["All", ...tags].map((tag) => (
+							<button class="blog__pill" type="button" data-tag={tag} aria-pressed={tag === "All" ? "true" : "false"}>
+								{tag}
+							</button>
+						))}
+					</div>
+				)
+			}
+			{
+				posts.length > 0 ? (
+					<ul class="blog__list" role="list">
+						{posts.map((post) => (
+							<li data-post-tag={post.data.tag}>
+								<PostCard post={post} />
+							</li>
+						))}
+					</ul>
+				) : (
+					<p class="blog__empty">The first post is on its way.</p>
+				)
+			}
+		</section>
+
+		<ContactPanel />
+	</div>
+</Base>
+
+<style>
+	.blog__filter {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		margin-bottom: clamp(28px, 4vw, 48px);
+	}
+
+	.blog__filter[hidden] {
+		display: none;
+	}
+
+	.blog__pill {
+		min-height: 44px;
+		padding: 8px 20px;
+		border: var(--outline) solid var(--line);
+		border-radius: 999px;
+		background: transparent;
+		color: var(--slate);
+		font-size: 0.9375rem;
+		font-weight: 500;
+		cursor: pointer;
+		transition:
+			background-color 0.2s,
+			border-color 0.2s,
+			color 0.2s;
+	}
+
+	.blog__pill:hover {
+		border-color: var(--ink);
+		color: var(--ink);
+	}
+
+	.blog__pill[aria-pressed="true"] {
+		border-color: var(--ink);
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.blog__list {
+		border-bottom: 1px solid var(--line);
+	}
+
+	.blog__empty {
+		color: var(--slate);
+		font-size: clamp(20px, 2vw, 28px);
+	}
+</style>
+
+<script>
+	// Without JS the filter stays hidden and every post shows.
+	const filter = document.querySelector<HTMLElement>("[data-filter]");
+
+	if (filter) {
+		const pills = [...filter.querySelectorAll<HTMLButtonElement>("[data-tag]")];
+		const items = [...document.querySelectorAll<HTMLElement>("[data-post-tag]")];
+
+		filter.hidden = false;
+		filter.addEventListener("click", (event) => {
+			const pill = (event.target as HTMLElement).closest<HTMLButtonElement>("[data-tag]");
+			if (!pill) return;
+
+			for (const other of pills) other.setAttribute("aria-pressed", String(other === pill));
+			for (const item of items) item.hidden = pill.dataset.tag !== "All" && item.dataset.postTag !== pill.dataset.tag;
+		});
+	}
+</script>
