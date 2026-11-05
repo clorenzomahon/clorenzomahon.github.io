@@ -101,6 +101,18 @@
 	color: var(--slate);
 	font-size: 0.8125rem;
 	line-height: 1.5;
+	transition:
+		background-color 0.3s,
+		border-color 0.3s,
+		color 0.3s;
+}
+
+/* Tools light up in their brand colour on hover (set as --brand on the tag). Other tags
+   stay as they are, so the colour always means something. */
+.tag[style*="--brand"]:hover {
+	border-color: var(--brand);
+	background: var(--brand);
+	color: var(--brand-ink);
 }
 
 /* Long-form text whose elements can't take classes, such as Markdown posts. */
