@@ -52,10 +52,9 @@ const personJsonLd = {
 		<meta name="theme-color" content="#0b0b0c" />
 		{noindex && <meta name="robots" content="noindex" />}
 		<link rel="canonical" href={canonical} />
-		<!-- Browsers cache favicons hard, so rename the files whenever the icon changes. -->
-		<link rel="icon" type="image/svg+xml" href="/favicon-purple.svg" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-purple-32.png" />
-		<link rel="apple-touch-icon" href="/icons/apple-touch-icon-purple.png" />
+		<!-- Browsers cache favicons hard, so rename the files whenever the icon changes. There is no apple-touch-icon, because Safari shows that as a rounded square in the tab bar instead of the round icon. -->
+		<link rel="icon" type="image/svg+xml" href="/favicon-round.svg" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-round-32.png" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="alternate" type="application/rss+xml" title={`${SITE.name}'s blog`} href="/rss.xml" />
 		<meta property="og:type" content={ogType} />
