@@ -288,6 +288,9 @@ const years = [...new Set(MILESTONES.map(({ year }) => year))];
 	 * motion, or without JS, keep the plain list.
 	 */
 	const HOLD = 0.35; // extra scroll, in cards, to enjoy the finished pile before moving on
+	const STRIDE = 0.8; // how far apart cards start, so the next one is rising before the last lands
+	const SPAN = 1.15; // how much scroll one card takes to land
+	const FOLLOW = 0.14; // how closely the pile chases the scrollbar; lower is softer
 
 	const stack = document.querySelector<HTMLElement>(".stack");
 	const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -303,26 +306,32 @@ const years = [...new Set(MILESTONES.map(({ year }) => year))];
 			x: Number(el.dataset.x),
 			y: Number(el.dataset.y),
 		}));
+		const total = (cards.length - 1) * STRIDE + SPAN + HOLD;
 		let frame = 0;
+		let current = -1; // eased progress; -1 means not drawn yet, so the first draw doesn't glide
 
 		stack.classList.add("is-live");
 
-		const render = () => {
-			frame = 0;
+		const target = () => {
 			const box = stack.getBoundingClientRect();
 			const travel = box.height - (pin?.offsetHeight ?? window.innerHeight);
-			const progress = Math.min(Math.max(-(box.top - (window.innerHeight - (pin?.offsetHeight ?? 0))) / travel, 0), 1);
-			const position = progress * (cards.length + HOLD);
+			return Math.min(Math.max(-(box.top - (window.innerHeight - (pin?.offsetHeight ?? 0))) / travel, 0), 1);
+		};
+
+		const draw = (progress: number) => {
+			const position = progress * total;
 			// Starts far enough down to clear the bottom of the screen from wherever the card rests.
 			const below = window.innerHeight;
 			// Follows the card on its way in, switching as it passes the halfway point.
 			let year = cards[0]?.year ?? "";
 
 			cards.forEach(({ el, year: cardYear, turn, x, y }, index) => {
-				const t = Math.min(Math.max(position - index, 0), 1);
-				const eased = 1 - (1 - t) ** 3;
+				const t = Math.min(Math.max((position - index * STRIDE) / SPAN, 0), 1);
+				const eased = t * t * (3 - 2 * t); // soft start and soft landing
+				// Cards already on the pile sink back a touch as newer ones cover them.
+				const buried = Math.min(Math.max((position - index * STRIDE - SPAN) / STRIDE, 0), 3);
 				if (t >= 0.5) year = cardYear;
-				el.style.transform = `translate3d(${x * eased}px, ${y * eased + below * (1 - eased)}px, 0) rotate(${turn * eased + (turn > 0 ? -5 : 5) * (1 - eased)}deg)`;
+				el.style.transform = `translate3d(${x * eased}px, ${y * eased + below * (1 - eased)}px, 0) rotate(${turn * eased + (turn > 0 ? -5 : 5) * (1 - eased)}deg) scale(${1 - buried * 0.012})`;
 			});
 
 			if (year !== shownYear) {
@@ -331,12 +340,21 @@ const years = [...new Set(MILESTONES.map(({ year }) => year))];
 			}
 		};
 
+		// Chases the scroll position a little each frame, so wheel clicks glide instead of jumping.
+		const tick = () => {
+			const goal = target();
+			current = current < 0 ? goal : current + (goal - current) * FOLLOW;
+			if (Math.abs(goal - current) < 0.0004) current = goal;
+			draw(current);
+			frame = current === goal ? 0 : requestAnimationFrame(tick);
+		};
+
 		const request = () => {
-			if (!frame) frame = requestAnimationFrame(render);
+			if (!frame) frame = requestAnimationFrame(tick);
 		};
 
 		window.addEventListener("scroll", request, { passive: true });
 		window.addEventListener("resize", request);
-		render();
+		tick();
 	}
 </script>
