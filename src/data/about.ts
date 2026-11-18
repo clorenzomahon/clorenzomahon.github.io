@@ -13,7 +13,7 @@ export const CORE_SKILLS = ["Drupal 10/11", "WordPress", "React", "Node.js", "WC
 export const SKILL_GROUPS = [
 	{ title: "Front-end", items: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "Astro", "Tailwind CSS"] },
 	{ title: "Back-end & CMS", items: ["Drupal 10/11", "Twig", "Composer", "Drush", "PHP", "Node.js", "MySQL", "WordPress"] },
-	{ title: "Workflow & AI", items: ["Git", "GitHub", "Docker", "OrbStack", "CI/CD pipelines", "Claude Code", "ChatGPT", "GitHub Copilot", "Cursor"] },
+	{ title: "Workflow & AI", items: ["Git", "GitHub", "Docker", "OrbStack", "CI/CD pipelines", "ChatGPT", "GitHub Copilot", "Cursor"] },
 	{ title: "Design", items: ["UI design", "Figma", "Design systems", "Brand identity", "Adobe Creative Suite"] },
 	{ title: "Accessibility", items: ["WCAG 2.2", "Inclusive design", "Accessibility testing", "WCAG training"] },
 	{ title: "Performance, SEO & sustainability", items: ["Core Web Vitals", "Technical SEO", "AB Tasty", "Optimised media", "Greener hosting"] },
